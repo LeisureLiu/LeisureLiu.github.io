@@ -2,49 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/GIT%20%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%AF%86%E9%92%A5%20-%20Google%20%E6%90%9C%E7%B4%A2_files/saved_resource.html</loc>
-    
-    <lastmod>2017-09-12T09:34:18.102Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/GIT%20%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%AF%86%E9%92%A5%20-%20Google%20%E6%90%9C%E7%B4%A2.html</loc>
-    
-    <lastmod>2017-09-12T09:34:17.881Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/GIT%20%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%AF%86%E9%92%A5%20-%20Google%20%E6%90%9C%E7%B4%A2_files/widget.html</loc>
-    
-    <lastmod>2017-09-12T09:34:17.366Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>https://leisureliu.github.io/about/index.html</loc>
     
     <lastmod>2017-09-12T02:16:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>https://leisureliu.github.io/tags/index.html</loc>
     
     <lastmod>2017-09-12T02:16:39.225Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>https://leisureliu.github.io/categories/index.html</loc>
     
     <lastmod>2017-09-12T02:15:31.135Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/09/11/hello-world/</loc>
+    <loc>https://leisureliu.github.io/2017/09/11/hello-world/</loc>
     
     <lastmod>2017-09-11T12:29:20.279Z</lastmod>
     
