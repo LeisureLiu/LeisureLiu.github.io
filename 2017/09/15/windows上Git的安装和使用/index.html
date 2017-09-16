@@ -105,7 +105,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/msysGit.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/git%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
-<meta property="og:updated_time" content="2017-09-16T12:36:34.987Z">
+<meta property="og:updated_time" content="2017-09-16T13:12:40.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows上Git的安装和使用">
 <meta name="twitter:description" content="Git作为目前世界上最流行也是最先进的分布式版本控制系统，已经为越来越多人所使用，作为一个程序员，它也渐渐成为一个必不可少的工具，本文将介绍git安装和简单的使用。 在windows上安装GitmsysGit是windows上的Git，点击下载，按默认选项安装。安装完成后，可以在开始菜单中看到包含Git Bash和Git GUI,其中前者是命令行工具，而后者是图形界面的Git项目管理工具，鼠标右键">
@@ -410,15 +410,15 @@
 <h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>如果想要创建一个本地仓库的克隆版本，执行如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone /path/to/repository</div></pre></td></tr></table></figure></p>
 <p>“/path/to/repository”是你本地仓库的路径。<br>如果想要从远程服务器克隆一个仓库，则命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone username@host:/path/to/repository</div></pre></td></tr></table></figure></p>
 <h3 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h3><p>要将文件添加到仓库当中，有以下两个步骤：</p>
-<ol>
+<ul>
 <li>添加文件到缓存区：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;filename&gt; #添加文件名为&lt;filename&gt;的文件</div><div class="line">$ git add *  #添加目录下所有文件</div></pre></td></tr></table></figure>
 </li>
-</ol>
+</ul>
 <p>这时，你的文件还未真正提交。</p>
-<ol>
+<ul>
 <li>提交文件到仓库：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;代码提交信息&quot;</div></pre></td></tr></table></figure>
 </li>
-</ol>
+</ul>
 <p>这时，文件信息就真正保存到仓库当中了。<br>这里我们不得不介绍一下Git的工作流了，如下图所示，你的本地仓库有git维护的三颗“树”组成。第一是你的“工作目录”，它持有实际的文件；第二是“缓存区（Index），它临时保存你的改动；最后是HEAD，指向你最后一次提交的结果。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/git%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="git工作流"></p>
 <h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>执行以下命令，将你的本地仓库的改动提交到远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master #master可以换成你想要推送的任何分支</div></pre></td></tr></table></figure></p>
 <h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>分支的创建是为了方便隔离开发，在一个仓库中，每个分支的发i吗版本都是独立严谨的，分支见的代码版本完全不会干扰到另外一个代码版本的开发。即当你创建一个属于自己的分支，别人还继续在原来的分支上工作，不会收到影响，而你在自己的分支上干活，想提交就提交，等开发完毕后，再一次性合并到原来的分支上，这样就可以使得项目开发安全又高效。<br>创建一个叫”feature_x”的分支，并切换过去：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b feature_x</div></pre></td></tr></table></figure></p>
