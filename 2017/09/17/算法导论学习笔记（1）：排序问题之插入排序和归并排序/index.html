@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG">
-<meta property="og:updated_time" content="2017-09-19T11:19:00.773Z">
+<meta property="og:updated_time" content="2017-09-19T11:33:55.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
 <meta name="twitter:description" content="运行时间(Running Time)运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界。本文介绍用\( \theta \)记号来分析算法.数学描述：\(\theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(">
@@ -409,7 +409,7 @@
 </script>
 
 <h2 id="运行时间-Running-Time"><a href="#运行时间-Running-Time" class="headerlink" title="运行时间(Running Time)"></a>运行时间(Running Time)</h2><p>运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界。本文介绍用\( \theta \)记号来分析算法.<br><code>数学描述</code>：\(\theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(c_{1}\)、\(c_{2}\)和\(n_{0}\)，使得对所有\(n\geq n_{0}\),有\(0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)\)}<br>具体操作中要忽略低阶项和常数项，<code>例</code>  \(3n^{3}+90n^{2}-5n+6046=\theta \left( n^{3}\right)\)<br><code>渐进分析</code>：当n足够大时，一个\(\theta \left( n^{3}\right)\)算法总是优于\(\theta \left( n^{2}\right)\),如下图所示：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG" alt="运行时间对比"><br>但尽管如此，我们仍然不能忽略渐进慢的算法，现实世界的设计情况经常需要谨慎地平衡工程目标，而渐近分析是一种有用的工具，它可以帮助我们构造思维。</p>
-<h2 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a>排序问题</h2><p>输入：一串序列\( \left\langle a_{1},a_{2,}\ldots ,a_{n}\right\rangle \)<br>输出： 序列\( \left\langle a_{1}’,a_{2}’,\ldots ,a_{n}’\right\rangle \)，其中\( a_{1}’\leq a_{2}’\leq \ldots \leq a_{n}’ \)。<br><code>例</code> 输入：8 2 4 9 3 6<br>&amp;emsp 输出：2 3 4 6 8 9</p>
+<h2 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a>排序问题</h2><p>输入：一串序列\( \left\langle a_{1},a_{2,}\ldots ,a_{n}\right\rangle \)<br>输出： 序列\( \left\langle a_{1}’,a_{2}’,\ldots ,a_{n}’\right\rangle \)，其中\( a_{1}’\leq a_{2}’\leq \ldots \leq a_{n}’ \)。<br><code>例</code> 输入：8 2 4 9 3 6<br>     输出：2 3 4 6 8 9</p>
 <h2 id="插入排序-Insertion-Sort"><a href="#插入排序-Insertion-Sort" class="headerlink" title="插入排序(Insertion Sort)"></a>插入排序(Insertion Sort)</h2><h3 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h3><p>伪代码如下：</p>
 <pre><code>INSERTION-SORT(A,n）
     for j=2 to n
