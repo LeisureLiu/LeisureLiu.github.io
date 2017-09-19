@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -96,7 +96,7 @@
 
 
 <meta name="description" content="Git作为目前世界上最流行也是最先进的分布式版本控制系统，已经为越来越多人所使用，作为一个程序员，它也渐渐成为一个必不可少的工具，本文将介绍git安装和简单的使用。 在windows上安装GitmsysGit是windows上的Git，点击下载，按默认选项安装。安装完成后，可以在开始菜单中看到包含Git Bash和Git GUI,其中前者是命令行工具，而后者是图形界面的Git项目管理工具，鼠标右键">
-<meta name="keywords" content="git">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows上Git的安装和使用">
 <meta property="og:url" content="http://www.yyliu.cn/2017/09/15/windows上Git的安装和使用/index.html">
@@ -105,7 +105,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/msysGit.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/git%E5%B7%A5%E4%BD%9C%E6%B5%81.png">
-<meta property="og:updated_time" content="2017-09-16T13:12:40.760Z">
+<meta property="og:updated_time" content="2017-09-19T11:19:19.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows上Git的安装和使用">
 <meta name="twitter:description" content="Git作为目前世界上最流行也是最先进的分布式版本控制系统，已经为越来越多人所使用，作为一个程序员，它也渐渐成为一个必不可少的工具，本文将介绍git安装和简单的使用。 在windows上安装GitmsysGit是windows上的Git，点击下载，按默认选项安装。安装完成后，可以在开始菜单中看到包含Git Bash和Git GUI,其中前者是命令行工具，而后者是图形界面的Git项目管理工具，鼠标右键">
@@ -169,7 +169,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -183,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -427,7 +427,7 @@
 <p>将分支推送到远端仓库，这时，你的分支就可以被他人看见：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin &lt;branch&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h3><p>更新你的本地仓库至最新版本，以在你的工作目录中获取(fetch)并合并(merge)远端的改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure></p>
 <p>合并其他分支到你的当前分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge &lt;branch&gt;</div></pre></td></tr></table></figure></p>
-<p>查看区别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff &lt;source_branch&gt; &lt;target_branch&gt;</div></pre></td></tr></table></figure></p>
+<p>查看区别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff &lt;source_branch&gt; &lt;target_branch&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>为某次提交打标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag 1.0.0 1b2e1d63ff</div></pre></td></tr></table></figure></p>
 <p>这样提交ID为1b2e1d63ff的提交就被打上了1.0.0的标签。<br>可以通过以下命令获取提交ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log</div></pre></td></tr></table></figure></p>
 <h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>当你想替换掉本地更改，执行;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout --&lt;filename&gt;</div></pre></td></tr></table></figure></p>
@@ -450,7 +450,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
         </div>
       
@@ -472,6 +472,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/17/算法导论学习笔记（1）：排序问题之插入排序和归并排序/" rel="prev" title="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
+                算法导论学习笔记（1）：排序问题之插入排序和归并排序 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -551,7 +555,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -562,7 +566,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -573,7 +577,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -935,7 +939,7 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
