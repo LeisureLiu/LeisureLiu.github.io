@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG">
-<meta property="og:updated_time" content="2017-09-22T09:31:12.019Z">
+<meta property="og:updated_time" content="2017-09-22T10:28:17.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
 <meta name="twitter:description" content="算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。  渐进符号介绍\(\Theta\)记号：\(\Theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(c_{1}\)、\(c_{2}\)和\(n_{0}\)，使得对所有\(n\geq n_{0}\),有\(0\l">
@@ -434,7 +434,14 @@
 <li>若\(f\left( n\right)=\Theta\left( n^{\log _{b}a-\varepsilon}\right)\)，则\(T\left( n\right)=\Theta\left( n^{\log _{b}a-\varepsilon}\lg n\right)\);</li>
 <li>若对某个常数\(\varepsilon&lt;0\)有\(f\left( n\right)=\Omega\left( n^{\log _{b}a+\varepsilon}\right)\),且对某个常数\(c&lt;1\)和所以足够大的n有\(af\left( n / b\right) \leq Cf\left( n\right)\),则\(T\left( n\right) =\Theta \left( f\left( n\right) \right)\)。</li>
 </ol>
-<p><code>例题</code><br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG" alt="mark"><br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG" alt="mark"><br>主方法的证明本文就不介绍了。</p>
+<blockquote>
+<p>细节：这第一种情况中，不是f(n)小于\(n^{\log_{b}a}\)就够了，而是要多项式意义上的小于,即，f(n)必须渐进小于\(n^{\log_{b}a}\)，要相差一个\(n^{\varepsilon }\),其中\(\varepsilon\)是大于0的常数，否则不能用主方法计算。情况三同理。</p>
+</blockquote>
+<p><code>例题</code><br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG" alt="mark"><br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG" alt="mark"><br>例题4中由于\(n^{2}\lg n\)没有多项式意义上小于\(n^{2}\),即前者不是指数意义上的小于后者，所以不能用主方法计算。</p>
+<blockquote>
+<p><strong>多项式意义的大于（小于）</strong><br>我们都知道，针对个多项式的时间复杂度，都是以其最高阶的那项作为计算依据，例如，\(O\left(n^{3}+n^{2}\right)\)的复杂度也就是\(O\left(n^{3}\right)\)的复杂度。<br>多项式意义上的大于就要求必须在指数级上大于，例如一个\(O\left( 0.01n^{3}\right)\)程序的效率比\(O\left(100n^{2}\right)\)的效率低，尽管在n很小的时候，前者优于后者，然而前者在指数级上大于后者，后者时间随数据规模增长得慢，最终\(O\left(n^{3}\right)\)的复杂度将远远超过\(O\left( n^{2}\right)\)。这就可以说\(O\left( 0.01n^{3}\right)\)在多项式意义上大于\(O\left(100n^{2}\right)\)</p>
+</blockquote>
+<p>主方法的证明本文就不介绍了。</p>
 
       
     </div>
