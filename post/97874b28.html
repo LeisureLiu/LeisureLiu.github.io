@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="算法,排序," />
 
 
 
@@ -95,26 +95,25 @@
 
 
 
-<meta name="description" content="script type=”text/javascript”   src=”http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt; 算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。  渐进符号介绍\(\Theta\)记号：\(\Thet">
-<meta name="keywords" content="算法">
+<meta name="description" content="运行时间(Running Time)运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界。本文介绍用\( \theta \)记号来分析算法.数学描述：\(\theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(">
+<meta name="keywords" content="算法,排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
-<meta property="og:url" content="http://www.yyliu.cn/post/fed5ecee.html">
+<meta property="og:title" content="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
+<meta property="og:url" content="http://www.yyliu.cn/post/97874b28.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="script type=”text/javascript”   src=”http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt; 算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。  渐进符号介绍\(\Theta\)记号：\(\Thet">
+<meta property="og:description" content="运行时间(Running Time)运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界。本文介绍用\( \theta \)记号来分析算法.数学描述：\(\theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170920/HCgEdDL31C.jpg">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/JeKHJ68Ja2.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/blFF1DD72a.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/kCF45f6egc.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG">
-<meta property="og:updated_time" content="2017-09-24T11:21:49.047Z">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F2.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG">
+<meta property="og:updated_time" content="2017-09-24T11:21:38.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
-<meta name="twitter:description" content="script type=”text/javascript”   src=”http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt; 算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。  渐进符号介绍\(\Theta\)记号：\(\Thet">
-<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170920/HCgEdDL31C.jpg">
+<meta name="twitter:title" content="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
+<meta name="twitter:description" content="运行时间(Running Time)运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界。本文介绍用\( \theta \)记号来分析算法.数学描述：\(\theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(">
+<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG">
 
 
 
@@ -144,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yyliu.cn/post/fed5ecee.html"/>
+  <link rel="canonical" href="http://www.yyliu.cn/post/97874b28.html"/>
 
 
 
 
 
-  <title>算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法) | YY Liu</title>
+  <title>算法导论学习笔记（1）：排序问题之插入排序和归并排序 | YY Liu</title>
   
 
 
@@ -306,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/fed5ecee.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/97874b28.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LIUYIYING">
@@ -323,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</h1>
+          <h1 class="post-title" itemprop="name headline">算法导论学习笔记（1）：排序问题之插入排序和归并排序</h1>
         
 
         <div class="post-meta">
@@ -335,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T17:22:24+08:00">
-                2017-09-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T21:14:09+08:00">
+                2017-09-17
               </time>
             
 
@@ -375,7 +374,7 @@
 
           
           
-             <span id="/post/fed5ecee.html" class="leancloud_visitors" data-flag-title="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
+             <span id="/post/97874b28.html" class="leancloud_visitors" data-flag-title="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,40 +405,35 @@
       
 
       
-        <p>script type=”text/javascript”<br>   src=”<a href="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;" target="_blank" rel="external">http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;</a><br></p>
-<p>算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。</p>
-<hr>
-<h2 id="渐进符号介绍"><a href="#渐进符号介绍" class="headerlink" title="渐进符号介绍"></a>渐进符号介绍</h2><p><strong>\(\Theta\)记号</strong>：\(\Theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(c_{1}\)、\(c_{2}\)和\(n_{0}\)，使得对所有\(n\geq n_{0}\),有\(0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)\)} </p>
-<p><strong>\(O\)记号</strong>：\(O \left( g\left( n\right) \right) =\){\(f\left( n\right)\):存在正常量c和\(n_{0}\),使得对所有\(n\geq n_{0}\),有\(0\leq f\left( n\right) \leq cg\left( n\right)\)}</p>
-<p><strong>\(\Omega\)记号</strong>：\(\Omega \left( g\left( n\right) \right) =\){\(f\left( n\right)\):存在正常量c和\(n_{0}\),使得对所有\(n\geq n_{0}\),有\(0\leq cg\left( n\right) \leq f\left( n\right)\)}</p>
-<p>直观的来看，三种渐进记号与于原函数的关系如下图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170920/HCgEdDL31C.jpg" alt="mark"><br>可以看到，对于\(\theta\)记号，总存在正常数\(c_{1}\)、\(c_{2}\)，使得对于足够大的n，函数\(f\left( n\right)\)能够“夹入”\(c_{1}g\left(n\right)\)和\(c_{2}g\left(n\right)\)之间；对于O记号，\(n_{0}\)及其右边的所有值n，函数\(f\left( n\right)\)的值总小于或等于\(cg\left(n\right)\)；对于\(\Omega\)记号，在\(n_{0}\)及其右边的所有值n，函数\(f\left( n\right)\)的值总大于或等于\(cg\left(n\right)\)。</p>
-<h2 id="求解递归方程"><a href="#求解递归方程" class="headerlink" title="求解递归方程"></a>求解递归方程</h2><h3 id="代入法"><a href="#代入法" class="headerlink" title="代入法"></a>代入法</h3><p>这是一种最一般的方法，包含以下步骤：</p>
-<ol>
-<li><strong>猜测</strong>结果的形式； </li>
-<li>用归纳法<strong>验证</strong>；</li>
-<li><strong>求解</strong>。</li>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2 id="运行时间-Running-Time"><a href="#运行时间-Running-Time" class="headerlink" title="运行时间(Running Time)"></a>运行时间(Running Time)</h2><p>运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界。本文介绍用\( \theta \)记号来分析算法.<br><code>数学描述</code>：\(\theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(c_{1}\)、\(c_{2}\)和\(n_{0}\)，使得对所有\(n\geq n_{0}\),有\(0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)\)}<br>具体操作中要忽略低阶项和常数项，<code>例</code>  \(3n^{3}+90n^{2}-5n+6046=\theta \left( n^{3}\right)\)<br><code>渐进分析</code>：当n足够大时，一个\(\theta \left( n^{3}\right)\)算法总是优于\(\theta \left( n^{2}\right)\),如下图所示：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG" alt="运行时间对比"><br>但尽管如此，我们仍然不能忽略渐进慢的算法，现实世界的设计情况经常需要谨慎地平衡工程目标，而渐近分析是一种有用的工具，它可以帮助我们组织思维。</p>
+<h2 id="排序问题"><a href="#排序问题" class="headerlink" title="排序问题"></a>排序问题</h2><p>输入：一串序列\( \left\langle a_{1},a_{2,}\ldots ,a_{n}\right\rangle \)<br>输出： 序列\( \left\langle a_{1}’,a_{2}’,\ldots ,a_{n}’\right\rangle \)，其中\( a_{1}’\leq a_{2}’\leq \ldots \leq a_{n}’ \)。<br><code>例</code> 输入：8 2 4 9 3 6<br>     输出：2 3 4 6 8 9</p>
+<h2 id="插入排序-Insertion-Sort"><a href="#插入排序-Insertion-Sort" class="headerlink" title="插入排序(Insertion Sort)"></a>插入排序(Insertion Sort)</h2><h3 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a>算法描述：</h3><p>伪代码如下：</p>
+<pre><code>INSERTION-SORT(A,n）
+    for j=2 to n
+        do key=A[j]
+            i=j-1
+            while i&gt;0 and A[i]&gt;key
+                do A[i+1]=A[i]
+                    i=i-1
+            A[i+1]=key
+</code></pre><p>代码示意流程如下:</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.JPG" alt="插入排序"><br>以下是一个插入排序的例子：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F2.JPG" alt="插入排序例子"></p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><ol>
+<li>最坏情况：所有输入是倒序的。$$T\left( n\right) =\sum _{j=2}^{n}\theta \left( j\right) =\theta \left( n^{2}\right)$$</li>
+<li>平均情况：所有排列等可能。$$T\left( n\right) =\sum _{j=2}^{n}\theta \left( j / 2\right) =\theta \left( n^{2}\right)$$</li>
 </ol>
-<p><code>例</code> \(T\left( n\right) =4T\left( n / 2\right) +n\) （假设\(T\left( 1\right) =\Theta \left( 1\right)\)）</p>
-<blockquote>
-<p>第一步：<br>(1) 猜测为\(O\left( n^{3}\right)\);<br>(2)假设对于\(k &lt; n\),有\(T\left( k\right) \leq ck^{3}\);<br>(3)用递归方法证明\(T\left( n\right) \leq cn^{3}\)。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/JeKHJ68Ja2.JPG" alt="mark"><br>当\(\left( c / 2\right) n^{3}-n\geq 0\)时，不等式成立，例如\(c\geq 2\)且\(n\geq 1\)。<br>初始条件：令\(T\left( 1\right) =\Theta \left( 1\right)\)，对于所有\(n &lt; n_{0}\)成立，其中\(n_{0}\)是一个适当的常数。显然有对于所有\(1\leq n\leq n<em>{0}\)，当c足够大，有\(\Theta \left( 1\right) \leq cn^{3}\)。显然约束是不够紧的。<br>第二步：得到一个更加紧的上界：<br>下面证明\(T\left( n\right) =\theta \left( n^{2}\right) \)：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/blFF1DD72a.JPG" alt="mark"><br>–&gt;减去一个低阶项：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/kCF45f6egc.JPG" alt="mark"><br>选取一个足够大的\(c\</em>{1}\)来处理初始化条件。</p>
-</blockquote>
-<h3 id="递归树法"><a href="#递归树法" class="headerlink" title="递归树法"></a>递归树法</h3><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png" alt="mark"></p>
-<h3 id="主方法"><a href="#主方法" class="headerlink" title="主方法"></a>主方法</h3><p><strong>定理（主定理)</strong>：令\(a\geq1\)和\(b&gt;1)是常数，f(n)是一个常数，，T(n)是定义在非负整数上的递归式：</p>
-<p>$$ T\left( n\right) =aT\left( n / b\right) +f\left( n\right) $$</p>
-<p>其中我们将n/b解释为\(\left\lfloor n / b\right\rfloor\)或\(\left\lceil n / b\right\rceil\),那么T(n)有如下渐进界：</p>
-<ol>
-<li>若对某个常数\(\varepsilon &gt;0\)有\(f\left( n\right)=O\left( n^{\log _{b}a-\varepsilon}\right)\),则\(T\left( n\right)=\Theta\left( n^{\log_{b}a-\varepsilon}\right)\);</li>
-<li>若\(f\left( n\right)=\Theta\left( n^{\log _{b}a-\varepsilon}\right)\)，则\(T\left( n\right)=\Theta\left( n^{\log _{b}a-\varepsilon}\lg n\right)\);</li>
-<li>若对某个常数\(\varepsilon&lt;0\)有\(f\left( n\right)=\Omega\left( n^{\log _{b}a+\varepsilon}\right)\),且对某个常数\(c&lt;1\)和所以足够大的n有\(af\left( n / b\right) \leq Cf\left( n\right)\),则\(T\left( n\right) =\Theta \left( f\left( n\right) \right)\)。</li>
-</ol>
-<blockquote>
-<p>细节：这第一种情况中，不是f(n)小于\(n^{\log_{b}a}\)就够了，而是要多项式意义上的小于,即，f(n)必须渐进小于\(n^{\log_{b}a}\)，要相差一个\(n^{\varepsilon }\),其中\(\varepsilon\)是大于0的常数，否则不能用主方法计算。情况三同理。</p>
-</blockquote>
-<p><code>例题</code><br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG" alt="mark"><br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG" alt="mark"><br>例题4中由于\(n^{2}\lg n\)没有多项式意义上小于\(n^{2}\),即前者不是指数意义上的小于后者，所以不能用主方法计算。</p>
-<blockquote>
-<p><strong>多项式意义的大于（小于）</strong><br>我们都知道，针对个多项式的时间复杂度，都是以其最高阶的那项作为计算依据，例如，\(O\left(n^{3}+n^{2}\right)\)的复杂度也就是\(O\left(n^{3}\right)\)的复杂度。<br>多项式意义上的大于就要求必须在指数级上大于，例如一个\(O\left( 0.01n^{3}\right)\)程序的效率比\(O\left(100n^{2}\right)\)的效率低，尽管在n很小的时候，前者优于后者，然而前者在指数级上大于后者，后者时间随数据规模增长得慢，最终\(O\left(n^{3}\right)\)的复杂度将远远超过\(O\left( n^{2}\right)\)。这就可以说\(O\left( 0.01n^{3}\right)\)在多项式意义上大于\(O\left(100n^{2}\right)\)</p>
-</blockquote>
-<p>主方法的证明本文就不介绍了。</p>
+<h2 id="归并算法-Merge-Sort"><a href="#归并算法-Merge-Sort" class="headerlink" title="归并算法(Merge Sort)"></a>归并算法(Merge Sort)</h2><h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>伪代码如下：</p>
+<pre><code>MERGE-SORTA[1 . . n]
+1.If n= 1, done.
+2.Recursively sort A[ 1 . . ⎡n/2⎤]and A[ ⎡n/2⎤+1 . . n ] .
+3.“Merge”the 2sorted lists.
+Key subroutine:MERGE
+</code></pre><p>以下是对数组 [5, 2, 4, 6, 1, 3, 2, 6]，归并排序的流程：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG" alt="mark"></p>
+<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>根据伪代码流程，我们可以得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG" alt="mark"><br>所以归并算法的运行时间可以由一下递归式表示：<br>$$T\left( n\right) =\begin{cases} \Theta \left( 1\right) if  n=1;\ 2T\left( n / 2\right) +\theta \left( n\right)  if n&gt;1.\end{cases}$$<br>用递归树的方法解上式如下：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG" alt="mark"><br>即归并算法的运行时间为\(\theta \left( n\lg n\right)\).</p>
+<p>结论:由于\(\theta \left( n\lg n\right)\)增长速度要比\(\theta \left( n^{2}\right)\),所以归并排序的性能要由于插入排序，在实际测试中，当n的值大于30时，归并排序就开始占优势了！</p>
 
       
 	  
@@ -457,7 +451,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.yyliu.cn/post/fed5ecee.html" title="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">http://www.yyliu.cn/post/fed5ecee.html</a>
+      <a href="http://www.yyliu.cn/post/97874b28.html" title="算法导论学习笔记（1）：排序问题之插入排序和归并排序">http://www.yyliu.cn/post/97874b28.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>原创声明： </strong>
@@ -491,6 +485,8 @@
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
+            <a href="/tags/排序/" rel="tag"># 排序</a>
+          
         </div>
       
 
@@ -502,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/97874b28.html" rel="next" title="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
-                <i class="fa fa-chevron-left"></i> 算法导论学习笔记（1）：排序问题之插入排序和归并排序
+              <a href="/post/294b4ea3.html" rel="next" title="windows上Git的安装和使用">
+                <i class="fa fa-chevron-left"></i> windows上Git的安装和使用
               </a>
             
           </div>
@@ -511,6 +507,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/fed5ecee.html" rel="prev" title="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
+                算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -665,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进符号介绍"><span class="nav-number">1.</span> <span class="nav-text">渐进符号介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解递归方程"><span class="nav-number">2.</span> <span class="nav-text">求解递归方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代入法"><span class="nav-number">2.1.</span> <span class="nav-text">代入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归树法"><span class="nav-number">2.2.</span> <span class="nav-text">递归树法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主方法"><span class="nav-number">2.3.</span> <span class="nav-text">主方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时间-Running-Time"><span class="nav-number">1.</span> <span class="nav-text">运行时间(Running Time)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序问题"><span class="nav-number">2.</span> <span class="nav-text">排序问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序-Insertion-Sort"><span class="nav-number">3.</span> <span class="nav-text">插入排序(Insertion Sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述："><span class="nav-number">3.1.</span> <span class="nav-text">算法描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-number">3.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并算法-Merge-Sort"><span class="nav-number">4.</span> <span class="nav-text">归并算法(Merge Sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-number">4.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-number">4.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li></ol></div>
             
 
           </div>
