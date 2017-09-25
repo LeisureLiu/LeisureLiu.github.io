@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG">
-<meta property="og:updated_time" content="2017-09-25T01:43:08.095Z">
+<meta property="og:updated_time" content="2017-09-25T01:54:55.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
 <meta name="twitter:description" content="算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。  渐进符号介绍\(\Theta\)记号：\(\Theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(c_{1}\)、\(c_{2}\)和\(n_{0}\)，使得对所有\(n\geq n_{0}\),有\(0\leq">
@@ -420,7 +420,7 @@
 </ol>
 <p><code>例</code> \(T\left( n\right) =4T\left( n / 2\right) +n\) （假设\(T\left( 1\right) =\Theta \left( 1\right)\)）</p>
 <blockquote>
-<p>第一步：<br>(1) 猜测为\(O\left( n^{3}\right)\);<br>(2)假设对于\(k &lt; n\),有\(T\left( k\right) \leq ck^{3}\);<br>(3)用递归方法证明\(T\left( n\right) \leq cn^{3}\)。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/JeKHJ68Ja2.JPG" alt="mark"><br>当\(\left( c / 2\right) n^{3}-n\geq 0\)时，不等式成立，例如\(c\geq 2\)且\(n\geq 1\)。<br>初始条件：令\(T\left( 1\right) =\Theta \left( 1\right)\)，对于所有\(n&lt; n_{0}\)成立，其中\(n_{0}\)是一个适当的常数。显然有对于所有\(1\leq n\leq n<em>{0}\)，当c足够大，有\(\Theta \left( 1\right) \leq cn^{3}\)。显然约束是不够紧的。<br>第二步：得到一个更加紧的上界：<br>下面证明\(T\left( n\right) =\theta \left( n^{2}\right) \)：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/blFF1DD72a.JPG" alt="mark"><br>–&gt;减去一个低阶项：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/kCF45f6egc.JPG" alt="mark"><br>选取一个足够大的\(c\</em>{1}\)来处理初始化条件。</p>
+<p>第一步：<br>(1) 猜测为\(O\left( n^{3}\right)\);<br>(2)假设对于\(k &lt; n\),有\(T\left( k\right) \leq ck^{3}\);<br>(3)用递归方法证明\(T\left( n\right) \leq cn^{3}\)。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/JeKHJ68Ja2.JPG" alt="mark"><br>当\(\left( c / 2\right) n^{3}-n\geq 0\)时，不等式成立，例如\(c\geq 2\)且\(n\geq 1\)。<br>初始条件：令\(T\left( 1\right) =\Theta \left( 1\right)\)，对于所有\(n&lt; n_{0}\)成立，其中\(n_{0}\)是一个适当的常数。显然有对于所有\(1\leq n\leq n_{0}\)，当c足够大，有\(\Theta \left( 1\right) \leq cn^{3}\)。显然约束是不够紧的。<br>第二步：得到一个更加紧的上界：<br>下面证明\(T\left( n\right) =\theta \left( n^{2}\right) \)：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/blFF1DD72a.JPG" alt="mark"><br>–&gt;减去一个低阶项：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/kCF45f6egc.JPG" alt="mark"><br>选取一个足够大的\(c_{1}\)来处理初始化条件。</p>
 </blockquote>
 <h3 id="递归树法"><a href="#递归树法" class="headerlink" title="递归树法"></a>递归树法</h3><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png" alt="mark"></p>
 <h3 id="主方法"><a href="#主方法" class="headerlink" title="主方法"></a>主方法</h3><p><strong>定理（主定理)</strong>：令\(a\geq1\)和\(b&gt;1)是常数，f(n)是一个常数，，T(n)是定义在非负整数上的递归式：</p>
