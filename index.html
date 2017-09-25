@@ -97,14 +97,13 @@
 
 <meta name="description" content="Variety is the spice of life.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://www.yyliu.cn/tags/index.html">
+<meta property="og:title" content="YY Liu">
+<meta property="og:url" content="http://www.yyliu.cn/index.html">
 <meta property="og:site_name" content="YY Liu">
 <meta property="og:description" content="Variety is the spice of life.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-16T12:40:05.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="YY Liu">
 <meta name="twitter:description" content="Variety is the spice of life.">
 
 
@@ -135,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yyliu.cn/tags/"/>
+  <link rel="canonical" href="http://www.yyliu.cn/"/>
 
 
 
 
 
-  <title>tags | YY Liu</title>
+  <title> YY Liu - Variety is the spice of life. </title>
   
 
 
@@ -179,7 +178,8 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,44 +282,685 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <div id="posts" class="posts-expand">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/fed5ecee.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY Liu">
+    </span>
+
     
-    
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 3 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Git/" style="font-size: 30px; color: #111">Git</a> <a href="/tags/排序/" style="font-size: 12px; color: #ccc">排序</a> <a href="/tags/算法/" style="font-size: 30px; color: #111">算法</a>
-            </div>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/fed5ecee.html" itemprop="url">算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T17:22:24+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法导论学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">算法导论学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/fed5ecee.html" class="leancloud_visitors" data-flag-title="算法导论学习笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        
+          
+          算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。
+
+渐进符号介绍\(\Theta\)记号：\(\Theta \left( g\left( n\right) \right) =\){\(f\left( n\right)\): 存在正常量\(c_{1}\)、
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/fed5ecee.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
-      </div>
       
-      
-      
+	  
+     
+    
     </div>
     
     
     
+	
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/97874b28.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/97874b28.html" itemprop="url">算法导论学习笔记（1）：排序问题之插入排序和归并排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T21:14:09+08:00">
+                2017-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法导论学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">算法导论学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/97874b28.html" class="leancloud_visitors" data-flag-title="算法导论学习笔记（1）：排序问题之插入排序和归并排序">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        
+          
+          运行时间(Running Time)运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界，即对规模为n的任何输入，算法的最长运行时间。本文介绍用\( \Theta \)记号来分析算法.数学描述：\(\Th
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/97874b28.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+	  
+     
+    
+    </div>
+    
+    
+    
+	
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/294b4ea3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/294b4ea3.html" itemprop="url">windows上Git的安装和使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T17:49:12+08:00">
+                2017-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用工具/" itemprop="url" rel="index">
+                    <span itemprop="name">实用工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/294b4ea3.html" class="leancloud_visitors" data-flag-title="windows上Git的安装和使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        
+          
+          Git作为目前世界上最流行也是最先进的分布式版本控制系统，已经为越来越多人所使用，作为一个程序员，它也渐渐成为一个必不可少的工具，本文将介绍git安装和简单的使用。
+在windows上安装GitmsysGit是windows上的Git，点击下载，按默认选项安装。安装完成后，可以在开始菜单中看到包含G
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/294b4ea3.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+	  
+     
+    
+    </div>
+    
+    
+    
+	
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/c34887c6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/c34887c6.html" itemprop="url">git常用指令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T21:46:19+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用工具/" itemprop="url" rel="index">
+                    <span itemprop="name">实用工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/c34887c6.html" class="leancloud_visitors" data-flag-title="git常用指令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        
+          
+          Git是当今最常用的版本控制系统，本文将介绍一些最常用的git指令
+创建克隆一个已存在的仓库1$ git clone ssh://user@domain.com/repo.git
+新建一个本地仓库1$ git init
+删除/添加文件添加指定文件到暂存区1$ git add &lt;file1&gt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/c34887c6.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+	  
+     
+    
+    </div>
+    
+    
+    
+	
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
 
 
           </div>
@@ -327,14 +968,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-   
-     <div id="gitment-container"></div>
-   
-    
-  </div>
-
 
         </div>
         
@@ -760,7 +1393,32 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -778,11 +1436,6 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-  
-
-  
   
 
 
