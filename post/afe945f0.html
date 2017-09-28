@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9Ddm42JiGB.jpg">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9l3K8FBF89.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/bkL2EGGhCH.jpg">
-<meta property="og:updated_time" content="2017-09-28T03:23:50.586Z">
+<meta property="og:updated_time" content="2017-09-28T03:28:45.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记（3）:快速排序及其性能分析">
 <meta name="twitter:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为\(\Theta \left( n^{2}\right)\)和\(\Theta \left( n\lg n\right)\)，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介">
@@ -433,9 +433,9 @@
 <p>\begin{align*} T\left( n\right) &amp; =T\left( n-1\right) +T\left( 0\right) +\theta \left( n\right) \ &amp; =T\left( n-1\right) +\theta \left( n\right) \end{align*}<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/6HJIm447dL.png" alt="mark"></p>
 <h3 id="最好的情况"><a href="#最好的情况" class="headerlink" title="最好的情况"></a>最好的情况</h3><p>如果幸运的话，PARTITION将均匀分配数组，这时运行时间T(n)为：</p>
 <p>$$\begin{align*}  T\left( n\right) &amp;=2T\left( n / 2\right) +\Theta \left( n\right) \ &amp; =\Theta \left( n\lg n\right) \end{align*}$$</p>
-<p>那么如果划分为\(\dfrac{1}{10}:\dfrac {9}{10}\)呢?这时T(n)为：</p>
+<p>那么如果划分为\(\dfrac{1}{10}:\dfrac {9}{10}\)呢？这时T(n)为：</p>
 <p>$$T\left( n\right) =T\left(\dfrac{1}{10}n\right)+T\left(\dfrac{9} {10}n\right) +\Theta\left(n\right)$$</p>
-<p>画递归树得：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/m45g7fh44J.jpg" alt="mark"><br>树的每一层的宽度为cn，直到在深度\(\log _{10}n\)处达到边界条件，之后每一层的宽度至多为cn。由于</p>
+<p>画递归树得：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/m45g7fh44J.jpg" alt="mark"><br>树的每一层的宽度为cn，直到在深度\(\log_{10}n\)处达到边界条件，之后每一层的宽度至多为cn。由于</p>
 <p>$$\log_{10}n=\dfrac {1gn} {\lg 10}=\Theta \left(\lg n\right)$$</p>
 <p>$$\log_{10/9}n=\dfrac {1gn} {\lg 10/9}=\Theta \left(\lg n\right)$$<br>因此可以得到图中的结论，即当划分比例为\(\dfrac {1} {10}:\dfrac {9} {10}\)时，$$T\left( n\right) =O \left( n\lg n\right)$$<br>事实上，只要划分为任意常数比，算法的运行时间总为\(T\left( n\right) =O\left( n\lg n\right)\)。</p>
 <h2 id="快速排序的改进——随机快速排序"><a href="#快速排序的改进——随机快速排序" class="headerlink" title="快速排序的改进——随机快速排序"></a>快速排序的改进——随机快速排序</h2><h3 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h3><p>为了最大可能的避免最坏的情况，采用一种随机选择主元元素的方法，其对PARTITION的改动非常小，伪代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RANDOMIZEND-PARRIRION(A,p,q)</div><div class="line">    i=RANDOM(p,r)</div><div class="line">    exchange A[p] &lt;-&gt;A[i]</div><div class="line">    return PARTITION(A,p,r)</div></pre></td></tr></table></figure></p>
@@ -454,7 +454,7 @@
 <p>将k=0,1都放入\(\Theta \left( n\right)\)中，则<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9l3K8FBF89.JPG" alt="mark"><br>下面，利用\(\sum _{k=2}^{n-1}k1gk\leq \dfrac {1} {2}n^{2}\lg n-\dfrac {1} {8}n^{2}\)(自己推倒可得)，证明\(E\left[ T\left( n\right) \right] =an\lg n\):</p>
 <p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/bkL2EGGhCH.jpg" alt="mark"></p>
 <p>因此，随机快速排序的平均运行时间为<strong>\(\Theta \left( n\lg n\right)\)</strong></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>虽然快速排序存在最坏的情况，使其运行时间为\(\Theta \left( n^{2}\right)\),但其性能仍然要优于归并排序，实验证明，它的速度差不多是归并排序的2倍，这是因为快速排序是<strong>原址排序</strong>，不需要消耗额外的时间访问内存。因此通常快速排序在实际排序应用中是最好的选择。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>虽然快速排序存在最坏的情况，使其运行时间为\(\Theta \left( n^{2}\right)\)，但其性能仍然要优于归并排序，实验证明，它的速度差不多是归并排序的2倍，这是因为快速排序是<strong>原址排序</strong>，不需要消耗额外的时间访问内存。因此通常快速排序在实际排序应用中是最好的选择。</p>
 
       
 	  
