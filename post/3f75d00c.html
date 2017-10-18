@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg">
-<meta property="og:updated_time" content="2017-10-18T14:41:09.370Z">
+<meta property="og:updated_time" content="2017-10-18T14:48:52.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机硬件系统概述">
 <meta name="twitter:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。  计算机硬件系统计算机硬件组成如下图所示，其中CPU由算数逻辑单元和控制单元组成，前者主要负责程序运算和逻辑判断">
@@ -449,7 +449,7 @@
 </li>
 <li><p>速度单位<br>CPU的频率：MHz、GHz</p>
 <blockquote>
-<p>CPU的频率就是CPU每秒钟可以进行的工作次数，频率越高，表示CPU单位时间可以做更多的事。<br>外频：CPU与外部组件进行数据传输时的速度<br>倍频：CPU内部用力啊加速工作效能的倍数<br>CPU频率=外频x倍频<br><code>例</code>Intel Core 2 Duo E8400 CPU的频率是3GHz，而外频是333MHz，因此倍频是9倍！</p>
+<p>CPU的频率就是CPU每秒钟可以进行的工作次数，频率越高，表示CPU单位时间可以做更多的事。<br>外频：CPU与外部组件进行数据传输时的速度<br>倍频：CPU内部用力啊加速工作效能的倍数<br>CPU频率=外频x倍频<br>Tips:因为每个CPU的微指令集不相同，架构也不见得一样，每次频率能够进行的工作指令数也不同，所以，频率目前仅能用来比较同款CPU的速度！</p>
 </blockquote>
 </li>
 </ul>
@@ -461,18 +461,17 @@
 <li>南桥：负责连接素服较慢的周边接口，包括硬盘、USB、网络卡等。</li>
 </ol>
 <p>而后一副图的不同之处在于主存储器直接与CPU沟通而不通过北桥。</p>
-<h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><p>决定每次工作可以传送的数据的大小，北桥所支持癿频率我仧称为前端总线速度(Front Side Bus, FSB)，每次传送的位数称为总线宽度，常见的总线宽度有32/64位。FBSX总线宽度就是每秒可传送带最大数据量。</p>
+<h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><p>决定每次工作可以传送的数据的大小，北桥所支持的频率我仧称为前端总线速度(Front Side Bus, FSB)，每次传送的位数称为总线宽度，常见的总线宽度有32/64位。FBSX总线宽度就是每秒可传送带最大数据量。</p>
 <h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
 <li><strong>CPU所使用的数据都是来自主存储器</strong>(main memory)，不论是软件程序还是数据，都必须要读入主存储器后CPU才能利用。</li>
-<li>个人计算机癿主存储器主要组件为<strong>动态随机存取内存</strong>(Dynamic Random Access Memory, DRAM)， 随机存取内存叧有在通电时扄能记弽不使用，断电后数据就消失了。</li>
-<li>双通道设计：传统癿总线宽度一般大约仅达64位，为了要加大这个宽度，因此芯片组厂商就将两个主存储器汇整在一起， 如果一支内存可达64位，两支内存就可以达到128位了。</li>
+<li>个人计算机的主存储器主要组件为<strong>动态随机存取内存</strong>(Dynamic Random Access Memory, DRAM)， 随机存取内存叧有在通电时扄能记弽不使用，断电后数据就消失了。</li>
+<li>双通道设计：传统的总线宽度一般大约仅达64位，为了要加大这个宽度，因此芯片组厂商就将两个主存储器汇整在一起， 如果一支内存可达64位，两支内存就可以达到128位了。</li>
 <li>CPU与主存储器的外频应该要相同才好。</li>
 <li>除了主存储器之外，整个计算机当中还有许多内存！最为熟知的就是第二层<strong>高速缓存(L2 cache)</strong>因为它整合到CPU内部，因此这个L2内存的速度必须要CPU频率相同。使用DRAM是无法达到这个频率速度的，此时就需要静态随机存取内存(Static Random Access Memory, SRAM)的帮忙了<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg" alt="mark"></li>
 <li>BIOS(Basic Input Output System)是系统在开机时候首先会去读取的一个小程序，它被写死在主板上的一个内存芯片中，这个内存芯片在没有通电时也能够将数据记录下来，是<strong>只读存储器</strong>(Read Only Memory, ROM)。</li>
 </ul>
 <h3 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h3><p>显卡对于图形影像的显示扮演关键的角色。 一般对于图形影像的显示重点在于分辨率与颜色深度，因为每个图像显示的颜色会占用掉内存， 因此显卡上面会有一个<strong>内存</strong>的容量，这个显卡内存容量将会影响到最终你的屏幕分辨率和颜色深度的。<br>除了显卡外，由于3D游戏和3D动画的流行，显卡的运算能力越来越重要，3D的运算早期是交给CPU运作的，后来显卡厂商直接在显卡上嵌入一个3D加速芯片，即<strong>GPU</strong>。</p>
-<h3 id="硬盘与存储设备"><a href="#硬盘与存储设备" class="headerlink" title="硬盘与存储设备"></a>硬盘与存储设备</h3><p>书中介绍的为固态硬盘</p>
-<ul>
+<h3 id="硬盘与存储设备"><a href="#硬盘与存储设备" class="headerlink" title="硬盘与存储设备"></a>硬盘与存储设备</h3><ul>
 <li>传输接口：<br>IDE接口：接口插槽所使用的扁平电缆较宽，每条扁平电缆上面可以接两个IDE装置<br>SATA接口：插槽要比IDE接口小很多，每条SATA连接线仅能接一个SATA装置，<strong>主流</strong><br>SCSI接口：工作站等级以上的硬盘传输接口，PC上不常见。</li>
 <li>参数：容量、缓冲存储器、转数</li>
 </ul>
