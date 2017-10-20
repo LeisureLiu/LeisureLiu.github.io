@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,排序," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -88,27 +88,29 @@
 
 
 
-<meta name="description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间。">
-<meta name="keywords" content="算法,排序">
+<meta name="description" content="本文将讨论从一个由n个互异的元素构成的集合中选择第i个大小的数的问题。在前面的文章中，作者介绍了几个经典的排序算法，选择问题当然也可以利用它们先对输入数据进行排序，再根据输出数组的下标找到第i个元素。但是以这种方法的效率不高，例如使用归并排序或堆排序，最坏的运行时间为$\Theta \left( n1gn\right)$。本文将要讨论的方法可以使最坏的运行时间为$\Theta \left( lgn">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论笔记(4):计数排序和基数排序">
-<meta property="og:url" content="http://www.yyliu.cn/post/ae831bff.html">
+<meta property="og:title" content="算法导论比价(5):择算（SELECT）法">
+<meta property="og:url" content="http://www.yyliu.cn/post/98f32ea9.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间。">
+<meta property="og:description" content="本文将讨论从一个由n个互异的元素构成的集合中选择第i个大小的数的问题。在前面的文章中，作者介绍了几个经典的排序算法，选择问题当然也可以利用它们先对输入数据进行排序，再根据输出数组的下标找到第i个元素。但是以这种方法的效率不高，例如使用归并排序或堆排序，最坏的运行时间为$\Theta \left( n1gn\right)$。本文将要讨论的方法可以使最坏的运行时间为$\Theta \left( lgn">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/cH2FAiHEFD.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/ajDbHaCj8k.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HDA63klACH.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/bc2f84JC11.gif">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/j0fe98D5i0.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/F8a0cAJ1Fj.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/de1kBiFgaG.JPG">
-<meta property="og:updated_time" content="2017-10-19T12:47:58.957Z">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/lg0Hg90J5K.jpg">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/2E0lc0iLIf.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/blmDILI6CC.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/aiaB05fc7A.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/11DcaCaaf1.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/8lL14AC84G.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/II6G7J1kD2.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171020/hfbAdaBgJi.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171020/CG9lLi9le2.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171020/1e3jDgl7bB.png?imageslim">
+<meta property="og:updated_time" content="2017-10-20T15:32:25.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论笔记(4):计数排序和基数排序">
-<meta name="twitter:description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间。">
-<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG">
+<meta name="twitter:title" content="算法导论比价(5):择算（SELECT）法">
+<meta name="twitter:description" content="本文将讨论从一个由n个互异的元素构成的集合中选择第i个大小的数的问题。在前面的文章中，作者介绍了几个经典的排序算法，选择问题当然也可以利用它们先对输入数据进行排序，再根据输出数组的下标找到第i个元素。但是以这种方法的效率不高，例如使用归并排序或堆排序，最坏的运行时间为$\Theta \left( n1gn\right)$。本文将要讨论的方法可以使最坏的运行时间为$\Theta \left( lgn">
+<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/lg0Hg90J5K.jpg">
 
 
 
@@ -138,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yyliu.cn/post/ae831bff.html"/>
+  <link rel="canonical" href="http://www.yyliu.cn/post/98f32ea9.html"/>
 
 
 
 
 
-  <title>算法导论笔记(4):计数排序和基数排序 | YY Liu</title>
+  <title>算法导论比价(5):择算（SELECT）法 | YY Liu</title>
   
 
 
@@ -300,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/ae831bff.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/98f32ea9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LIUYIYING">
@@ -317,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法导论笔记(4):计数排序和基数排序</h1>
+          <h1 class="post-title" itemprop="name headline">算法导论比价(5):择算（SELECT）法</h1>
         
 
         <div class="post-meta">
@@ -329,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T23:10:08+08:00">
-                2017-10-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T23:28:36+08:00">
+                2017-10-20
               </time>
             
 
@@ -369,7 +371,7 @@
 
           
           
-             <span id="/post/ae831bff.html" class="leancloud_visitors" data-flag-title="算法导论笔记(4):计数排序和基数排序">
+             <span id="/post/98f32ea9.html" class="leancloud_visitors" data-flag-title="算法导论比价(5):择算（SELECT）法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,38 +402,65 @@
       
 
       
-        <p>前文所介绍的插入排序、归并排序和快速排序均为<strong>比较排序</strong>，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到<strong>线性时间</strong>。</p>
-<h2 id="计数排序-Counting-sort）"><a href="#计数排序-Counting-sort）" class="headerlink" title="计数排序(Counting sort）"></a>计数排序(Counting sort）</h2><h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><ul>
-<li>输入：$A\left[ 1..n\right]$，其中$A[j] \in ${ 1,2,…,k}；</li>
-<li>输出：$B\left[ 1..n\right]$，已排序；</li>
-<li>辅助存储：$C\left[ 1..k\right]$。</li>
-</ul>
-<p>伪代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">COUNTING-SORT(A,B,K)</div><div class="line">let C[0..k] be a new array</div><div class="line">for i=0 to k</div><div class="line">    C[j]=0</div><div class="line">for j=1 to A.lenght //循环结束后C[i]等于值为i的元素个数</div><div class="line">    C[A[j]]=C[A[j]]+1</div><div class="line">for i=1 to k  //循环结束后C[i]等于值小于或等于i的元素的个数</div><div class="line">    C[i]=C[i]+C[i-1]</div><div class="line">for j=A.length downto 1</div><div class="line">    B[C[A[j]]]=A[j]</div><div class="line">    C[A[j]]=C[A[j]]-1</div></pre></td></tr></table></figure></p>
-<p><code>例</code>对A[4 1 3 4 3]排序<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG" alt="mark"></p>
+        <p>本文将讨论从一个由n个互异的元素构成的集合中选择第i个大小的数的问题。在前面的文章中，作者介绍了几个经典的排序算法，选择问题当然也可以利用它们先对输入数据进行排序，再根据输出数组的下标找到第i个元素。但是以这种方法的效率不高，例如使用归并排序或堆排序，最坏的运行时间为$\Theta \left( n1gn\right)$。本文将要讨论的方法可以使最坏的运行时间为$\Theta \left( lgn\right)$。</p>
+<hr>
+<h2 id="顺序统计量"><a href="#顺序统计量" class="headerlink" title="顺序统计量"></a>顺序统计量</h2><p>首先根据《算法导论》书中的内容， 介绍一下顺序统计量（order statistic）的概念：在一个由n个元素组成的集合中，第i个顺序统计量是该集合中第i小的元素。如</p>
 <ul>
-<li>LOOP 1：C[1..k]所有元素赋值为0，得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/cH2FAiHEFD.JPG" alt="mark"></li>
-<li>LOOP 2：计算数值A中数值为i的元素个数， 填入C[1..k]中，得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/ajDbHaCj8k.JPG" alt="mark"></li>
-<li>LOOP 3：计算A中数值小于等于i的元素个数，填入C[1..k]中，得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HDA63klACH.JPG" alt="mark"></li>
-<li>LOOP 4：如图所示<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/bc2f84JC11.gif" alt="mark"></li>
+<li>i=1: 最小值</li>
+<li>i=n: 最大值</li>
+<li>i=$\left\lfloor \left( n+1\right) / 2\right\rfloor$ 或$\left\lceil \left( n+1\right)  / 2\right\rceil $:中位数（median）</li>
 </ul>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><ul>
-<li>运行时间：4个循环时间复杂度分别为$\Theta \left( k\right)$、$\Theta \left( n\right)$、$\Theta \left( k\right)$、$\Theta \left( n\right)$。因此总的运行时间为$\Theta \left( n+k\right)$。若$k=O\left( n\right) $，那么计数排序的时间复杂度将会是$\Theta \left( n\right)$！</li>
-<li><strong>稳定的</strong>(stable)：具有相同值的元素在输出数组中的相对次序与它们在输入数组中的相对次序相同。这一重要性质使得它经常被用做我们下面要介绍的基数排序算法的子过程。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/j0fe98D5i0.JPG" alt="mark"></li>
-<li>缺点：若要对数值很大，而数据量较小的数据进行排序，计数排序就不是一个明智的选择了。</li>
-</ul>
-<h2 id="基数排序-Radix-sort"><a href="#基数排序-Radix-sort" class="headerlink" title="基数排序(Radix sort)"></a>基数排序(Radix sort)</h2><h3 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h3><p>基数排序的核心思想就是按位排序，先排最低位，然后一次排高位，如下图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/F8a0cAJ1Fj.JPG" alt="mark"><br>伪代码：假设n个d位的元素存放在 数组A中，其中1是最低位，d是最高位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RADIX-SORT(A,d)</div><div class="line">for i=1 to d</div><div class="line">    //用一个稳定性排序算法根据第i位对A进行排序</div></pre></td></tr></table></figure></p>
-<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><ul>
-<li>假设使用计数排序作为辅助稳定排序</li>
-<li>对n个d位元素排序</li>
-<li>每个元素可以看作有b/r次数值为0到$2^{r}$的计数排序</li>
-</ul>
-<p>例如：32-bit的元素<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/de1kBiFgaG.JPG" alt="mark"></p>
+<h2 id="期望为线性时间的选择算法"><a href="#期望为线性时间的选择算法" class="headerlink" title="期望为线性时间的选择算法"></a>期望为线性时间的选择算法</h2><h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>该算法以快速排序算法为模型，不同之处在于，快速排序会递归的处理划分的两边，而该算法只处理一边的数据。伪代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">RANDOMIZED-SELECT(A,p,q,i)  <span class="comment">//数组A[p..q]中第i小的数</span></div><div class="line">	<span class="keyword">if</span> p=q  </div><div class="line">		<span class="keyword">return</span> A[p]</div><div class="line">	r=RANDOMIZED--PARTITION(A,p,r)</div><div class="line">	k=r-p+<span class="number">1</span>   <span class="comment">//k=rank(A[r])</span></div><div class="line">	<span class="keyword">if</span> i=k </div><div class="line">		<span class="keyword">return</span> A[r]</div><div class="line">	<span class="keyword">if</span> i&lt;k </div><div class="line">		<span class="keyword">return</span> RANDOMIZED-SELECT(A,p.r<span class="number">-1</span>,i)</div><div class="line">	<span class="keyword">else</span> <span class="keyword">return</span> RANDOMIZED-SELECT(A,r+<span class="number">1</span>,q,i-k)</div></pre></td></tr></table></figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/lg0Hg90J5K.jpg" alt="mark"></p>
+<p><code>RANDOMIZED--PARTITION(A,p,r)</code>参考快速排序的<em><a href="http://www.yyliu.cn/post/afe945f0.html">博客</a></em>。</p>
+<p><code>例</code> 对数组[6 10 13 5 8 3 2 11]找出第i=7小的数，假设6为主元：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/2E0lc0iLIf.png" alt="mark"></p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>分析过程与快速排序类似，本文就作简单说明。</p>
 <ul>
-<li>当r=8，则b/r=4，即有4次对数值范围范围为$2^{8}$ 以内的数进行计数排序 </li>
-<li>当r=16，则b/r=2，即有2次对数值范围范围为$2^{16}$ 以内的数进行计数排序</li>
+<li><p>Lucky： $T\left( n\right) =\Theta \left( n\right)$</p>
+</li>
+<li><p>Unlucky：$T\left( n\right) =T\left( n-1\right) +\Theta \left( n\right) =\Theta \left( n^{2}\right)$</p>
+</li>
+<li><p>期望运行时间：$E\left[ T\left( n\right) \right] =\Theta \left( n\right)$</p>
+<p>令T(n)=输入为n的<code>RANDOMIZED-SELECT</code>的运行时间的随机变量，假设随机数为相互独立的。<br>对于$k=0,1,\ldots ,n-1$,定义一个随机变量指示器:</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/blmDILI6CC.JPG" alt="mark"></p>
+<p>由于所有的分割都是相等概率的，假设所有元素都是不同的，所以<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/aiaB05fc7A.JPG" alt="mark"></p>
+<p>假设第i个元素总是落在分割后大的一边，则</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/11DcaCaaf1.png" alt="mark"></p>
+</li>
 </ul>
-<p>前文中分析到计数排序对n个数值范围从0-k-1的数排序的时间复杂度为$\Theta \left( n+k\right)$，若将b-bit的元素分割为r-bit块，则计数排序的运行之间为$\Theta \left( n+2^{r}\right)$，由于有b/r次计数排序，所以有<br>$$T\left( n,b\right) =\Theta \left( \dfrac {b} {r}\left( n+2^{r}\right) \right) $$<br>我们要做的是选取一个r，使T(n,b)最小：<br>增大r意味着更少的计数排序计算次数，但当$r\gg \lg n$,计数排序的运行时间呈指数增长。由计数排序的运行时间我们知道，我们不希望$2^{r}\gg n$。<br>因此选择$r=\lg n$，这时$T\left( n,b\right) =\Theta \left( bn / 1gn\right) $。对于数值从0到$n^{d}-1$的数，$b=d\lg n$,此时，基数排序的运行时间为$\theta \left( dn\right)$</p>
-<p>在实践中，基数排序对于大型输入来说是快速的，而且对于代码和维护来说也很简单。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/8lL14AC84G.png" alt="mark"></p>
+<p>由于$\sum _{\left\lfloor n / 2\right\rfloor}^{n-1}k=\dfrac {3} {8}n^{2}$，下面利用归纳法证明$E\left[ T\left( n\right) \right] \leq cn$：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171019/II6G7J1kD2.png" alt="mark"></p>
+<p>只要选取足够大的c，上式成立，即$E\left[ T\left( n\right) \right] =\Theta \left( n\right)$。</p>
+<h2 id="最坏情况为线性时间的选择算法"><a href="#最坏情况为线性时间的选择算法" class="headerlink" title="最坏情况为线性时间的选择算法"></a>最坏情况为线性时间的选择算法</h2><p>上面介绍的方法在最坏的情况下，运行时间为$T\left( n\right) =T\left( n-1\right) +\Theta \left( n\right) =\Theta \left( n^{2}\right)$ ，比排序算法还要差，那么是否有一种算法可以使得最差的运行时间也为$T\left( n\right) =\Theta \left( n\right)$呢，接下来的算法就符合这个要求，它是1973年被Blum，Floyed，Pratt等提出的。它的核心思想是递归的生成一个合适的主元。</p>
+<h3 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h3><p>SELECT(i,n)</p>
+<ol>
+<li><p>将n个元素划分为$\left\lfloor n / 5\right\rfloor$组，每组5个素，由剩下的n mod 5个元素组成，寻找每5个元素的中位数。</p>
+</li>
+<li><p>递归调用SELECT操作，这$\left\lfloor n / 5\right\rfloor$组数的中位数的中位数x作为主元。</p>
+</li>
+<li><p>根据主元x划分，令k=rank(x)</p>
+</li>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> i=k</div><div class="line">	<span class="keyword">return</span> x</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> i&lt;k</div><div class="line">	递归调用SELECT，找出低区中第i小的元素</div><div class="line"><span class="keyword">else</span> </div><div class="line">	递归调用SELECT，找出高区中第(i-k)小的元素</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中第3、4步和上文中<code>RANDOMIZED-SELECT</code>相同。</p>
+<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171020/hfbAdaBgJi.png" alt="mark"></p>
+<p>如图，至少有$3\left\lfloor n / 10\right\rfloor$的数小于x，同样的至少有$3\left\lfloor n / 10\right\rfloor$的数大于x。</p>
+<p>简单来说，算法可以这样分析：</p>
+<ul>
+<li>当$n\geq 50$，有$3\left\lfloor n / 10\right\rfloor \geq \dfrac {n} {4}$</li>
+<li>因此，当$n\geq 50$，在第4步中递归调用<code>SELECT</code>的元素小于$\dfrac {3n} {4}$</li>
+<li>所以步骤4最差运行时间为$T\left( \dfrac {3n} {4}\right)$</li>
+<li>对于n&lt;50的情况，最差情况的运行时间是$T\left( n\right) =\Theta \left( 1\right)$</li>
+</ul>
+<p>所以</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171020/CG9lLi9le2.png" alt="mark"></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171020/1e3jDgl7bB.png?imageslim" alt="mark"></p>
+<p>当c取足够大时，上述不等式成立。因此该算法的最坏运行时间时间为 $T\left( n\right) =\Theta \left( n\right)$</p>
+<p>事实上常数c的数是十分大的，因此这个算法运行的十分慢，而前面介绍的<code>randomized</code>要比它更加实用</p>
 
       
 	  
@@ -449,7 +478,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.yyliu.cn/post/ae831bff.html" title="算法导论笔记(4):计数排序和基数排序">http://www.yyliu.cn/post/ae831bff.html</a>
+      <a href="http://www.yyliu.cn/post/98f32ea9.html" title="算法导论比价(5):择算（SELECT）法">http://www.yyliu.cn/post/98f32ea9.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>原创声明： </strong>
@@ -512,8 +541,6 @@
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
-            <a href="/tags/排序/" rel="tag"># 排序</a>
-          
         </div>
       
 
@@ -525,8 +552,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/89458415.html" rel="next" title="TensorFlow数据读取方式（3种方法）">
-                <i class="fa fa-chevron-left"></i> TensorFlow数据读取方式（3种方法）
+              <a href="/post/3f75d00c.html" rel="next" title="计算机硬件系统概述">
+                <i class="fa fa-chevron-left"></i> 计算机硬件系统概述
               </a>
             
           </div>
@@ -534,10 +561,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/3f75d00c.html" rel="prev" title="计算机硬件系统概述">
-                计算机硬件系统概述 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -692,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计数排序-Counting-sort）"><span class="nav-number">1.</span> <span class="nav-text">计数排序(Counting sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-number">1.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-number">1.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序-Radix-sort"><span class="nav-number">2.</span> <span class="nav-text">基数排序(Radix sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-number">2.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序统计量"><span class="nav-number">1.</span> <span class="nav-text">顺序统计量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期望为线性时间的选择算法"><span class="nav-number">2.</span> <span class="nav-text">期望为线性时间的选择算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-number">2.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-number">2.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最坏情况为线性时间的选择算法"><span class="nav-number">3.</span> <span class="nav-text">最坏情况为线性时间的选择算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-number">3.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-number">3.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li></ol></div>
             
 
           </div>

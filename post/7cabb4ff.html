@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/e4lAADl96G.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/B39c06jk7b.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/DS2.JPG">
-<meta property="og:updated_time" content="2017-09-28T03:34:55.612Z">
+<meta property="og:updated_time" content="2017-10-19T12:47:46.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Densely Connected Convolutional Networks(DenseNet模型)">
 <meta name="twitter:description" content="CVPR 2017上，清华大学的Zhuang Liu、康奈尔大学的Gao Huang和Kilian Q.Weinberger，以及Facebook研究员Laurens van der Maaten 所作论文Densely Connected Convolutional Networks当选 ，与苹果的首篇公开论文Learning From Simulated and Unsupervised Im">
@@ -400,19 +400,19 @@
       
         <p>CVPR 2017上，清华大学的Zhuang Liu、康奈尔大学的Gao Huang和Kilian Q.Weinberger，以及Facebook研究员Laurens van der Maaten 所作论文<a href="https://arxiv.org/abs/1608.06993" target="_blank" rel="external"><em>Densely Connected Convolutional Networks</em></a>当选 ，与苹果的首篇公开论文<a href="https://arxiv.org/abs/1612.07828" target="_blank" rel="external"><em>Learning From Simulated and Unsupervised Images through Adversarial Training</em></a>共同获得了2017 CVPR 最佳论文。下面我们就来看看DenseNet是何方神圣吧。</p>
 <hr>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>最近的研究表明，当靠近输入的层和靠近输出的层之间的连接越短，卷积神经网络就可以做得更深，精度更高且可以更加有效的训练。本文根据这一结论，提出了一种稠密卷积神经网络(Dense Convolutional Network,DenseNet)，这种结构将每一层与之前所有层相连接。传统的L层卷积神经网络有L个连接——位于每一层和其后一层之间—，而我们的神经网络有\(\dfrac {L\left(L+1\right)} {2}\)个直接链接。对于每一层，其输入的特征是之前所有的层，而它自己的特征图作为之后所有层的输入。DenseNet有以下几个引人注目的优点：<strong>缓解梯度消失问题，加强特征传播，鼓励特征复用，极大的减少了参数量</strong>。我们在四个极具竞争力的物体识别标准图像库(CIFAR-10,CIFAR-100, SVHN, and ImageNet)对我们所提出的结构进行测试。结果表面DenseNet在大多数的测试图像库中都获得了最好的效果，然而它只需要很少的计算两来达到很高的性能。代码参见<a href="https://github.com/liuzhuang13/DenseNet" target="_blank" rel="external">https://github.com/liuzhuang13/DenseNet</a>。</p>
-<h2 id="DenseNet与ResNet对比"><a href="#DenseNet与ResNet对比" class="headerlink" title="DenseNet与ResNet对比"></a>DenseNet与ResNet对比</h2><p>作者主要受ResNet和Highway NetWorks的启发，通过与之后的某一层进行直接连接来传递信息，下面我们直观的从结构来看ResNet和DenseNet的差异。<br>假设一个单张的图片\(x_{0}\)输入一个有L层的卷积网络，每层的激励函数为\(H_{l}\left( \cdot \right)\)，\(H_{l}\left( \cdot \right)\)可以是BN、ReLU、Pooling、Conv等操作的集合。假设\(x_{1}\)为第l层的输出。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>最近的研究表明，当靠近输入的层和靠近输出的层之间的连接越短，卷积神经网络就可以做得更深，精度更高且可以更加有效的训练。本文根据这一结论，提出了一种稠密卷积神经网络(Dense Convolutional Network,DenseNet)，这种结构将每一层与之前所有层相连接。传统的L层卷积神经网络有L个连接——位于每一层和其后一层之间—，而我们的神经网络有$\dfrac {L\left(L+1\right)} {2}$个直接链接。对于每一层，其输入的特征是之前所有的层，而它自己的特征图作为之后所有层的输入。DenseNet有以下几个引人注目的优点：<strong>缓解梯度消失问题，加强特征传播，鼓励特征复用，极大的减少了参数量</strong>。我们在四个极具竞争力的物体识别标准图像库(CIFAR-10,CIFAR-100, SVHN, and ImageNet)对我们所提出的结构进行测试。结果表面DenseNet在大多数的测试图像库中都获得了最好的效果，然而它只需要很少的计算两来达到很高的性能。代码参见<a href="https://github.com/liuzhuang13/DenseNet" target="_blank" rel="external">https://github.com/liuzhuang13/DenseNet</a>。</p>
+<h2 id="DenseNet与ResNet对比"><a href="#DenseNet与ResNet对比" class="headerlink" title="DenseNet与ResNet对比"></a>DenseNet与ResNet对比</h2><p>作者主要受ResNet和Highway NetWorks的启发，通过与之后的某一层进行直接连接来传递信息，下面我们直观的从结构来看ResNet和DenseNet的差异。<br>假设一个单张的图片$x_{0}$输入一个有L层的卷积网络，每层的激励函数为$H_{l}\left( \cdot \right)$，$H_{l}\left( \cdot \right)$可以是BN、ReLU、Pooling、Conv等操作的集合。假设$x_{1}$为第l层的输出。</p>
 <hr>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/5m035GFD37.JPG" alt="mark"><br>最原始的前馈卷积神经网络，将第l层的输出作为第l+1层的输入，所以第l层的输出为：\(X_{l}=H_{l}\left( x_{l-1}\right)\)。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/5m035GFD37.JPG" alt="mark"><br>最原始的前馈卷积神经网络，将第l层的输出作为第l+1层的输入，所以第l层的输出为：$X_{l}=H_{l}\left( x_{l-1}\right)$。</p>
 <hr>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/6B2di2Dbdg.png" alt="mark"><br>ResNet除了本层与下一层的连接之外，还增加了一个skip-connection,即将l层和l-1层的输出共同作为l+1层的输入，即，第l层的激活值不仅仅影响l+1层，而且还影响l+2层。所以第l层的输出为：\(X_{l}=H_{l}\left( x_{l-1}\right)+x_{l-1}\)。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/6B2di2Dbdg.png" alt="mark"><br>ResNet除了本层与下一层的连接之外，还增加了一个skip-connection,即将l层和l-1层的输出共同作为l+1层的输入，即，第l层的激活值不仅仅影响l+1层，而且还影响l+2层。所以第l层的输出为：$X_{l}=H_{l}\left( x_{l-1}\right)+x_{l-1}$。</p>
 <hr>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/8JLim1h2d4.jpg" alt="mark"><br>DenseNet则是让l层的输入直接影响到之后的所有层，它的输出为：\(x_{l}=H_{l}\left( \left[ X_{0},X_{1},\ldots ,x_{l-1}\right] \right)\)。并且由于每一层都包含之前所有层的输出信息，因此其<strong>只需要很少的特征图</strong>就够了，这也是为什么DneseNet的参数量较其他模型大大减少的原因。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/8JLim1h2d4.jpg" alt="mark"><br>DenseNet则是让l层的输入直接影响到之后的所有层，它的输出为：$x_{l}=H_{l}\left( \left[ X_{0},X_{1},\ldots ,x_{l-1}\right] \right)$。并且由于每一层都包含之前所有层的输出信息，因此其<strong>只需要很少的特征图</strong>就够了，这也是为什么DneseNet的参数量较其他模型大大减少的原因。</p>
 <hr>
-<h2 id="DenseNet结构详解"><a href="#DenseNet结构详解" class="headerlink" title="DenseNet结构详解"></a>DenseNet结构详解</h2><p>DenseNet的整体结构包含稠密块（Dense Block）和过渡层（transition layers），可以简单来可以看作是<code>Dense Block</code>-<code>transition layers</code>-<code>Dense Block</code>-<code>transition layers</code>···<br>如下图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/e4lAADl96G.JPG" alt="mark"><br>要将结构分为Dense Block和transition layers的原因是，transition layer中包含的Poling层会改变特征图的大小，而Dense Block内部必须保证特征图的大小一致，否则这种层之间的连接方式就不可行了。<br>下面就来看看Dense Block内部结构吧。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/B39c06jk7b.JPG" alt="mark"><br>上图是一个包含五层，层宽度（Growth rate）为k=4的Dense Block,层与层之间的激励函数（即\(H_{l}\left( \cdot \right)\)）为<code>BN-ReLU-Conv(3x3)</code>的结构。这个Growth rate实际上就是每一层特征图的数量，这样第l层就有\(k_{0}+k\times(l-1)\)个特征图了。<br>为了进一步减少参数辆，作者又作了以下改进：</p>
+<h2 id="DenseNet结构详解"><a href="#DenseNet结构详解" class="headerlink" title="DenseNet结构详解"></a>DenseNet结构详解</h2><p>DenseNet的整体结构包含稠密块（Dense Block）和过渡层（transition layers），可以简单来可以看作是<code>Dense Block</code>-<code>transition layers</code>-<code>Dense Block</code>-<code>transition layers</code>···<br>如下图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/e4lAADl96G.JPG" alt="mark"><br>要将结构分为Dense Block和transition layers的原因是，transition layer中包含的Poling层会改变特征图的大小，而Dense Block内部必须保证特征图的大小一致，否则这种层之间的连接方式就不可行了。<br>下面就来看看Dense Block内部结构吧。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/B39c06jk7b.JPG" alt="mark"><br>上图是一个包含五层，层宽度（Growth rate）为k=4的Dense Block,层与层之间的激励函数（即$H_{l}\left( \cdot \right)$）为<code>BN-ReLU-Conv(3x3)</code>的结构。这个Growth rate实际上就是每一层特征图的数量，这样第l层就有$k_{0}+k\times(l-1)$个特征图了。<br>为了进一步减少参数辆，作者又作了以下改进：</p>
 <ul>
-<li>将\(H_{l}\left( \cdot \right)\)该为<code>BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)</code>的结构，记为DenseNet-B</li>
-<li>为了进一步减少参数量，在DenseNet-B的基础上，对过渡层的特征图进行压缩，产生\(\left\lfloor \theta m\right\rfloor\)个特征图，其中\(0 &lt; \theta \leq 1\)，为压缩因子。</li>
+<li>将$H_{l}\left( \cdot \right)$该为<code>BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)</code>的结构，记为DenseNet-B</li>
+<li>为了进一步减少参数量，在DenseNet-B的基础上，对过渡层的特征图进行压缩，产生$\left\lfloor \theta m\right\rfloor$个特征图，其中$0 &lt; \theta \leq 1$，为压缩因子。</li>
 </ul>
 <p>下面放上一张DenseNet与现有模型实验对比图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/DS2.JPG" alt="duibi"><br>前面是深度和参数量，后面是在各图像库中测试的错误率，蓝色表明结果最优。可以看到相比于其他模型DenseNet有更少的参数且出错率更低。</p>
 <h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>DneseNet在训练时十分消耗内存，这是由于算法实现不优带来的。当前的深度学习框架对 DenseNet 的密集连接没有很好的支持，所以只能借助于反复的拼接（Concatenation）操作，将之前层的输出与当前层的输出拼接在一起，然后传给下一层。对于大多数框架（如Torch和TensorFlow），每次拼接操作都会开辟新的内存来保存拼接后的特征。这样就导致一个 L 层的网络，要消耗相当于 L(L+1)/2 层网络的内存（第 l 层的输出在内存里被存了 (L-l+1) 份）。为此作者又写了一个技术报告（<a href="https://arxiv.org/pdf/1707.06990.pdf" target="_blank" rel="external"><em>Memory-Efficient Implementation of DenseNets</em></a>)专门针对这一问题，介绍如何提升对内存的使用率，同时提供的Torch, PyTorch, MxNet 以及 Caffe 的实现，代码参见：</p>
@@ -613,7 +613,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
