@@ -416,6 +416,9 @@
 <p> 当$c[i, j]=k$，令最长公共子序列$z[1 .. k]=LCS(x[1 .. i],y[1 .. j])$。</p>
 <p>则，$z[k]=x<a href="=y[j]">i</a>$ ，也就是说，如果z不包含最后的这个字符，就可以向z中添加x[i]这个元素，使z变长。</p>
 <p>所以$z[1 .. k-1]$是$x[1 .. i-1]$和S$y[1.. j-1]$的公共子序列(CS)。下面证明$z[1 .. k-1]$是$x[1 .. i-1]$和$y[1.. j-1]$的<strong>最长</strong>公共子序列(LCS)：<br>命题：$z[1 .. k-1]=LCS(x[1 .. i-1], y[1 .. j-1])$<br>     假设w是$x[1 .. i-1]$和$y[1.. j-1]$中更长的CS，则$\left| w\right|  &gt;k-1$<br>     <strong>“剪贴”法</strong>：$w||z\left[ k\right]$（将w和z[k]连接）是$x[1 .. i-1]$和$y[1.. j-1]$的CS，且$w||z\left[ k\right]&gt;k$<br>     这与我们假设($c[i, j]=k$)向矛盾，所以假设不成立，原命题成立。<br>     即$c[i-1,j-2]=k-1$，这表明$c[i,j]=c[i-1,j-1]+1$。<br>     其它情况同理可证。</p>
+</blockquote>
+<p>下面要介绍动态规划的第一个特征：</p>
+<blockquote>
 <p><strong>动态规划特征#1</strong></p>
 <p>最优子结构：一个问题（实例）的最优解包含了子问题的最优解。</p>
 </blockquote>
@@ -427,7 +430,7 @@
 <p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eCB708Da7j.png?imageslim" alt="mark"></p>
 <p>可以看到过程中有一些子问题是相同的，下面就要介绍动态规划的第二个特征：</p>
 <blockquote>
-<p>动态规划特征#2</p>
+<p><strong>动态规划特征#2</strong></p>
 <p>重叠子问题：一个递归过程包含少数独立的子问题被反复计算多次。</p>
 </blockquote>
 <p> LCS问题包含了mn个不同的子问题。</p>
