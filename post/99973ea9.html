@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,排序," />
+  <meta name="keywords" content="动态规划," />
 
 
 
@@ -88,30 +88,27 @@
 
 
 
-<meta name="description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并">
-<meta name="keywords" content="算法,排序">
+<meta name="description" content="前言动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）">
+<meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论笔记(3):快速排序及其性能分析">
-<meta property="og:url" content="http://www.yyliu.cn/post/afe945f0.html">
+<meta property="og:title" content="算法导论笔记(6):动态规划之最长公共子序列问题">
+<meta property="og:url" content="http://www.yyliu.cn/post/99973ea9.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并">
+<meta property="og:description" content="前言动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/966IaaGe9a.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/Fj6KFg125D.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/KDiB5D2GFf.gif">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/6HJIm447dL.png">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/m45g7fh44J.jpg">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/blmDILI6CC.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/aiaB05fc7A.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/jcmDdCbGBe.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9Ddm42JiGB.jpg">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9l3K8FBF89.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/bkL2EGGhCH.jpg">
-<meta property="og:updated_time" content="2017-10-19T12:38:16.619Z">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/aeCeF9HKKF.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/d1IAh0FDik.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eCB708Da7j.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/9Ciaa3kDeK.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eleF0gFEFE.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/HLfLLm22B1.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/cgmbkD28H5.png">
+<meta property="og:updated_time" content="2017-11-14T12:15:50.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论笔记(3):快速排序及其性能分析">
-<meta name="twitter:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并">
-<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/966IaaGe9a.JPG">
+<meta name="twitter:title" content="算法导论笔记(6):动态规划之最长公共子序列问题">
+<meta name="twitter:description" content="前言动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）">
+<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png">
 
 
 
@@ -141,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yyliu.cn/post/afe945f0.html"/>
+  <link rel="canonical" href="http://www.yyliu.cn/post/99973ea9.html"/>
 
 
 
 
 
-  <title>算法导论笔记(3):快速排序及其性能分析 | YY Liu</title>
+  <title>算法导论笔记(6):动态规划之最长公共子序列问题 | YY Liu</title>
   
 
 
@@ -303,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/afe945f0.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/99973ea9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LIUYIYING">
@@ -320,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法导论笔记(3):快速排序及其性能分析</h1>
+          <h1 class="post-title" itemprop="name headline">算法导论笔记(6):动态规划之最长公共子序列问题</h1>
         
 
         <div class="post-meta">
@@ -332,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T10:52:59+08:00">
-                2017-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T20:08:19+08:00">
+                2017-11-14
               </time>
             
 
@@ -372,7 +369,7 @@
 
           
           
-             <span id="/post/afe945f0.html" class="leancloud_visitors" data-flag-title="算法导论笔记(3):快速排序及其性能分析">
+             <span id="/post/99973ea9.html" class="leancloud_visitors" data-flag-title="算法导论笔记(6):动态规划之最长公共子序列问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -403,51 +400,53 @@
       
 
       
-        <p>在<a href="http://www.yyliu.cn/post/97874b28.html">前面</a>的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。</p>
-<hr>
-<h2 id="分治策略"><a href="#分治策略" class="headerlink" title="分治策略"></a>分治策略</h2><p>在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并排序和本问的快速排序都是基于这一思想进行设计的。《算法导论》中是这样描述的：分治法是将原问题分解为几个规模较小但类似原问题的子问题，递归地求解这些子问题，然后再合并这些子问题的解来建立原问题的解。<br>分治模式在每层递归时遵循三个步骤：</p>
-<ul>
-<li><strong>分解</strong>(Divide)：将问题划分为一些子问题，子问题的形式与原问题一样，只是规模更小。</li>
-<li><strong>解决</strong>(Conquer):递归地求解子问题，如果子问题的规模足够小，则停止递归，直接求解。</li>
-<li><strong>合并</strong>(Combine)将子问题的解组合成原问题的。</li>
-</ul>
-<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>用分治法对快速排序进行算法描述为：</p>
-<ul>
-<li><strong>分解</strong>(Divide)：数组A[p..r]被划分为两个（可能为空）的子数组A[p..q-1]和A[q+1..r],使得A[p..q-1]中的每一个元素都小于等于A[p..q-1]和A[q+1..r]中的每个元素。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/966IaaGe9a.JPG" alt="mark"></li>
-<li><strong>解决</strong>(Conquer):递归的对两个子数组进行排序</li>
-<li><strong>合并</strong>(Combine)：由于子数组都是原址排序，所以无需合并操作。</li>
-</ul>
-<p>伪代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">QUICKSORT(A,p,r)</div><div class="line">if p&lt;r</div><div class="line">    q=PARTITION(A,p,r)</div><div class="line">    QUICKSORT(A,p,q-1)</div><div class="line">    QUICKSORT(A,q+1,r)</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PARTITION(A,p,q)     //数组A为A[p..q]</div><div class="line">    x=A[p]          //x=A[p]作为主元</div><div class="line">    i=p</div><div class="line">    for j=p+1 to q</div><div class="line">        do if A[j]&lt;=x</div><div class="line">            then i=i+1</div><div class="line">                exchange A[i]&lt;-&gt;a[j]</div><div class="line">    exchange A[p]&lt;-&gt;A[i]</div><div class="line">    return i</div><div class="line">    //以上对于n个元素的运行时间为O(n)</div></pre></td></tr></table></figure>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/Fj6KFg125D.JPG" alt="mark"><br>如图所示，对于选定的主元x，剩余的元素被分到两边，一边是小于x的元素，一边是大于x的元素。<br>下面一个例子展示了一个PARTITION操作：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/KDiB5D2GFf.gif" alt="mark"></p>
-<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>首先假设所有的元素数值都不同，因为，当存在相同元素时，有更好的算法。</p>
-<h3 id="最坏的情况"><a href="#最坏的情况" class="headerlink" title="最坏的情况"></a>最坏的情况</h3><p>当输入是的数组是顺序或者倒序时，子数组的划分则智能围绕最小或最大的元素，即，划分的两个子问题包含了0和n-1个元素，划分的总有一边只包含0个元素。运行时间T(n)为：</p>
-<p>\begin{align*} T\left( n\right) &amp; =T\left( n-1\right) +T\left( 0\right) +\theta \left( n\right) \ &amp; =T\left( n-1\right) +\theta \left( n\right) \end{align*}<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/6HJIm447dL.png" alt="mark"></p>
-<h3 id="最好的情况"><a href="#最好的情况" class="headerlink" title="最好的情况"></a>最好的情况</h3><p>如果幸运的话，PARTITION将均匀分配数组，这时运行时间T(n)为：</p>
-<p>$$\begin{align*}  T\left( n\right) &amp;=2T\left( n / 2\right) +\Theta \left( n\right) \ &amp; =\Theta \left( n\lg n\right) \end{align*}$$</p>
-<p>那么如果划分为$\dfrac{1}{10}:\dfrac {9}{10}$呢？这时T(n)为：</p>
-<p>$$T\left( n\right) =T\left(\dfrac{1}{10}n\right)+T\left(\dfrac{9} {10}n\right) +\Theta\left(n\right)$$</p>
-<p>画递归树得：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/m45g7fh44J.jpg" alt="mark"><br>树的每一层的宽度为cn，直到在深度$\log_{10}n$处达到边界条件，之后每一层的宽度至多为cn。由于</p>
-<p>$$\log_{10}n=\dfrac {1gn} {\lg 10}=\Theta \left(\lg n\right)$$</p>
-<p>$$\log_{10/9}n=\dfrac {1gn} {\lg 10/9}=\Theta \left(\lg n\right)$$<br>因此可以得到图中的结论，即当划分比例为$\dfrac {1} {10}:\dfrac {9} {10}$时，$$T\left( n\right) =O \left( n\lg n\right)$$<br>事实上，只要划分为任意常数比，算法的运行时间总为$T\left( n\right) =O\left( n\lg n\right)$。</p>
-<h2 id="快速排序的改进——随机快速排序"><a href="#快速排序的改进——随机快速排序" class="headerlink" title="快速排序的改进——随机快速排序"></a>快速排序的改进——随机快速排序</h2><h3 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h3><p>为了最大可能的避免最坏的情况，采用一种随机选择主元元素的方法，其对PARTITION的改动非常小，伪代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RANDOMIZEND-PARRIRION(A,p,q)</div><div class="line">    i=RANDOM(p,r)</div><div class="line">    exchange A[p] &lt;-&gt;A[i]</div><div class="line">    return PARTITION(A,p,r)</div></pre></td></tr></table></figure></p>
-<p>相对于快速排序，随机快速排序具有如下优点：</p>
-<ul>
-<li>运行时间不依赖于输入顺序</li>
-<li>不需要对输入分布进行任何假设</li>
-<li>没有一个特别的输入可以得到最坏的运行结果</li>
-<li>最坏的情况只能由随机数生成器的输出决定。</li>
-</ul>
-<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>下面分析随机快速排序的期望运行时间。<br>令T(n)=输入为n的随机快速排序的运行时间的随机变量，假设随机数为相互独立的。<br>对于$k=0,1,\ldots ,n-1$,定义一个随机变量指示器:</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/blmDILI6CC.JPG" alt="mark"></p>
-<p>由于所有的分割都是相等概率的，假设所有元素都是不同的，则<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/aiaB05fc7A.JPG" alt="mark"></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/jcmDdCbGBe.JPG" alt="mark"></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9Ddm42JiGB.jpg" alt="mark"></p>
-<p>将k=0,1都放入$\Theta \left( n\right)$中，则<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9l3K8FBF89.JPG" alt="mark"><br>下面，利用$\sum _{k=2}^{n-1}k1gk\leq \dfrac {1} {2}n^{2}\lg n-\dfrac {1} {8}n^{2}$(自己推倒可得)，证明$E\left[ T\left( n\right) \right] =an\lg n$:</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/bkL2EGGhCH.jpg" alt="mark"></p>
-<p>因此，随机快速排序的平均运行时间为<strong>$\Theta \left( n\lg n\right)$</strong></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>虽然快速排序存在最坏的情况，使其运行时间为$\Theta \left( n^{2}\right)$，但其性能仍然要优于归并排序，实验证明，它的速度差不多是归并排序的2倍，这是因为快速排序是<strong>原址排序</strong>，不需要消耗额外的时间访问内存。因此通常快速排序在实际排序应用中是最好的选择。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。</p>
+<p>下面，通过最长公共子序列（Longest Comment Subsequence, LCS）问题为例来对动态规划方法深入的认识。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定两个序列$x[1 .. m]$和$y[1 .. n]$，找出x和y的最长公共子序列。</p>
+<p><code>例</code> <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png" alt="mark"></p>
+<p>要注意的是最优子序列并非只有一个，BCAB、BDAB等同样也是最优子序列。</p>
+<p>最容易让人想到，也最蛮力的一种解决办法是：检查$x[1 .. m]$的每个子序列，看是否也为y[1..n]的子序列。</p>
+<p>此时，查找每个子序列需要花费$O(n)$的时间，而x序列包含$2^{m}$（可以将子序列想象成有0、1组成的序列，当x中包含该字符是记为1，否则为0，很容易得出子序列的个数为$2^{m}$）个子序列。这时，整个问题的最坏情况的运行时间为$O(n2^{m})$！是一个指数时间，是十分低效的，这显然不是我们想要的结果！</p>
+<h2 id="理论证明"><a href="#理论证明" class="headerlink" title="理论证明"></a>理论证明</h2><p>用|s|表示长度为s的序列，令$c[i,j]=|LCS(x[1 .. i],y[1 .. j])$，则$c[m,n]=|LCS(x,y)|$</p>
+<p><code>理论</code></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/aeCeF9HKKF.png?imageslim" alt="mark"></p>
+<blockquote>
+<p>证明：当$x[i]=x[j]$：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/d1IAh0FDik.png" alt="mark"></p>
+<p> 当$c[i, j]=k$，令最长公共子序列$z[1 .. k]=LCS(x[1 .. i],y[1 .. j])$。</p>
+<p>则，$z[k]=x<a href="=y[j]">i</a>$ ，也就是说，如果z不包含最后的这个字符，就可以向z中添加x[i]这个元素，使z变长。</p>
+<p>所以$z[1 .. k-1]$是$x[1 .. i-1]$和S$y[1.. j-1]$的公共子序列(CS)。下面证明$z[1 .. k-1]$是$x[1 .. i-1]$和$y[1.. j-1]$的<strong>最长</strong>公共子序列(LCS)：<br>命题：$z[1 .. k-1]=LCS(x[1 .. i-1], y[1 .. j-1])$<br>     假设w是$x[1 .. i-1]$和$y[1.. j-1]$中更长的CS，则$\left| w\right|  &gt;k-1$<br>     <strong>“剪贴”法</strong>：$w||z\left[ k\right]$（将w和z[k]连接）是$x[1 .. i-1]$和$y[1.. j-1]$的CS，且$w||z\left[ k\right]&gt;k$<br>     这与我们假设($c[i, j]=k$)向矛盾，所以假设不成立，原命题成立。<br>     即$c[i-1,j-2]=k-1$，这表明$c[i,j]=c[i-1,j-1]+1$。<br>     其它情况同理可证。</p>
+<p><strong>动态规划特征#1</strong></p>
+<p>最优子结构：一个问题（实例）的最优解包含了子问题的最优解。</p>
+</blockquote>
+<p>在LCS问题中可以描述为：如果$z=LCS(x,y)$，那么z任何的前缀都是某个x的前缀和某个y的前缀的LCS。</p>
+<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>LSC的递归算法如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">LCS(x,y,i,j)</div><div class="line">  <span class="keyword">if</span> x[i]=x[j]</div><div class="line">  	c[i,j]=LCS(x,y,i<span class="number">-1</span>,j<span class="number">-1</span>)+<span class="number">1</span></div><div class="line">  <span class="keyword">else</span> </div><div class="line">    c[i,j]=max&#123;LCS(x,y,i<span class="number">-1</span>,j),LCS(x,y,i,j<span class="number">-1</span>)&#125;</div></pre></td></tr></table></figure>
+<p>最坏的情况：$x\left[ i\right] \neq y\left[ j\right] $时，算法对两个子问题进行评估，每个子问题只有一个参数递减。</p>
+<p>递归树如下图：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eCB708Da7j.png?imageslim" alt="mark"></p>
+<p>可以看到过程中有一些子问题是相同的，下面就要介绍动态规划的第二个特征：</p>
+<blockquote>
+<p>动态规划特征#2</p>
+<p>重叠子问题：一个递归过程包含少数独立的子问题被反复计算多次。</p>
+</blockquote>
+<p> LCS问题包含了mn个不同的子问题。</p>
+<p> 上述递归算法，计算了多个重复的子问题，为了提高算法效率，采用<strong>备忘法</strong>进行优化，也即在计算了一个子问题的解决方案后，将它存储在一个表中，随后的调用检查表以避免重做工作。下面是伪代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">LCS(x,y,i,j)</div><div class="line">  <span class="keyword">if</span> c[i,j]=NIL</div><div class="line">  	<span class="keyword">if</span> x[i]=y[j]</div><div class="line">  		c[i,j]=LCS(x,y,i<span class="number">-1</span>,j<span class="number">-1</span>)+<span class="number">1</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">      	c[i,j]=max&#123;LCS(x,y,i<span class="number">-1</span>,j),LCS(x,y,i,j<span class="number">-1</span>)&#125;</div></pre></td></tr></table></figure>
+<p>时间复杂度为$\Theta\left( mn\right) $，空间复杂度为$\Theta\left( mn\right) $。</p>
+<h2 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h2><p>自下而上的计算如图的表格，通过跟踪向后键重建LCS。时间复杂度为$\Theta\left( mn\right) $，空间复杂度为$\Theta\left( mn\right) $。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/9Ciaa3kDeK.png" alt="mark"></p>
+<p>《算法导论》中给出了伪代码：</p>
+<ol>
+<li><p>计算LCS长度：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eleF0gFEFE.png" alt="mark"></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/HLfLLm22B1.png" alt="mark"></p>
+</li>
+<li><p>构造LCS表：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/cgmbkD28H5.png" alt="mark"></p>
+<p>该过程的运行时间为$O(m+n)$，因为每次递归调用，i和j至少有一个会减少1。</p>
+</li>
+</ol>
 
       
 	  
@@ -465,7 +464,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.yyliu.cn/post/afe945f0.html" title="算法导论笔记(3):快速排序及其性能分析">http://www.yyliu.cn/post/afe945f0.html</a>
+      <a href="http://www.yyliu.cn/post/99973ea9.html" title="算法导论笔记(6):动态规划之最长公共子序列问题">http://www.yyliu.cn/post/99973ea9.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>原创声明： </strong>
@@ -526,9 +525,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
-            <a href="/tags/排序/" rel="tag"># 排序</a>
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
           
         </div>
       
@@ -541,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/7cabb4ff.html" rel="next" title="论文笔记：Densely Connected Convolutional Networks(DenseNet模型)">
-                <i class="fa fa-chevron-left"></i> 论文笔记：Densely Connected Convolutional Networks(DenseNet模型)
+              <a href="/post/98f32ea9.html" rel="next" title="算法导论笔记(5):选择（SELECT）算法">
+                <i class="fa fa-chevron-left"></i> 算法导论笔记(5):选择（SELECT）算法
               </a>
             
           </div>
@@ -550,10 +547,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/89458415.html" rel="prev" title="TensorFlow数据读取方式（3种方法）">
-                TensorFlow数据读取方式（3种方法） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -708,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分治策略"><span class="nav-number">1.</span> <span class="nav-text">分治策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">2.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">3.</span> <span class="nav-text">算法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最坏的情况"><span class="nav-number">3.1.</span> <span class="nav-text">最坏的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最好的情况"><span class="nav-number">3.2.</span> <span class="nav-text">最好的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序的改进——随机快速排序"><span class="nav-number">4.</span> <span class="nav-text">快速排序的改进——随机快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-number">4.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-number">4.2.</span> <span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理论证明"><span class="nav-number">3.</span> <span class="nav-text">理论证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">4.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划算法"><span class="nav-number">5.</span> <span class="nav-text">动态规划算法</span></a></li></ol></div>
             
 
           </div>
