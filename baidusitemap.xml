@@ -4,14 +4,202 @@
 
     
   <url>
+    <loc>http://www.yyliu.cn/post/efadff7.html</loc>
+    <lastmod>2017-11-16T03:59:55.646Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(8)：散列表之解决冲突</title>
+        <pubTime>2017-11-15T16:00:00.000Z</pubTime>
+        
+        <tag>散列表</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/92a016db.html</loc>
+    <lastmod>2017-11-16T03:51:29.292Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(7)：散列表和散列函数</title>
+        <pubTime>2017-11-16T03:48:19.000Z</pubTime>
+        
+        <tag>散列表</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/97874b28.html</loc>
+    <lastmod>2017-11-16T03:51:03.268Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(1)：排序问题之插入排序和归并排序</title>
+        <pubTime>2017-09-17T13:14:09.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.yyliu.cn/post/99973ea9.html</loc>
-    <lastmod>2017-11-14T12:25:05.577Z</lastmod>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
     <data>
         <display>
         <title>算法导论笔记(6):动态规划之最长公共子序列问题</title>
         <pubTime>2017-11-14T12:08:19.000Z</pubTime>
         
         <tag>动态规划</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/fed5ecee.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</title>
+        <pubTime>2017-09-22T09:22:24.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(3):快速排序及其性能分析</title>
+        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>windows上Git的安装和使用</title>
+        <pubTime>2017-09-15T09:49:12.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/98f32ea9.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(5):选择（SELECT）算法</title>
+        <pubTime>2017-10-20T15:28:36.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/89458415.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow数据读取方式（3种方法）</title>
+        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>TensorFlow数据读取</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/ae831bff.html</loc>
+    <lastmod>2017-11-16T03:51:03.266Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(4):计数排序和基数排序</title>
+        <pubTime>2017-10-11T15:10:08.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
          
          
            
@@ -44,48 +232,6 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/98f32ea9.html</loc>
-    <lastmod>2017-10-20T15:41:01.469Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(5):选择（SELECT）算法</title>
-        <pubTime>2017-10-20T15:28:36.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/ae831bff.html</loc>
-    <lastmod>2017-10-19T12:47:58.957Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(4):计数排序和基数排序</title>
-        <pubTime>2017-10-11T15:10:08.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
     <lastmod>2017-10-19T12:47:46.378Z</lastmod>
     <data>
@@ -99,48 +245,6 @@
            
              
               <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
-    <lastmod>2017-10-19T12:38:16.619Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(3):快速排序及其性能分析</title>
-        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/fed5ecee.html</loc>
-    <lastmod>2017-10-19T12:37:11.018Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</title>
-        <pubTime>2017-09-22T09:22:24.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -167,70 +271,6 @@
     </url>
 
     
-  <url>
-    <loc>http://www.yyliu.cn/post/97874b28.html</loc>
-    <lastmod>2017-10-19T12:31:13.606Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(1)：排序问题之插入排序和归并排序</title>
-        <pubTime>2017-09-17T13:14:09.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/89458415.html</loc>
-    <lastmod>2017-10-13T06:23:44.713Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow数据读取方式（3种方法）</title>
-        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>TensorFlow数据读取</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
-    <lastmod>2017-09-24T09:41:40.642Z</lastmod>
-    <data>
-        <display>
-        <title>windows上Git的安装和使用</title>
-        <pubTime>2017-09-15T09:49:12.000Z</pubTime>
-        
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
     

@@ -88,13 +88,13 @@
 
 
 
-<meta name="description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并">
+<meta name="description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。">
 <meta name="keywords" content="算法,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论笔记(3):快速排序及其性能分析">
 <meta property="og:url" content="http://www.yyliu.cn/post/afe945f0.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并">
+<meta property="og:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/966IaaGe9a.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/Fj6KFg125D.JPG">
@@ -107,10 +107,10 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9Ddm42JiGB.jpg">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/9l3K8FBF89.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170928/bkL2EGGhCH.jpg">
-<meta property="og:updated_time" content="2017-10-19T12:38:16.619Z">
+<meta property="og:updated_time" content="2017-11-16T03:51:03.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论笔记(3):快速排序及其性能分析">
-<meta name="twitter:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。  分治策略在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并">
+<meta name="twitter:description" content="在前面的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。">
 <meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/966IaaGe9a.JPG">
 
 
@@ -404,7 +404,7 @@
 
       
         <p>在<a href="http://www.yyliu.cn/post/97874b28.html">前面</a>的文章中介绍了插入排序和归并排序，它们的算法复杂度分别为$\Theta \left( n^{2}\right)$和$\Theta \left( n\lg n\right)$，今天本文将介绍 快速排序算法，它被认为是实际排序应用中最好的选择，下面我们来看看快速排序的算法思想和性能分析吧。</p>
-<hr>
+<a id="more"></a>
 <h2 id="分治策略"><a href="#分治策略" class="headerlink" title="分治策略"></a>分治策略</h2><p>在介绍快速排序算法之前，我们先简单介绍一下在设计递归算法中的典型思想——分治策略，之前介绍的归并排序和本问的快速排序都是基于这一思想进行设计的。《算法导论》中是这样描述的：分治法是将原问题分解为几个规模较小但类似原问题的子问题，递归地求解这些子问题，然后再合并这些子问题的解来建立原问题的解。<br>分治模式在每层递归时遵循三个步骤：</p>
 <ul>
 <li><strong>分解</strong>(Divide)：将问题划分为一些子问题，子问题的形式与原问题一样，只是规模更小。</li>
@@ -637,7 +637,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -659,7 +659,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

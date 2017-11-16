@@ -88,13 +88,13 @@
 
 
 
-<meta name="description" content="前言动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）">
+<meta name="description" content="动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。本">
 <meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论笔记(6):动态规划之最长公共子序列问题">
 <meta property="og:url" content="http://www.yyliu.cn/post/99973ea9.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="前言动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）">
+<meta property="og:description" content="动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/aeCeF9HKKF.png?imageslim">
@@ -104,10 +104,10 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eleF0gFEFE.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/HLfLLm22B1.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/cgmbkD28H5.png">
-<meta property="og:updated_time" content="2017-11-14T12:25:05.577Z">
+<meta property="og:updated_time" content="2017-11-16T03:51:03.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论笔记(6):动态规划之最长公共子序列问题">
-<meta name="twitter:description" content="前言动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）">
+<meta name="twitter:description" content="动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。本">
 <meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png">
 
 
@@ -400,8 +400,8 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。</p>
-<p>下面，通过最长公共子序列（Longest Comment Subsequence, LCS）问题为例来对动态规划方法深入的认识。</p>
+        <p>动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。本文通过最长公共子序列（Longest Comment Subsequence, LCS）问题为例来对动态规划方法深入的认识。</p>
+<a id="more"></a>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定两个序列$x[1 .. m]$和$y[1 .. n]$，找出x和y的最长公共子序列。</p>
 <p><code>例</code> <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png" alt="mark"></p>
 <p>要注意的是最优子序列并非只有一个，BCAB、BDAB等同样也是最优子序列。</p>
@@ -551,6 +551,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/post/efadff7.html" rel="prev" title="算法导论笔记(8)：散列表之解决冲突">
+                算法导论笔记(8)：散列表之解决冲突 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -633,7 +637,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -655,7 +659,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -704,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理论证明"><span class="nav-number">3.</span> <span class="nav-text">理论证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">4.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划算法"><span class="nav-number">5.</span> <span class="nav-text">动态规划算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理论证明"><span class="nav-number">2.</span> <span class="nav-text">理论证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法描述"><span class="nav-number">3.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划算法"><span class="nav-number">4.</span> <span class="nav-text">动态规划算法</span></a></li></ol></div>
             
 
           </div>
