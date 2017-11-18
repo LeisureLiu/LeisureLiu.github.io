@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/e4lAADl96G.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170925/B39c06jk7b.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/DS2.JPG">
-<meta property="og:updated_time" content="2017-10-19T12:47:46.378Z">
+<meta property="og:updated_time" content="2017-11-16T07:15:11.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Densely Connected Convolutional Networks(DenseNet模型)">
 <meta name="twitter:description" content="CVPR 2017上，清华大学的Zhuang Liu、康奈尔大学的Gao Huang和Kilian Q.Weinberger，以及Facebook研究员Laurens van der Maaten 所作论文Densely Connected Convolutional Networks当选 ，与苹果的首篇公开论文Learning From Simulated and Unsupervised Im">
@@ -399,7 +399,7 @@
 
       
         <p>CVPR 2017上，清华大学的Zhuang Liu、康奈尔大学的Gao Huang和Kilian Q.Weinberger，以及Facebook研究员Laurens van der Maaten 所作论文<a href="https://arxiv.org/abs/1608.06993" target="_blank" rel="external"><em>Densely Connected Convolutional Networks</em></a>当选 ，与苹果的首篇公开论文<a href="https://arxiv.org/abs/1612.07828" target="_blank" rel="external"><em>Learning From Simulated and Unsupervised Images through Adversarial Training</em></a>共同获得了2017 CVPR 最佳论文。下面我们就来看看DenseNet是何方神圣吧。</p>
-<hr>
+<a id="more"></a>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>最近的研究表明，当靠近输入的层和靠近输出的层之间的连接越短，卷积神经网络就可以做得更深，精度更高且可以更加有效的训练。本文根据这一结论，提出了一种稠密卷积神经网络(Dense Convolutional Network,DenseNet)，这种结构将每一层与之前所有层相连接。传统的L层卷积神经网络有L个连接——位于每一层和其后一层之间—，而我们的神经网络有$\dfrac {L\left(L+1\right)} {2}$个直接链接。对于每一层，其输入的特征是之前所有的层，而它自己的特征图作为之后所有层的输入。DenseNet有以下几个引人注目的优点：<strong>缓解梯度消失问题，加强特征传播，鼓励特征复用，极大的减少了参数量</strong>。我们在四个极具竞争力的物体识别标准图像库(CIFAR-10,CIFAR-100, SVHN, and ImageNet)对我们所提出的结构进行测试。结果表面DenseNet在大多数的测试图像库中都获得了最好的效果，然而它只需要很少的计算两来达到很高的性能。代码参见<a href="https://github.com/liuzhuang13/DenseNet" target="_blank" rel="external">https://github.com/liuzhuang13/DenseNet</a>。</p>
 <h2 id="DenseNet与ResNet对比"><a href="#DenseNet与ResNet对比" class="headerlink" title="DenseNet与ResNet对比"></a>DenseNet与ResNet对比</h2><p>作者主要受ResNet和Highway NetWorks的启发，通过与之后的某一层进行直接连接来传递信息，下面我们直观的从结构来看ResNet和DenseNet的差异。<br>假设一个单张的图片$x_{0}$输入一个有L层的卷积网络，每层的激励函数为$H_{l}\left( \cdot \right)$，$H_{l}\left( \cdot \right)$可以是BN、ReLU、Pooling、Conv等操作的集合。假设$x_{1}$为第l层的输出。</p>
 <hr>
@@ -613,7 +613,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -624,7 +624,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -635,7 +635,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
