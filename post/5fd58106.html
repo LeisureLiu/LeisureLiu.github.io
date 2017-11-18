@@ -88,20 +88,20 @@
 
 
 
-<meta name="description" content="默认条件下，grid布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。">
+<meta name="description" content="默认条件下，grid布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。本文将介绍如何使网格的宽和高按比例分割。">
 <meta name="keywords" content="Tkinter,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Tkinter中grid布局使网格按比例分割">
 <meta property="og:url" content="http://www.yyliu.cn/post/5fd58106.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="默认条件下，grid布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。">
+<meta property="og:description" content="默认条件下，grid布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。本文将介绍如何使网格的宽和高按比例分割。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/3DJG6H8dC3.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/6IKKfbkc1K.png">
 <meta property="og:updated_time" content="2017-11-18T14:53:34.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Tkinter中grid布局使网格按比例分割">
-<meta name="twitter:description" content="默认条件下，grid布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。">
+<meta name="twitter:description" content="默认条件下，grid布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。本文将介绍如何使网格的宽和高按比例分割。">
 <meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/3DJG6H8dC3.png">
 
 
@@ -394,7 +394,7 @@
       
 
       
-        <p>默认条件下，<code>grid</code>布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。</p>
+        <p>默认条件下，<code>grid</code>布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。本文将介绍如何使网格的宽和高按比例分割。</p>
 <a id="more"></a>
 <p>如下操作：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> Tk, Label</div><div class="line"></div><div class="line">root = Tk()</div><div class="line">label1 = Label(root, text=<span class="string">'1 columns wide'</span>,bg=<span class="string">'red'</span>)</div><div class="line">label2 = Label(root, text=<span class="string">'2 columns wide'</span>,bg=<span class="string">'red'</span>)</div><div class="line"></div><div class="line">label1.grid(padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"nswe"</span>)</div><div class="line"><span class="comment">#设置columnspan=2并不会使label2的宽度变为label1的两倍！</span></div><div class="line">label2.grid(row=<span class="number">0</span>,column=<span class="number">1</span>,columnspan=<span class="number">2</span>,padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"nswe"</span>) </div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
