@@ -4,21 +4,21 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/833c7648.html</loc>
-    <lastmod>2017-11-22T13:14:58.285Z</lastmod>
+    <loc>http://www.yyliu.cn/post/7d8bbef9.html</loc>
+    <lastmod>2017-11-24T14:23:46.250Z</lastmod>
     <data>
         <display>
-        <title>Tkinter事件绑定</title>
-        <pubTime>2017-11-22T13:39:00.000Z</pubTime>
+        <title>TensorFlow 1.4的Datasets和Estimators</title>
+        <pubTime>2017-11-24T14:04:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
+        <tag>TensorFlow</tag>
          
         <tag>Python</tag>
          
          
            
              
-              <breadCrumb title="Python的GUI库Tkinter" url="http://www.yyliu.cn/categories/Python%E7%9A%84GUI%E5%BA%93Tkinter/"/>
+              <breadCrumb title="TensorFlow" url="http://www.yyliu.cn/categories/TensorFlow/"/>
           
         </display>
     </data>
@@ -26,16 +26,16 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/4121d904.html</loc>
-    <lastmod>2017-11-22T13:11:16.164Z</lastmod>
+    <loc>http://www.yyliu.cn/post/833c7648.html</loc>
+    <lastmod>2017-11-22T14:19:55.897Z</lastmod>
     <data>
         <display>
-        <title>Tkinter的布局管理pack、grid和place</title>
-        <pubTime>2017-11-22T01:46:00.000Z</pubTime>
+        <title>Tkinter事件绑定</title>
+        <pubTime>2017-11-22T13:39:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
@@ -55,9 +55,31 @@
         <title>Tkinter中使canvas组件随窗口大小变化</title>
         <pubTime>2017-11-22T02:15:00.000Z</pubTime>
         
+        <tag>Python</tag>
+         
         <tag>Tkinter</tag>
          
+         
+           
+             
+              <breadCrumb title="Python的GUI库Tkinter" url="http://www.yyliu.cn/categories/Python%E7%9A%84GUI%E5%BA%93Tkinter/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/4121d904.html</loc>
+    <lastmod>2017-11-22T13:11:16.164Z</lastmod>
+    <data>
+        <display>
+        <title>Tkinter的布局管理pack、grid和place</title>
+        <pubTime>2017-11-22T01:46:00.000Z</pubTime>
+        
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
@@ -77,9 +99,9 @@
         <title>Tkinter中grid布局使网格按比例分割</title>
         <pubTime>2017-11-18T14:52:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
@@ -99,34 +121,14 @@
         <title>Tkinter使组件大小随父组件自动调整</title>
         <pubTime>2017-11-18T13:09:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
              
               <breadCrumb title="Python的GUI库Tkinter" url="http://www.yyliu.cn/categories/Python%E7%9A%84GUI%E5%BA%93Tkinter/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/c34887c6.html</loc>
-    <lastmod>2017-11-16T07:15:11.577Z</lastmod>
-    <data>
-        <display>
-        <title>git常用指令</title>
-        <pubTime>2017-09-13T13:46:19.000Z</pubTime>
-        
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>
@@ -167,6 +169,26 @@
            
              
               <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/c34887c6.html</loc>
+    <lastmod>2017-11-16T07:15:11.577Z</lastmod>
+    <data>
+        <display>
+        <title>git常用指令</title>
+        <pubTime>2017-09-13T13:46:19.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>
@@ -236,43 +258,19 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
+    <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
     <lastmod>2017-11-16T03:51:03.267Z</lastmod>
     <data>
         <display>
-        <title>算法导论笔记(3):快速排序及其性能分析</title>
-        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
+        <title>windows上Git的安装和使用</title>
+        <pubTime>2017-09-15T09:49:12.000Z</pubTime>
         
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
+        <tag>Git</tag>
          
          
            
              
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/89458415.html</loc>
-    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow数据读取方式（3种方法）</title>
-        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>TensorFlow数据读取</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>
@@ -320,19 +318,21 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
+    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
     <lastmod>2017-11-16T03:51:03.267Z</lastmod>
     <data>
         <display>
-        <title>windows上Git的安装和使用</title>
-        <pubTime>2017-09-15T09:49:12.000Z</pubTime>
+        <title>算法导论笔记(3):快速排序及其性能分析</title>
+        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
         
-        <tag>Git</tag>
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
          
          
            
              
-              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -353,6 +353,28 @@
            
              
               <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/89458415.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow数据读取方式（3种方法）</title>
+        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>TensorFlow数据读取</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
