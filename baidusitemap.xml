@@ -4,11 +4,57 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/7d8bbef9.html</loc>
-    <lastmod>2017-11-24T14:28:06.287Z</lastmod>
+    <loc>http://www.yyliu.cn/post/b45057eb.html</loc>
+    <lastmod>2017-11-30T02:35:36.407Z</lastmod>
     <data>
         <display>
-        <title>TensorFlow 1.4的Datasets和Estimators</title>
+        <title>TensorFlow 1.4：Importing Data</title>
+        <pubTime>2017-11-30T02:33:00.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>数据读取</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/89458415.html</loc>
+    <lastmod>2017-11-30T02:34:53.867Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow数据读取方式（3种方法）</title>
+        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>数据读取</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/7d8bbef9.html</loc>
+    <lastmod>2017-11-29T15:10:22.252Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow 1.4：介绍Datasets和Estimators</title>
         <pubTime>2017-11-24T14:04:00.000Z</pubTime>
         
         <tag>TensorFlow</tag>
@@ -18,7 +64,27 @@
          
            
              
-              <breadCrumb title="TensorFlow" url="http://www.yyliu.cn/categories/TensorFlow/"/>
+              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/fed5ecee.html</loc>
+    <lastmod>2017-11-29T15:10:22.252Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</title>
+        <pubTime>2017-09-22T09:22:24.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -156,26 +222,6 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
-    <lastmod>2017-11-16T07:15:11.577Z</lastmod>
-    <data>
-        <display>
-        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
-        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
-        
-        <tag>Deep Learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.yyliu.cn/post/c34887c6.html</loc>
     <lastmod>2017-11-16T07:15:11.577Z</lastmod>
     <data>
@@ -189,6 +235,26 @@
            
              
               <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
+    <lastmod>2017-11-16T07:15:11.577Z</lastmod>
+    <data>
+        <display>
+        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
+        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
+        
+        <tag>Deep Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -258,19 +324,21 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
+    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
     <lastmod>2017-11-16T03:51:03.267Z</lastmod>
     <data>
         <display>
-        <title>windows上Git的安装和使用</title>
-        <pubTime>2017-09-15T09:49:12.000Z</pubTime>
+        <title>算法导论笔记(3):快速排序及其性能分析</title>
+        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
         
-        <tag>Git</tag>
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
          
          
            
              
-              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -318,63 +386,19 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
+    <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
     <lastmod>2017-11-16T03:51:03.267Z</lastmod>
     <data>
         <display>
-        <title>算法导论笔记(3):快速排序及其性能分析</title>
-        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
+        <title>windows上Git的安装和使用</title>
+        <pubTime>2017-09-15T09:49:12.000Z</pubTime>
         
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
+        <tag>Git</tag>
          
          
            
              
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/fed5ecee.html</loc>
-    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</title>
-        <pubTime>2017-09-22T09:22:24.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/89458415.html</loc>
-    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow数据读取方式（3种方法）</title>
-        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>TensorFlow数据读取</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>

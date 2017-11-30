@@ -290,6 +290,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/b45057eb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/post/b45057eb.html" itemprop="url">TensorFlow 1.4：Importing Data</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T10:33:00+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TensorFlow学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/b45057eb.html" class="leancloud_visitors" data-flag-title="TensorFlow 1.4：Importing Data">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        
+          <p>相比于之前的版本，TensorFlow 1.4的版本在数据读取的方式上作了很大改变——增加了一个Dataset的API，与使用feed_dict或基于队列的管道相比，这个API的性能要高得多，而且它更干净、更容易使用。我曾在之前的<a href="http://www.yyliu.cn/post/89458415.html">博客</a>上总结了TensorFlow读取数据的几种方式，而本文我们将看到Dataset给我们带来的读取数据的新方法。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/post/b45057eb.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+	  
+     
+    
+    </div>
+    
+    
+    
+	
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/7d8bbef9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -309,7 +474,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/7d8bbef9.html" itemprop="url">TensorFlow 1.4的Datasets和Estimators</a></h1>
+                <a class="post-title-link" href="/post/7d8bbef9.html" itemprop="url">TensorFlow 1.4：介绍Datasets和Estimators</a></h1>
         
 
         <div class="post-meta">
@@ -344,8 +509,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
-                    <span itemprop="name">TensorFlow</span>
+                  <a href="/categories/TensorFlow学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">TensorFlow学习笔记</span>
                   </a>
                 </span>
 
@@ -361,7 +526,7 @@
 
           
           
-             <span id="/post/7d8bbef9.html" class="leancloud_visitors" data-flag-title="TensorFlow 1.4的Datasets和Estimators">
+             <span id="/post/7d8bbef9.html" class="leancloud_visitors" data-flag-title="TensorFlow 1.4：介绍Datasets和Estimators">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,7 +565,6 @@
 <li>引入了效用函数tf.estimator.train_and_evaluate，这能简化训练、评估以及输出Estimator模型的过程，该函数在训练和评估过程中能支持分布式执行，同时也仍然支持本地执行。</li>
 </ul>
 <p>本文翻译自TensorFlow Team发布的博客<a href="https://developers.googleblog.com/2017/09/introducing-tensorflow-datasets.html" target="_blank" rel="external"><em>Introduction to TensorFlow Datasets and Estimators</em></a>，该文章通过一个实例来帮助大家理解和使用Datasets和Estimators。</p>
-<hr>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/7d8bbef9.html#more" rel="contents">
@@ -944,171 +1108,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/5fd58106.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LIUYIYING">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YY Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/5fd58106.html" itemprop="url">Tkinter中grid布局使网格按比例分割</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T22:52:00+08:00">
-                2017-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python的GUI库Tkinter/" itemprop="url" rel="index">
-                    <span itemprop="name">Python的GUI库Tkinter</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/post/5fd58106.html" class="leancloud_visitors" data-flag-title="Tkinter中grid布局使网格按比例分割">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-	
-      
-      
-
-      
-        
-          <p>默认条件下，<code>grid</code>布局管理器分割网格的的列的宽度等于该列中组件最宽的宽度，而行的高度等于该列中组件最高的高度，并且，如果某一列不含组件，那么该列的宽度就为零。本文将介绍如何使网格的宽和高按比例分割。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/5fd58106.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-	  
-     
-    
-    </div>
-    
-    
-    
-	
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-	 
-      
-     
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1162,7 +1161,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1173,7 +1172,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
