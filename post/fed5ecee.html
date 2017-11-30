@@ -401,11 +401,11 @@
 
       
         <p>算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。<br><a id="more"></a></p>
-<h2 id="渐进符号介绍"><a href="#渐进符号介绍" class="headerlink" title="渐进符号介绍"></a>渐进符号介绍</h2><p><strong>$\Theta$记号</strong>：$\Theta \left( g\left( n\right) \right) =${$f\left( n\right)$: 存在正常量$c_{1}$、$c_{2}$和$n_{0}$，使得对所有$n\geq n_{0}$,有$0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)$} </p>
+<h2 id="1-渐进符号介绍"><a href="#1-渐进符号介绍" class="headerlink" title="1. 渐进符号介绍"></a>1. 渐进符号介绍</h2><p><strong>$\Theta$记号</strong>：$\Theta \left( g\left( n\right) \right) =${$f\left( n\right)$: 存在正常量$c_{1}$、$c_{2}$和$n_{0}$，使得对所有$n\geq n_{0}$,有$0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)$} </p>
 <p><strong>$O$记号</strong>：$O \left( g\left( n\right) \right) =${$f\left( n\right)$:存在正常量c和$n_{0}$,使得对所有$n\geq n_{0}$,有$0\leq f\left( n\right) \leq cg\left( n\right)$}</p>
 <p><strong>$\Omega$记号</strong>：$\Omega \left( g\left( n\right) \right) =${$f\left( n\right)$:存在正常量c和$n_{0}$,使得对所有$n\geq n_{0}$,有$0\leq cg\left( n\right) \leq f\left( n\right)$}</p>
 <p>直观的来看，三种渐进记号与于原函数的关系如下图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/H75IG06djJ.JPG" alt="mark"><br>可以看到，对于$\theta$记号，总存在正常数$c_{1}$、$c_{2}$，使得对于足够大的n，函数$f\left(<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/H75IG06djJ.JPG" alt="mark"> n\right)$能够“夹入”$c_{1}g\left(n\right)$和$c_{2}g\left(n\right)$之间；对于O记号，$n_{0}$及其右边的所有值n，函数$f\left( n\right)$的值总小于或等于$cg\left(n\right)$；对于$\Omega$记号，在$n_{0}$及其右边的所有值n，函数$f\left( n\right)$的值总大于或等于$cg\left(n\right)$。</p>
-<h2 id="求解递归方程"><a href="#求解递归方程" class="headerlink" title="求解递归方程"></a>求解递归方程</h2><h3 id="代入法"><a href="#代入法" class="headerlink" title="代入法"></a>代入法</h3><p>这是一种最一般的方法，包含以下步骤：</p>
+<h2 id="3-求解递归方程"><a href="#3-求解递归方程" class="headerlink" title="3. 求解递归方程"></a>3. 求解递归方程</h2><h3 id="代入法"><a href="#代入法" class="headerlink" title="代入法"></a>代入法</h3><p>这是一种最一般的方法，包含以下步骤：</p>
 <ol>
 <li><strong>猜测</strong>结果的形式； </li>
 <li>用归纳法<strong>验证</strong>；</li>
@@ -690,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进符号介绍"><span class="nav-number">1.</span> <span class="nav-text">渐进符号介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解递归方程"><span class="nav-number">2.</span> <span class="nav-text">求解递归方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代入法"><span class="nav-number">2.1.</span> <span class="nav-text">代入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归树法"><span class="nav-number">2.2.</span> <span class="nav-text">递归树法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主方法"><span class="nav-number">2.3.</span> <span class="nav-text">主方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-渐进符号介绍"><span class="nav-text">1. 渐进符号介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-求解递归方程"><span class="nav-text">3. 求解递归方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代入法"><span class="nav-text">代入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归树法"><span class="nav-text">递归树法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主方法"><span class="nav-text">主方法</span></a></li></ol></li></ol></div>
             
 
           </div>
