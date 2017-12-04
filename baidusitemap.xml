@@ -4,11 +4,55 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/b45057eb.html</loc>
-    <lastmod>2017-11-30T03:02:16.223Z</lastmod>
+    <loc>http://www.yyliu.cn/post/6e3cf3f5.html</loc>
+    <lastmod>2017-12-04T09:30:01.569Z</lastmod>
     <data>
         <display>
-        <title>TensorFlow 1.4：Importing Data</title>
+        <title>Java多线程(2)：线程同步和线程间通信</title>
+        <pubTime>2017-12-04T09:26:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>多线程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java学习笔记" url="http://www.yyliu.cn/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/f13b8cb9.html</loc>
+    <lastmod>2017-12-04T09:30:01.566Z</lastmod>
+    <data>
+        <display>
+        <title>Java多线程(1)：创建任务和线程</title>
+        <pubTime>2017-12-04T02:33:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>多线程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java学习笔记" url="http://www.yyliu.cn/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/b45057eb.html</loc>
+    <lastmod>2017-11-30T14:39:13.109Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow 1.4：数据读取的新方式</title>
         <pubTime>2017-11-30T02:33:00.000Z</pubTime>
         
         <tag>TensorFlow</tag>
@@ -28,8 +72,28 @@
 
     
   <url>
+    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
+    <lastmod>2017-11-30T03:12:06.593Z</lastmod>
+    <data>
+        <display>
+        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
+        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
+        
+        <tag>Deep Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.yyliu.cn/post/89458415.html</loc>
-    <lastmod>2017-11-30T02:34:53.867Z</lastmod>
+    <lastmod>2017-11-30T03:12:06.593Z</lastmod>
     <data>
         <display>
         <title>TensorFlow数据读取方式（3种方法）</title>
@@ -50,8 +114,28 @@
 
     
   <url>
+    <loc>http://www.yyliu.cn/post/fed5ecee.html</loc>
+    <lastmod>2017-11-30T03:12:06.591Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</title>
+        <pubTime>2017-09-22T09:22:24.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.yyliu.cn/post/7d8bbef9.html</loc>
-    <lastmod>2017-11-29T15:10:22.252Z</lastmod>
+    <lastmod>2017-11-30T03:12:06.590Z</lastmod>
     <data>
         <display>
         <title>TensorFlow 1.4：介绍Datasets和Estimators</title>
@@ -72,19 +156,63 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/fed5ecee.html</loc>
-    <lastmod>2017-11-29T15:10:22.252Z</lastmod>
+    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
+    <lastmod>2017-11-30T03:12:06.589Z</lastmod>
     <data>
         <display>
-        <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</title>
-        <pubTime>2017-09-22T09:22:24.000Z</pubTime>
+        <title>算法导论笔记(3):快速排序及其性能分析</title>
+        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
         
         <tag>算法</tag>
+         
+        <tag>排序</tag>
          
          
            
              
               <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/97874b28.html</loc>
+    <lastmod>2017-11-30T03:12:06.589Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(1)：排序问题之插入排序和归并排序</title>
+        <pubTime>2017-09-17T13:14:09.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/3f75d00c.html</loc>
+    <lastmod>2017-11-30T03:12:06.587Z</lastmod>
+    <data>
+        <display>
+        <title>计算机硬件系统概述</title>
+        <pubTime>2017-10-18T14:30:52.000Z</pubTime>
+        
+        <tag>计算机硬件</tag>
+         
+         
+           
+             
+              <breadCrumb title="Liunx学习笔记" url="http://www.yyliu.cn/categories/Liunx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -114,12 +242,12 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/bc4078e1.html</loc>
+    <loc>http://www.yyliu.cn/post/4121d904.html</loc>
     <lastmod>2017-11-22T13:11:16.164Z</lastmod>
     <data>
         <display>
-        <title>Tkinter中使canvas组件随窗口大小变化</title>
-        <pubTime>2017-11-22T02:15:00.000Z</pubTime>
+        <title>Tkinter的布局管理pack、grid和place</title>
+        <pubTime>2017-11-22T01:46:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -136,12 +264,12 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/4121d904.html</loc>
+    <loc>http://www.yyliu.cn/post/bc4078e1.html</loc>
     <lastmod>2017-11-22T13:11:16.164Z</lastmod>
     <data>
         <display>
-        <title>Tkinter的布局管理pack、grid和place</title>
-        <pubTime>2017-11-22T01:46:00.000Z</pubTime>
+        <title>Tkinter中使canvas组件随窗口大小变化</title>
+        <pubTime>2017-11-22T02:15:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -202,46 +330,6 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/3f75d00c.html</loc>
-    <lastmod>2017-11-16T07:15:11.577Z</lastmod>
-    <data>
-        <display>
-        <title>计算机硬件系统概述</title>
-        <pubTime>2017-10-18T14:30:52.000Z</pubTime>
-        
-        <tag>计算机硬件</tag>
-         
-         
-           
-             
-              <breadCrumb title="Liunx学习笔记" url="http://www.yyliu.cn/categories/Liunx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
-    <lastmod>2017-11-16T07:15:11.577Z</lastmod>
-    <data>
-        <display>
-        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
-        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
-        
-        <tag>Deep Learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.yyliu.cn/post/c34887c6.html</loc>
     <lastmod>2017-11-16T07:15:11.577Z</lastmod>
     <data>
@@ -255,28 +343,6 @@
            
              
               <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/97874b28.html</loc>
-    <lastmod>2017-11-16T06:51:28.203Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(1)：排序问题之插入排序和归并排序</title>
-        <pubTime>2017-09-17T13:14:09.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -324,48 +390,6 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/99973ea9.html</loc>
-    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(6):动态规划之最长公共子序列问题</title>
-        <pubTime>2017-11-14T12:08:19.000Z</pubTime>
-        
-        <tag>动态规划</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
-    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(3):快速排序及其性能分析</title>
-        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.yyliu.cn/post/294b4ea3.html</loc>
     <lastmod>2017-11-16T03:51:03.267Z</lastmod>
     <data>
@@ -379,6 +403,26 @@
            
              
               <breadCrumb title="实用工具" url="http://www.yyliu.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/99973ea9.html</loc>
+    <lastmod>2017-11-16T03:51:03.267Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(6):动态规划之最长公共子序列问题</title>
+        <pubTime>2017-11-14T12:08:19.000Z</pubTime>
+        
+        <tag>动态规划</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
