@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG">
-<meta property="og:updated_time" content="2017-11-30T03:12:06.589Z">
+<meta property="og:updated_time" content="2017-12-06T02:29:11.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论笔记(1)：排序问题之插入排序和归并排序">
 <meta name="twitter:description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。">
@@ -417,7 +417,7 @@
 </ol>
 <h2 id="4-归并算法-Merge-Sort"><a href="#4-归并算法-Merge-Sort" class="headerlink" title="4. 归并算法(Merge Sort)"></a>4. 归并算法(Merge Sort)</h2><h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>伪代码如下：<br>​<br>    MERGE-SORTA[1 . . n]<br>    1.If n= 1, done.<br>    2.Recursively sort A[ 1 . . ⎡n/2⎤]and A[ ⎡n/2⎤+1 . . n ] .<br>    3.“Merge”the 2sorted lists.<br>    Key subroutine:MERGE</p>
 <p>以下是对数组 [5, 2, 4, 6, 1, 3, 2, 6]，归并排序的流程：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG" alt="mark"></p>
-<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>根据伪代码流程，我们可以得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG" alt="mark"><br>所以归并算法的运行时间可以由一下递归式表示：<br>$$T\left( n\right) =\begin{cases} \Theta \left( 1\right) if  n=1;\ 2T\left( n / 2\right) +\Theta \left( n\right)  if n&gt;1.\end{cases}$$<br>用递归树的方法解上式如下：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG" alt="mark"><br>即归并算法的运行时间为$\Theta \left( n\lg n\right)$.</p>
+<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>根据伪代码流程，我们可以得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG" alt="mark"><br>所以归并算法的运行时间可以由一下递归式表示：<br>$$T\left( n\right) =\begin{cases} \Theta \left( 1\right) \  \ \ \ \ \ \ \ \ \ \ if\  n=1;\ 2T\left( n / 2\right) +\Theta \left( n\right)\  if\  n&gt;1.\end{cases}$$<br>用递归树的方法解上式如下：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG" alt="mark"><br>即归并算法的运行时间为$\Theta \left( n\lg n\right)$.</p>
 <p>结论:由于$\Theta \left( n\lg n\right)$增长速度要比$\Theta \left( n^{2}\right)$,所以归并排序的性能要由于插入排序，在实际测试中，当n的值大于30时，归并排序就开始占优势了！</p>
 
       
