@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="YY Liu">
 <meta property="og:description" content="在Tkinter中，所有的组件都包含几何管理方法，这些方法用于组织和管理整个父组件的布局。Tkinter提供了三种布局管理器，分别是pack、grid和place，本文就将对这三种布局管理器进行简单的介绍。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T13:11:16.164Z">
+<meta property="og:updated_time" content="2017-12-05T15:07:57.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tkinter的布局管理pack、grid和place">
 <meta name="twitter:description" content="在Tkinter中，所有的组件都包含几何管理方法，这些方法用于组织和管理整个父组件的布局。Tkinter提供了三种布局管理器，分别是pack、grid和place，本文就将对这三种布局管理器进行简单的介绍。">
@@ -389,62 +389,68 @@
       
 
       
-        <p> 在Tkinter中，所有的组件都包含几何管理方法，这些方法用于组织和管理整个父组件的布局。Tkinter提供了三种布局管理器，分别是pack、grid和place，本文就将对这三种布局管理器进行简单的介绍。</p>
+        <p>在Tkinter中，所有的组件都包含几何管理方法，这些方法用于组织和管理整个父组件的布局。Tkinter提供了三种布局管理器，分别是pack、grid和place，本文就将对这三种布局管理器进行简单的介绍。</p>
 <a id="more"></a>
-<h2 id="pack"><a href="#pack" class="headerlink" title="pack()"></a>pack()</h2><p>pack几何管理采用块的方式组织配件，在快速生成界面设计中广泛采用，若干组件简单的布局，采用pack的代码量最少。pack几何管理程序根据组件创建生成的顺序将组件添加到父组件中去。通过设置相同的锚点（anchor）可以将一组配件紧挨一个地方放置，如果不指定任何选项，默认在父窗体中自顶向下添加组件。</p>
+<h2 id="pack">pack()</h2>
+<p>pack几何管理采用块的方式组织配件，在快速生成界面设计中广泛采用，若干组件简单的布局，采用pack的代码量最少。pack几何管理程序根据组件创建生成的顺序将组件添加到父组件中去。通过设置相同的锚点（anchor）可以将一组配件紧挨一个地方放置，如果不指定任何选项，默认在父窗体中自顶向下添加组件。</p>
 <p>使用pack()布局的通用公式为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">w.pack(option=value,...)</div></pre></td></tr></table></figure>
 <p>pack方法提供了以下option选项，选项可以直接赋值或以字典变量加以修改：</p>
 <table>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 43%">
+<col style="width: 43%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>option</th>
 <th>描述</th>
 <th>取值</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>expand</td>
 <td>当值为“yes”时，side选项无效。组件显示在父配件中心位置；若fill选项为”both”,则填充父组件的剩余空间。</td>
 <td>“yes”, 自然数, “no”（ 默认值为“no”或0）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>fill</td>
 <td>填充x(y)方向上的空间，当属性side=”top”或”bottom”时，填充x方向；当属性side=”left”或”right”时，填充”y”方向；当expand选项为”yes”时，填充父组件的剩余空间。</td>
-<td>“x”,”y”,”both”（默认值为待选）</td>
+<td>“x”,“y”,“both”（默认值为待选）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ipadx, ipady</td>
 <td>组件内部在x(y)方向上填充的空间大小，默认单位为像素，可选单位为c（厘米）、m（毫米）、 i（英寸）、p（打印机的点，即1/27英寸），用法为在值后加以上一个后缀既可。</td>
 <td>非负浮点数（默认值为0.0）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>padx, pady</td>
 <td>组件外部在x(y)方向上填充的空间大小，默认单位为像素，可选单位为c（厘米）、m（毫米）、 i（英寸）、p（打印机的点，即1/27英寸），用法为在值后加以上一个后缀既可。</td>
 <td>非负浮点数（默认值为0.0）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>side</td>
 <td>定义停靠在父组件的哪一边上。</td>
 <td>“top”, “bottom”, “left”, “right” （默认为”top”）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>before</td>
 <td>将本组件于所选组建对象之前pack，类似于先创建本组件再创建选定组件。</td>
 <td>已经pack后的组件对象</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>after</td>
 <td>将本组件于所选组建对象之后pack，类似于先创建选定组件再本组件。</td>
 <td>已经pack后的组件对象</td>
 </tr>
-<tr>
+<tr class="even">
 <td>in_</td>
 <td>将本组件作为所选组建对象的子组件，类似于指定本组件的master为选定组件。</td>
 <td>已经pack后的组件对象</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>anchor</td>
 <td>对齐方式，左对齐”w”，右对齐”e”，顶对齐”n”，底对齐”s”</td>
 <td>“n”, “s”, “w”, “e”, “nw”, “sw”, “se”, “ne”, “center” (默认为” center”)</td>
@@ -456,89 +462,99 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#单组件填充满父组件</span></div><div class="line"><span class="keyword">import</span> Tkinter <span class="keyword">as</span> tk</div><div class="line">root=tk.Tk()</div><div class="line">label=tk.Label(root,bg=<span class="string">"red"</span>,text=<span class="string">"It is a label"</span>)</div><div class="line">label.pack(fill=<span class="string">"both"</span>,expand=<span class="keyword">True</span>,padx=<span class="number">5</span>,pady=<span class="number">5</span>)</div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#多组件布局（从左往右）</span></div><div class="line"><span class="keyword">import</span> Tkinter <span class="keyword">as</span> tk</div><div class="line">root=tk.Tk()</div><div class="line">btn=tk.Button(root,text=<span class="string">"button"</span>)</div><div class="line">btn.pack(side=tk.LEFT, padx=<span class="number">4</span>)    <span class="comment">#x轴左右拓展4个像素。</span></div><div class="line">label=tk.Label(root,text=<span class="string">"It is a Label"</span>)</div><div class="line">label.pack(side=tk.LEFT,padx=<span class="number">4</span>)</div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
 <p>pack提供以下函数：</p>
-<table>
+<table style="width:83%;">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 56%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>函数名</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>slaves()</td>
 <td>以列表方式返回本组件的所有子组件对象。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>propagate(boolean)</td>
 <td>设置为True表示父组件的几何大小由子组件决定（默认值），反之则无关。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>forget()</td>
 <td>返回pack提供的选项所对应得值。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>info()</td>
 <td>Unpack组件，将组件隐藏并且忽略原有设置，对象依旧存在，可以用pack(option, …)，将其显示。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>location(x,y)</td>
 <td>x, y为以像素为单位的点，函数返回此点是否在单元格中，在哪个单元格中。返回单元格行列坐标，(-1, -1)表示不在其中。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>size()</td>
 <td>返回组件所包含的单元格，揭示组件大小。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="grid"><a href="#grid" class="headerlink" title="grid()"></a>grid()</h2><p>grid几何管理采用类似表格的结构组织配件，使用起来非常灵活，用其设计对话框和带有滚动条的窗体效果最好。grid采 用行列确定位置，行列交汇处为一个单元格。每一列中，列宽由这一列中最宽的单元格确定。每一行中，行高由这一行中最高的单元格决定。组件并不是充满整个单 元格的，你可以指定单元格中剩余空间的使用。你可以空出这些空间，也可以在水平或竖直或两个方向上填满这些空间。你可以连接若干个单元格为一个更大空间， 这一操作被称作跨越。创建的单元格必须相临。</p>
+<h2 id="grid">grid()</h2>
+<p>grid几何管理采用类似表格的结构组织配件，使用起来非常灵活，用其设计对话框和带有滚动条的窗体效果最好。grid采 用行列确定位置，行列交汇处为一个单元格。每一列中，列宽由这一列中最宽的单元格确定。每一行中，行高由这一行中最高的单元格决定。组件并不是充满整个单 元格的，你可以指定单元格中剩余空间的使用。你可以空出这些空间，也可以在水平或竖直或两个方向上填满这些空间。你可以连接若干个单元格为一个更大空间， 这一操作被称作跨越。创建的单元格必须相临。</p>
 <p>使用grid()布局的通用公式为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">w.grid(option, …)</div></pre></td></tr></table></figure>
-<p> grid方法提供了下列option选项，选项可以直接赋值或以字典变量加以修改：</p>
+<p>grid方法提供了下列option选项，选项可以直接赋值或以字典变量加以修改：</p>
 <table>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 43%">
+<col style="width: 43%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>option</th>
 <th>描述</th>
 <th>取值</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>column</td>
 <td>组件所置单元格的列号。</td>
 <td>自然数（起始默认值为0，而后累加）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>columnspan</td>
 <td>从组件所置单元格算起在列方向上的跨度。</td>
 <td>自然数（起始默认值为0）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ipadx, ipady</td>
 <td>组件内部在x(y)方向上填充的空间大小，默认单位为像素，可选单位为c（厘米）、m（毫米）、 i（英寸）、p（打印机的点，即1/27英寸），用法为在值后加以上一个后缀既可。</td>
 <td>非负浮点数（默认值为0.0）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>padx, pady</td>
 <td>组件外部在x(y)方向上填充的空间大小，默认单位为像素，可选单位为c（厘米）、m（毫米）、 i（英寸）、p（打印机的点，即1/27英寸），用法为在值后加以上一个后缀既可。</td>
 <td>非负浮点数（默认值为0.0）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>row</td>
 <td>组件所置单元格的行号。</td>
 <td>自然数（起始默认值为0，而后累加）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>rowspan</td>
 <td>从组件所置单元格算起在行方向上的跨度。</td>
 <td>自然数（起始默认值为0）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>in_</td>
 <td>将本组件作为所选组建对象的子组件，类似于指定本组件的master为选定组件。</td>
 <td>已经pack后的组件对象</td>
 </tr>
-<tr>
+<tr class="even">
 <td>sticky</td>
 <td>组件紧靠所在单元格的某一边角。</td>
 <td>“n”, “s”, “w”, “e”, “nw”, “sw”, “se”, “ne”, “center” (默认为” center”)</td>
@@ -549,98 +565,112 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#单组件填充满父组件</span></div><div class="line"><span class="keyword">import</span> Tkinter <span class="keyword">as</span> tk</div><div class="line"></div><div class="line">root=tk.Tk()</div><div class="line">label=tk.Label(root,bg=<span class="string">'blue'</span>)</div><div class="line">label.grid(padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"sewn"</span>)</div><div class="line">root.rowconfigure(<span class="number">0</span>,weight=<span class="number">1</span>)</div><div class="line">root.columnconfigure(<span class="number">0</span>,weight=<span class="number">1</span>)</div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#多组件布局（滚动条）</span></div><div class="line"><span class="keyword">import</span> Tkinter <span class="keyword">as</span> tk</div><div class="line"></div><div class="line">root=tk.Tk()</div><div class="line">text=tk.Text(root)</div><div class="line">text.grid()</div><div class="line"><span class="comment">#纵</span></div><div class="line">sb=tk.Scrollbar(root)</div><div class="line">sb.grid(row=<span class="number">0</span>, column=<span class="number">1</span>, sticky=<span class="string">'ns'</span>)</div><div class="line">text.configure(yscrollcommand=sb.set)</div><div class="line">sb.configure(command=text.yview)</div><div class="line"><span class="comment">#横</span></div><div class="line">sb = tk.Scrollbar(root, orient=<span class="string">"horizontal"</span>)</div><div class="line">sb.grid(row=<span class="number">1</span>, column=<span class="number">0</span>, sticky=<span class="string">'ew'</span>)</div><div class="line">text.configure(xscrollcommand=sb.set)</div><div class="line">sb.configure(command=text.xview)</div><div class="line"></div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
 <p>grid类提供以下函数：</p>
-<table>
+<table style="width:83%;">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 56%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>函数名</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>slaves()</td>
 <td>以列表方式返回本组件的所有子组件对象。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>propagate(boolean)</td>
 <td>设置为True表示父组件的几何大小由子组件决定（默认值），反之则无关。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>info()</td>
 <td>返回grid提供的选项所对应得值。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>forget()</td>
 <td>Unpack组件，将组件隐藏并且忽略原有设置，对象依旧存在，可以用grid(option, …)，将其显示，他将不会记得grid的选项</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>grid_remove ()</td>
 <td>类似forget()，但是它的grid选项会被记录，再次.grid()，它会使用与之前相同的配置选项。</td>
 </tr>
 </tbody>
 </table>
 <p>关于grid如何配置网格的宽和高，在前篇<a href="http://www.yyliu.cn/post/923013b2.html"><em>博文</em></a>中有介绍，这里只列出可选的配置选项：</p>
-<table>
+<table style="width:68%;">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 56%">
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">选项</th>
-<th style="text-align:left">说明</th>
+<tr class="header">
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">minsize</td>
-<td style="text-align:left">以像素为单位的列或行最小大小。如果在给定的列或行中没有任何内容，即使您使用此选项，也无效。</td>
+<tr class="odd">
+<td style="text-align: left;">minsize</td>
+<td style="text-align: left;">以像素为单位的列或行最小大小。如果在给定的列或行中没有任何内容，即使您使用此选项，也无效。</td>
 </tr>
-<tr>
-<td style="text-align:left">pad</td>
-<td style="text-align:left">在给定的列或行中，在列或行中最大的单元格上添加的若干像素。</td>
+<tr class="even">
+<td style="text-align: left;">pad</td>
+<td style="text-align: left;">在给定的列或行中，在列或行中最大的单元格上添加的若干像素。</td>
 </tr>
-<tr>
-<td style="text-align:left">weight</td>
-<td style="text-align:left">使组件能在行和列上进行伸缩，数值为对（父组件放大后出现的）额外空间的分配权重。如，一个组件w包含一个grid布局，当放大组件w，将把额外空间的3/4分配个第一列，1/分配给第二列： <code>w.columnconfigure(0, weight=3)</code>                                                                                   <code>w.columnconfigure(1, weight=1)</code>                                                                                                           如果未使用该选项，组件将不能伸缩。</td>
+<tr class="odd">
+<td style="text-align: left;">weight</td>
+<td style="text-align: left;">使组件能在行和列上进行伸缩，数值为对（父组件放大后出现的）额外空间的分配权重。如，一个组件w包含一个grid布局，当放大组件w，将把额外空间的3/4分配个第一列，1/分配给第二列： <code>w.columnconfigure(0, weight=3)</code> <code>w.columnconfigure(1, weight=1)</code> 如果未使用该选项，组件将不能伸缩。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="place"><a href="#place" class="headerlink" title="place()"></a>place()</h2><p>place是Tkinter提供的三个通用几何管理器中最简单的一个，它允许你以绝对值或是相对于另一个窗口的方式显式的设置窗口的位置和大小。但是一般布局并不推荐使用place()，它仅仅是为了让事情按照应有的方式工作。</p>
+<h2 id="place">place()</h2>
+<p>place是Tkinter提供的三个通用几何管理器中最简单的一个，它允许你以绝对值或是相对于另一个窗口的方式显式的设置窗口的位置和大小。但是一般布局并不推荐使用place()，它仅仅是为了让事情按照应有的方式工作。</p>
 <p>使用place()布局的通用公式为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">w.place(option=value,...)</div></pre></td></tr></table></figure>
 <p>place方法提供了下列option选项，选项可以直接赋值或以字典变量加以修改：</p>
 <table>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>option</th>
 <th>描述</th>
 <th>取值</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>anchor</td>
 <td>部件其他选项的确切位置</td>
 <td>“n”, “s”, “w”, “e”, “nw”, “sw”, “se”, “ne”, “center” (默认为” nw”)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>bordermode</td>
 <td>INSIDE(默认值)表示其他选项引用父类的内部(忽略其父边界)，OUTSIDE则不然。</td>
 <td>INSIDE, OUTSIDE（默认值为INSIDE）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>height, width</td>
 <td>部件以像素为单位的宽和高</td>
 <td>整数（无默认值）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>reheight, relwidth</td>
 <td>宽和高在0.0~1.0之间的浮点数，作为父组件宽和高的一部分</td>
 <td>0.0~1.0之间的浮点数（无默认值）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>relx, rely</td>
 <td>在0.0~1.0之间的水平和垂直偏移量，作为父组件宽和高的一部分</td>
 <td>0.0~1.0之间的浮点数（默认值为0.0）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>x, y</td>
 <td>水平和垂直的像素偏移。</td>
 <td>整数（默认值为0）</td>
@@ -854,7 +884,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -865,7 +895,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间。">
+<meta name="description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是\(O\left( n1gn\right)\)。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间">
 <meta name="keywords" content="算法,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论笔记(4):计数排序和基数排序">
 <meta property="og:url" content="http://www.yyliu.cn/post/ae831bff.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间。">
+<meta property="og:description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是\(O\left( n1gn\right)\)。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/cH2FAiHEFD.JPG">
@@ -102,10 +102,10 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/j0fe98D5i0.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/F8a0cAJ1Fj.JPG">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/de1kBiFgaG.JPG">
-<meta property="og:updated_time" content="2017-11-16T03:51:03.266Z">
+<meta property="og:updated_time" content="2017-12-06T08:58:03.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论笔记(4):计数排序和基数排序">
-<meta name="twitter:description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间。">
+<meta name="twitter:description" content="前文所介绍的插入排序、归并排序和快速排序均为比较排序，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是\(O\left( n1gn\right)\)。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到线性时间">
 <meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG">
 
 
@@ -398,38 +398,44 @@
       
 
       
-        <p>前文所介绍的插入排序、归并排序和快速排序均为<strong>比较排序</strong>，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是$O\left( n1gn\right)$。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到<strong>线性时间</strong>。</p>
+        <p>前文所介绍的插入排序、归并排序和快速排序均为<strong>比较排序</strong>，即使用比较的方法来确定元素的相对顺序，这几种排序方法中，最好的最差情况运行时间是<span class="math inline">\(O\left( n1gn\right)\)</span>。理论证明，堆排序和归并排序是渐近最优的比较排序算法，即比较排序方法中已经没有比它们时间复杂度更小的方法了。今天要介绍的计数排序和基数排序与比较排序不同，它们不对元素之间进行比较，在一定条件下，时间复杂度可以达到<strong>线性时间</strong>。</p>
 <a id="more"></a>
-<h2 id="计数排序-Counting-sort）"><a href="#计数排序-Counting-sort）" class="headerlink" title="计数排序(Counting sort）"></a>计数排序(Counting sort）</h2><h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><ul>
-<li>输入：$A\left[ 1..n\right]$，其中$A[j] \in ${ 1,2,…,k}；</li>
-<li>输出：$B\left[ 1..n\right]$，已排序；</li>
-<li>辅助存储：$C\left[ 1..k\right]$。</li>
-</ul>
-<p>伪代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">COUNTING-SORT(A,B,K)</div><div class="line">let C[0..k] be a new array</div><div class="line">for i=0 to k</div><div class="line">    C[j]=0</div><div class="line">for j=1 to A.lenght //循环结束后C[i]等于值为i的元素个数</div><div class="line">    C[A[j]]=C[A[j]]+1</div><div class="line">for i=1 to k  //循环结束后C[i]等于值小于或等于i的元素的个数</div><div class="line">    C[i]=C[i]+C[i-1]</div><div class="line">for j=A.length downto 1</div><div class="line">    B[C[A[j]]]=A[j]</div><div class="line">    C[A[j]]=C[A[j]]-1</div></pre></td></tr></table></figure></p>
-<p><code>例</code>对A[4 1 3 4 3]排序<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG" alt="mark"></p>
+<h2 id="计数排序counting-sort">计数排序(Counting sort）</h2>
+<h3 id="算法描述">算法描述</h3>
 <ul>
-<li>LOOP 1：C[1..k]所有元素赋值为0，得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/cH2FAiHEFD.JPG" alt="mark"></li>
-<li>LOOP 2：计算数值A中数值为i的元素个数， 填入C[1..k]中，得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/ajDbHaCj8k.JPG" alt="mark"></li>
-<li>LOOP 3：计算A中数值小于等于i的元素个数，填入C[1..k]中，得到：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HDA63klACH.JPG" alt="mark"></li>
-<li>LOOP 4：如图所示<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/bc2f84JC11.gif" alt="mark"></li>
+<li>输入：<span class="math inline">\(A\left[ 1..n\right]\)</span>，其中$A[j] ${ 1,2,…,k}；</li>
+<li>输出：<span class="math inline">\(B\left[ 1..n\right]\)</span>，已排序；</li>
+<li>辅助存储：<span class="math inline">\(C\left[ 1..k\right]\)</span>。</li>
 </ul>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><ul>
-<li>运行时间：4个循环时间复杂度分别为$\Theta \left( k\right)$、$\Theta \left( n\right)$、$\Theta \left( k\right)$、$\Theta \left( n\right)$。因此总的运行时间为$\Theta \left( n+k\right)$。若$k=O\left( n\right) $，那么计数排序的时间复杂度将会是$\Theta \left( n\right)$！</li>
-<li><strong>稳定的</strong>(stable)：具有相同值的元素在输出数组中的相对次序与它们在输入数组中的相对次序相同。这一重要性质使得它经常被用做我们下面要介绍的基数排序算法的子过程。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/j0fe98D5i0.JPG" alt="mark"></li>
+<p>伪代码如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">COUNTING-SORT(A,B,K)</div><div class="line">let C[0..k] be a new array</div><div class="line">for i=0 to k</div><div class="line">    C[j]=0</div><div class="line">for j=1 to A.lenght //循环结束后C[i]等于值为i的元素个数</div><div class="line">    C[A[j]]=C[A[j]]+1</div><div class="line">for i=1 to k  //循环结束后C[i]等于值小于或等于i的元素的个数</div><div class="line">    C[i]=C[i]+C[i-1]</div><div class="line">for j=A.length downto 1</div><div class="line">    B[C[A[j]]]=A[j]</div><div class="line">    C[A[j]]=C[A[j]]-1</div></pre></td></tr></table></figure></p>
+<p><code>例</code>对A[4 1 3 4 3]排序 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HmHfg9FI9J.JPG" alt="mark"></p>
+<ul>
+<li>LOOP 1：C[1..k]所有元素赋值为0，得到： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/cH2FAiHEFD.JPG" alt="mark"></li>
+<li>LOOP 2：计算数值A中数值为i的元素个数， 填入C[1..k]中，得到： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/ajDbHaCj8k.JPG" alt="mark"></li>
+<li>LOOP 3：计算A中数值小于等于i的元素个数，填入C[1..k]中，得到： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/HDA63klACH.JPG" alt="mark"></li>
+<li>LOOP 4：如图所示 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/bc2f84JC11.gif" alt="mark"></li>
+</ul>
+<h3 id="算法分析">算法分析</h3>
+<ul>
+<li>运行时间：4个循环时间复杂度分别为<span class="math inline">\(\Theta \left( k\right)\)</span>、<span class="math inline">\(\Theta \left( n\right)\)</span>、<span class="math inline">\(\Theta \left( k\right)\)</span>、<span class="math inline">\(\Theta \left( n\right)\)</span>。因此总的运行时间为<span class="math inline">\(\Theta \left( n+k\right)\)</span>。若$k=O( n) <span class="math inline">\(，那么计数排序的时间复杂度将会是\)</span>( n)$！</li>
+<li><strong>稳定的</strong>(stable)：具有相同值的元素在输出数组中的相对次序与它们在输入数组中的相对次序相同。这一重要性质使得它经常被用做我们下面要介绍的基数排序算法的子过程。 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/j0fe98D5i0.JPG" alt="mark"></li>
 <li>缺点：若要对数值很大，而数据量较小的数据进行排序，计数排序就不是一个明智的选择了。</li>
 </ul>
-<h2 id="基数排序-Radix-sort"><a href="#基数排序-Radix-sort" class="headerlink" title="基数排序(Radix sort)"></a>基数排序(Radix sort)</h2><h3 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h3><p>基数排序的核心思想就是按位排序，先排最低位，然后一次排高位，如下图：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/F8a0cAJ1Fj.JPG" alt="mark"><br>伪代码：假设n个d位的元素存放在 数组A中，其中1是最低位，d是最高位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RADIX-SORT(A,d)</div><div class="line">for i=1 to d</div><div class="line">    //用一个稳定性排序算法根据第i位对A进行排序</div></pre></td></tr></table></figure></p>
-<h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><ul>
+<h2 id="基数排序radix-sort">基数排序(Radix sort)</h2>
+<h3 id="算法描述-1">算法描述</h3>
+<p>基数排序的核心思想就是按位排序，先排最低位，然后一次排高位，如下图： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/F8a0cAJ1Fj.JPG" alt="mark"> 伪代码：假设n个d位的元素存放在 数组A中，其中1是最低位，d是最高位。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RADIX-SORT(A,d)</div><div class="line">for i=1 to d</div><div class="line">    //用一个稳定性排序算法根据第i位对A进行排序</div></pre></td></tr></table></figure></p>
+<h3 id="算法分析-1">算法分析</h3>
+<ul>
 <li>假设使用计数排序作为辅助稳定排序</li>
 <li>对n个d位元素排序</li>
-<li>每个元素可以看作有b/r次数值为0到$2^{r}$的计数排序</li>
+<li>每个元素可以看作有b/r次数值为0到<span class="math inline">\(2^{r}\)</span>的计数排序</li>
 </ul>
-<p>例如：32-bit的元素<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/de1kBiFgaG.JPG" alt="mark"></p>
+<p>例如：32-bit的元素 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171011/de1kBiFgaG.JPG" alt="mark"></p>
 <ul>
-<li>当r=8，则b/r=4，即有4次对数值范围范围为$2^{8}$ 以内的数进行计数排序 </li>
-<li>当r=16，则b/r=2，即有2次对数值范围范围为$2^{16}$ 以内的数进行计数排序</li>
+<li>当r=8，则b/r=4，即有4次对数值范围范围为<span class="math inline">\(2^{8}\)</span> 以内的数进行计数排序</li>
+<li>当r=16，则b/r=2，即有2次对数值范围范围为<span class="math inline">\(2^{16}\)</span> 以内的数进行计数排序</li>
 </ul>
-<p>前文中分析到计数排序对n个数值范围从0-k-1的数排序的时间复杂度为$\Theta \left( n+k\right)$，若将b-bit的元素分割为r-bit块，则计数排序的运行之间为$\Theta \left( n+2^{r}\right)$，由于有b/r次计数排序，所以有<br>$$T\left( n,b\right) =\Theta \left( \dfrac {b} {r}\left( n+2^{r}\right) \right) $$<br>我们要做的是选取一个r，使T(n,b)最小：<br>增大r意味着更少的计数排序计算次数，但当$r\gg \lg n$,计数排序的运行时间呈指数增长。由计数排序的运行时间我们知道，我们不希望$2^{r}\gg n$。<br>因此选择$r=\lg n$，这时$T\left( n,b\right) =\Theta \left( bn / 1gn\right) $。对于数值从0到$n^{d}-1$的数，$b=d\lg n$,此时，基数排序的运行时间为$\theta \left( dn\right)$</p>
+<p>前文中分析到计数排序对n个数值范围从0-k-1的数排序的时间复杂度为<span class="math inline">\(\Theta \left( n+k\right)\)</span>，若将b-bit的元素分割为r-bit块，则计数排序的运行之间为<span class="math inline">\(\Theta \left( n+2^{r}\right)\)</span>，由于有b/r次计数排序，所以有 <span class="math display">\[T\left( n,b\right) =\Theta \left( \dfrac {b} {r}\left( n+2^{r}\right) \right) \]</span> 我们要做的是选取一个r，使T(n,b)最小： 增大r意味着更少的计数排序计算次数，但当<span class="math inline">\(r\gg \lg n\)</span>,计数排序的运行时间呈指数增长。由计数排序的运行时间我们知道，我们不希望<span class="math inline">\(2^{r}\gg n\)</span>。 因此选择<span class="math inline">\(r=\lg n\)</span>，这时<span class="math inline">\(T\left( n,b\right) =\Theta \left( bn / 1gn\right)\)</span>。对于数值从0到<span class="math inline">\(n^{d}-1\)</span>的数，<span class="math inline">\(b=d\lg n\)</span>,此时，基数排序的运行时间为<span class="math inline">\(\Theta \left( dn\right)\)</span></p>
 <p>在实践中，基数排序对于大型输入来说是快速的，而且对于代码和维护来说也很简单。</p>
 
       
@@ -631,7 +637,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -642,7 +648,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -691,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计数排序-Counting-sort）"><span class="nav-text">计数排序(Counting sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序-Radix-sort"><span class="nav-text">基数排序(Radix sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-text">算法分析</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计数排序counting-sort"><span class="nav-text">计数排序(Counting sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序radix-sort"><span class="nav-text">基数排序(Radix sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-text">算法分析</span></a></li></ol></li></ol></div>
             
 
           </div>

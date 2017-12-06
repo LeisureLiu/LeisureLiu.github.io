@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。 一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在">
+<meta name="description" content="本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。 一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在">
 <meta name="keywords" content="Java,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java多线程(1)：创建任务和线程">
 <meta property="og:url" content="http://www.yyliu.cn/post/f13b8cb9.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。 一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在">
+<meta property="og:description" content="本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。 一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/70G771Bc3D.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/L983Imbd28.png">
-<meta property="og:updated_time" content="2017-12-04T09:30:01.566Z">
+<meta property="og:updated_time" content="2017-12-04T15:01:16.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java多线程(1)：创建任务和线程">
-<meta name="twitter:description" content="本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。 一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在">
+<meta name="twitter:description" content="本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。 一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在">
 <meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/70G771Bc3D.png">
 
 
@@ -392,26 +392,27 @@
       
 
       
-        <p> 本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。</p>
+        <p>本文是作者在阅读《Java语言程序设计》（高级篇）时，做的一些笔记。</p>
 <p>一个程序可能包含多个并发运行的任务，线程（thread）是指一个任务从头至尾的执行流。Java可以在一个程序中并发的启动多个线程。多线程可以使程序反应更快、交互性更强、执行效率更高。当运行一个应用程序时，Java解释器为main方法创建一个线程，当运行一个applet程序时，Web浏览器启动一个线程来运行applet。还可以在程序中创建附加的线程来执行并发的任务。</p>
 <a id="more"></a>
 <hr>
 <p>在Java中，每个任务都是Runnable接口的一个实例（运行对象，runnable object）。线程的本质就是便于任务执行的对象。多线程的实现按以下步骤实现：</p>
 <ul>
-<li><p><strong>任务就是对象</strong>，为了创建任务，必须首先为任务定义一个类，任务类必须实现<code>Runnable</code>接口。<code>Runnable</code>接口中包含run方法，需要实现这个方法来告诉线程将如何运行。</p>
-</li>
+<li><p><strong>任务就是对象</strong>，为了创建任务，必须首先为任务定义一个类，任务类必须实现<code>Runnable</code>接口。<code>Runnable</code>接口中包含run方法，需要实现这个方法来告诉线程将如何运行。</p></li>
 <li><p><strong>任务必须在线程中执行</strong>。使用下面语句创建任务的线程：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Thread thread=<span class="keyword">new</span> Thread(task); <span class="comment">//假设task是一个任务</span></div></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Thread thread=<span class="keyword">new</span> Thread(task); <span class="comment">//假设task是一个任务</span></div></pre></td></tr></table></figure></li>
 <li><p>调用<code>start()</code>方法告诉Java虚拟机该线程准备运行，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">thread.start()</div></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">thread.start()</div></pre></td></tr></table></figure></li>
 </ul>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/70G771Bc3D.png" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/70G771Bc3D.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <p>下面看一个例程：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskThreadDemo</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Runnable printA = <span class="keyword">new</span> PrintChar(<span class="string">'a'</span>, <span class="number">100</span>); <span class="comment">//任务一：打印字母'a'100次</span></div><div class="line">		Runnable printB = <span class="keyword">new</span> PrintChar(<span class="string">'b'</span>, <span class="number">100</span>);<span class="comment">//任务二：打印字母'b'100次</span></div><div class="line">		Runnable print100 = <span class="keyword">new</span> PrintNum(<span class="number">100</span>); <span class="comment">//任务三：打印1~100的整数</span></div><div class="line"></div><div class="line">		Thread thread1 = <span class="keyword">new</span> Thread(printA);</div><div class="line">		Thread thread2 = <span class="keyword">new</span> Thread(printB);</div><div class="line">		Thread thread3 = <span class="keyword">new</span> Thread(print100);</div><div class="line"></div><div class="line">		thread1.start();</div><div class="line">		thread2.start();</div><div class="line">		thread3.setPriority(Thread.MAX_PRIORITY);<span class="comment">//设置任务三的优先级</span></div><div class="line">		thread3.start();</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintChar</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">char</span> charToPrint;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> times;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PrintChar</span><span class="params">(<span class="keyword">char</span> c, <span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">		charToPrint = c;</div><div class="line">		times = t;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</div><div class="line">			System.out.print(charToPrint);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintNum</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> lastNum;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PrintNum</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">		lastNum = n;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		Thread thread4 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> PrintChar(<span class="string">'c'</span>, <span class="number">40</span>));</div><div class="line">		thread4.start();</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= lastNum; i++) &#123;</div><div class="line">				System.out.print(<span class="string">" "</span> + i);</div><div class="line">				<span class="keyword">if</span> (i == <span class="number">50</span>)</div><div class="line">					thread4.join();<span class="comment">//使线程thread3等待thread4的结束</span></div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (InterruptedException ex) &#123;</div><div class="line">          </div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>上述创建线程的方法对单一任务的执行是很方便的，但在执行多任务时，由于必须为每个任务创建一个线程，为每个任务开始一个新的线程可能会限制流量并造成性能低下。<strong>线程池</strong>是管理并发执行任务个数的高效方法。Java提供<code>Executor</code>接口来执行线程池中的任务，提供<code>ExecutorService</code>接口来管理和控制任务，<code>ExecutorService</code>是<code>Executor</code>的子接口。下面是一个例程，要实现的任务同上节：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/L983Imbd28.png" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171204/L983Imbd28.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.concurrent.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExecutorDemo</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">      	<span class="comment">// 创建一个最大线程为3的线程池执行器，如果括号内为1，那么三个任务将依次执行</span></div><div class="line">		<span class="comment">// ExecutorService executor=Executors.newFixedThreadPool(3);</span></div><div class="line">      </div><div class="line">		<span class="comment">// 按需创建新线程，当前面的线程可用时，则重用它们  </span></div><div class="line">		ExecutorService executor=Executors.newCachedThreadPool();</div><div class="line">		</div><div class="line">		executor.execute(<span class="keyword">new</span> PrintChar(<span class="string">'a'</span>,<span class="number">100</span>));</div><div class="line">		System.out.println();</div><div class="line">		executor.execute(<span class="keyword">new</span> PrintChar(<span class="string">'b'</span>,<span class="number">100</span>));</div><div class="line">		System.out.println();</div><div class="line">		executor.execute(<span class="keyword">new</span> PrintNum(<span class="number">100</span>));</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>参考资料：</strong></p>
 <p>《Java语言程序设计》（进阶篇）</p>
@@ -606,7 +607,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -617,7 +618,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

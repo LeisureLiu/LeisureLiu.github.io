@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
+<meta name="description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
 <meta name="keywords" content="计算机硬件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机硬件系统概述">
 <meta property="og:url" content="http://www.yyliu.cn/post/3f75d00c.html">
 <meta property="og:site_name" content="YY Liu">
-<meta property="og:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
+<meta property="og:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg">
@@ -102,7 +102,7 @@
 <meta property="og:updated_time" content="2017-11-30T03:12:06.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机硬件系统概述">
-<meta name="twitter:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
+<meta name="twitter:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
 <meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png">
 
 
@@ -395,37 +395,45 @@
       
 
       
-        <p>最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~<br>ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。</p>
+        <p>最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。</p>
 <a id="more"></a>
-<h2 id="1-计算机硬件系统"><a href="#1-计算机硬件系统" class="headerlink" title="1. 计算机硬件系统"></a>1. 计算机硬件系统</h2><p>计算机硬件组成如下图所示，其中CPU由算数逻辑单元和控制单元组成，前者主要负责程序运算和逻辑判断，后者负责协调周边组件与各单元间的工作。图中“系统单元”是指计算及壳内的主要组件，而重点在于CPU和内存储器。如图中实线箭头部分，CPU发布的控制命令使数据的流进/流出，基本上所有的数据都是流经内存储器后再转出去，并且<strong>CPU要处理的数据则完全来自于内存</strong>。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png" alt="mark"></p>
-<h3 id="主流CPU及种类"><a href="#主流CPU及种类" class="headerlink" title="主流CPU及种类"></a>主流CPU及种类</h3><p>CPU是整个计算机系统最重要的部分，主流的CPU可以分为以下两类：</p>
+<h2 id="计算机硬件系统">1. 计算机硬件系统</h2>
+<p>计算机硬件组成如下图所示，其中CPU由算数逻辑单元和控制单元组成，前者主要负责程序运算和逻辑判断，后者负责协调周边组件与各单元间的工作。图中“系统单元”是指计算及壳内的主要组件，而重点在于CPU和内存储器。如图中实线箭头部分，CPU发布的控制命令使数据的流进/流出，基本上所有的数据都是流经内存储器后再转出去，并且<strong>CPU要处理的数据则完全来自于内存</strong>。 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png" alt="mark"></p>
+<h3 id="主流cpu及种类">主流CPU及种类</h3>
+<p>CPU是整个计算机系统最重要的部分，主流的CPU可以分为以下两类：</p>
 <table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 47%">
+<col style="width: 47%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>类别</th>
-<th style="text-align:left">精简指令集（RISC）系统</th>
-<th style="text-align:left">复杂指令集（CISC）系统</th>
+<th style="text-align: left;">精简指令集（RISC）系统</th>
+<th style="text-align: left;">复杂指令集（CISC）系统</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>特点</td>
-<td style="text-align:left">微指令集较精简，每个指令运行时间很短，完成动作单纯，执行效率较好，做复杂的事要多个指令来完成</td>
-<td style="text-align:left">微指令集的每个小指令可以执行一些较低阶的硬件，每条指令的长度不同，执行每条质量花费的时间较长，但每条指令可以处理的工作较丰富</td>
+<td style="text-align: left;">微指令集较精简，每个指令运行时间很短，完成动作单纯，执行效率较好，做复杂的事要多个指令来完成</td>
+<td style="text-align: left;">微指令集的每个小指令可以执行一些较低阶的硬件，每条指令的长度不同，执行每条质量花费的时间较长，但每条指令可以处理的工作较丰富</td>
 </tr>
-<tr>
+<tr class="even">
 <td>举例</td>
-<td style="text-align:left">Sun公司的APARC系列、IBM公司的Power Arvhitrcture（ 包括PowerPC）系列和ARM系列</td>
-<td style="text-align:left">AMD、Intel、VIA等的x86架构的CPU</td>
+<td style="text-align: left;">Sun公司的APARC系列、IBM公司的Power Arvhitrcture（ 包括PowerPC）系列和ARM系列</td>
+<td style="text-align: left;">AMD、Intel、VIA等的x86架构的CPU</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>应用</td>
-<td style="text-align:left">APARC架构的计算机常用于学术领域的大型工作站中，以及银行金融体系的主服务；PowerPC架构的应用上，Sony公司的PS3使用的就是PowerPC架构的Cell处理器；手机、PDA、导航系统、网路设备（交换器、路由器等）几乎都是ARM架构的CPU</td>
-<td style="text-align:left">个人计算机 (x86架构：最早的那个由Intel发展出的CPU代号为8086，后来依此架构开发出的CPU就被成为x86架构了，后来的64位个人计算机CPU被统称为x86_64架构)</td>
+<td style="text-align: left;">APARC架构的计算机常用于学术领域的大型工作站中，以及银行金融体系的主服务；PowerPC架构的应用上，Sony公司的PS3使用的就是PowerPC架构的Cell处理器；手机、PDA、导航系统、网路设备（交换器、路由器等）几乎都是ARM架构的CPU</td>
+<td style="text-align: left;">个人计算机 (x86架构：最早的那个由Intel发展出的CPU代号为8086，后来依此架构开发出的CPU就被成为x86架构了，后来的64位个人计算机CPU被统称为x86_64架构)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-计算机运作流程"><a href="#2-计算机运作流程" class="headerlink" title="2. 计算机运作流程"></a>2. 计算机运作流程</h2><p>鸟哥将它与一个人体做对比，很形象了~ </p>
+<h2 id="计算机运作流程">2. 计算机运作流程</h2>
+<p>鸟哥将它与一个人体做对比，很形象了~</p>
 <ul>
 <li><strong>CPU=脑袋</strong>：每个人会作的事情都会一样(微指令集的差异)，但主要都是透过脑袋瓜子来进行判断不控制身体各部分的活动；</li>
 <li><strong>内存储器=脑袋中的记录区块</strong>：在实际活动过程中，我们的脑袋瓜子能够将外界的互动暂时记录起来，提供CPU来迚行判断；</li>
@@ -435,41 +443,42 @@
 <li><strong>显示适配器=脑袋中的影像</strong>：将来自眼睛的刺激转成影响后在脑袋中呈现，所以显示适配器所产生的数据源也是CPU控制的。</li>
 <li><strong>电源供应器 (Power)=心脏</strong>：所有的组件要能运作得要有足够的电力供给！</li>
 </ul>
-<h2 id="3-计算机上面常用的计算单位"><a href="#3-计算机上面常用的计算单位" class="headerlink" title="3. 计算机上面常用的计算单位"></a>3. 计算机上面常用的计算单位</h2><ul>
-<li><p>容量单位<br>１Byte=8 bits<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg" alt="mark"></p>
-</li>
-<li><p>速度单位<br>CPU的频率：MHz、GHz</p>
-<blockquote>
-<p>CPU的频率就是CPU每秒钟可以进行的工作次数，频率越高，表示CPU单位时间可以做更多的事。<br>外频：CPU与外部组件进行数据传输时的速度<br>倍频：CPU内部用力啊加速工作效能的倍数<br>CPU频率=外频x倍频<br>Tips:因为每个CPU的微指令集不相同，架构也不见得一样，每次频率能够进行的工作指令数也不同，所以，频率目前仅能用来比较同款CPU的速度！</p>
-</blockquote>
-</li>
+<h2 id="计算机上面常用的计算单位">3. 计算机上面常用的计算单位</h2>
+<ul>
+<li><p>容量单位 １Byte=8 bits <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg" alt="mark"></p></li>
+<li><p>速度单位 CPU的频率：MHz、GHz &gt;CPU的频率就是CPU每秒钟可以进行的工作次数，频率越高，表示CPU单位时间可以做更多的事。 &gt;外频：CPU与外部组件进行数据传输时的速度 &gt;倍频：CPU内部用力啊加速工作效能的倍数 &gt;CPU频率=外频x倍频 &gt;Tips:因为每个CPU的微指令集不相同，架构也不见得一样，每次频率能够进行的工作指令数也不同，所以，频率目前仅能用来比较同款CPU的速度！</p></li>
 </ul>
 <p>网络传输方面：Ｍbps(Mbits per second)</p>
-<h2 id="4-个人计算机架构与接口设备"><a href="#4-个人计算机架构与接口设备" class="headerlink" title="4. 个人计算机架构与接口设备"></a>4. 个人计算机架构与接口设备</h2><p>两大主流PC架构如下：<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png" alt="mark"></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png" alt="mark"><br>前面的一幅采用两个网桥来控制各组件的沟通，分别是：</p>
-<ol>
-<li>北桥：负责连接速度较快的CPU、主存储器和显卡等</li>
-<li>南桥：负责连接素服较慢的周边接口，包括硬盘、USB、网络卡等。</li>
-</ol>
+<h2 id="个人计算机架构与接口设备">4. 个人计算机架构与接口设备</h2>
+<p>两大主流PC架构如下： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png" alt="mark"></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png" alt="mark"> 前面的一幅采用两个网桥来控制各组件的沟通，分别是： 1. 北桥：负责连接速度较快的CPU、主存储器和显卡等 2. 南桥：负责连接素服较慢的周边接口，包括硬盘、USB、网络卡等。</p>
 <p>而后一副图的不同之处在于主存储器直接与CPU沟通而不通过北桥。</p>
-<h3 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h3><p>决定每次工作可以传送的数据的大小，北桥所支持的频率我仧称为前端总线速度(Front Side Bus, FSB)，每次传送的位数称为总线宽度，常见的总线宽度有32/64位。FBSX总线宽度就是每秒可传送带最大数据量。</p>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
+<h3 id="总线">总线</h3>
+<p>决定每次工作可以传送的数据的大小，北桥所支持的频率我仧称为前端总线速度(Front Side Bus, FSB)，每次传送的位数称为总线宽度，常见的总线宽度有32/64位。FBSX总线宽度就是每秒可传送带最大数据量。</p>
+<h3 id="内存">内存</h3>
+<ul>
 <li><strong>CPU所使用的数据都是来自主存储器</strong>(main memory)，不论是软件程序还是数据，都必须要读入主存储器后CPU才能利用。</li>
 <li>个人计算机的主存储器主要组件为<strong>动态随机存取内存</strong>(Dynamic Random Access Memory, DRAM)， 随机存取内存叧有在通电时扄能记弽不使用，断电后数据就消失了。</li>
 <li>双通道设计：传统的总线宽度一般大约仅达64位，为了要加大这个宽度，因此芯片组厂商就将两个主存储器汇整在一起， 如果一支内存可达64位，两支内存就可以达到128位了。</li>
 <li>CPU与主存储器的外频应该要相同才好。</li>
-<li>除了主存储器之外，整个计算机当中还有许多内存！最为熟知的就是第二层<strong>高速缓存(L2 cache)</strong>因为它整合到CPU内部，因此这个L2内存的速度必须要CPU频率相同。使用DRAM是无法达到这个频率速度的，此时就需要静态随机存取内存(Static Random Access Memory, SRAM)的帮忙了<br><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg" alt="mark"></li>
+<li>除了主存储器之外，整个计算机当中还有许多内存！最为熟知的就是第二层<strong>高速缓存(L2 cache)</strong>因为它整合到CPU内部，因此这个L2内存的速度必须要CPU频率相同。使用DRAM是无法达到这个频率速度的，此时就需要静态随机存取内存(Static Random Access Memory, SRAM)的帮忙了 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg" alt="mark"></li>
 <li>BIOS(Basic Input Output System)是系统在开机时候首先会去读取的一个小程序，它被写死在主板上的一个内存芯片中，这个内存芯片在没有通电时也能够将数据记录下来，是<strong>只读存储器</strong>(Read Only Memory, ROM)。</li>
 </ul>
-<h3 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h3><p>显卡对于图形影像的显示扮演关键的角色。 一般对于图形影像的显示重点在于分辨率与颜色深度，因为每个图像显示的颜色会占用掉内存， 因此显卡上面会有一个<strong>内存</strong>的容量，这个显卡内存容量将会影响到最终你的屏幕分辨率和颜色深度的。<br>除了显卡外，由于3D游戏和3D动画的流行，显卡的运算能力越来越重要，3D的运算早期是交给CPU运作的，后来显卡厂商直接在显卡上嵌入一个3D加速芯片，即<strong>GPU</strong>。</p>
-<h3 id="硬盘与存储设备"><a href="#硬盘与存储设备" class="headerlink" title="硬盘与存储设备"></a>硬盘与存储设备</h3><ul>
-<li>传输接口：<br>IDE接口：接口插槽所使用的扁平电缆较宽，每条扁平电缆上面可以接两个IDE装置<br>SATA接口：插槽要比IDE接口小很多，每条SATA连接线仅能接一个SATA装置，<strong>主流</strong><br>SCSI接口：工作站等级以上的硬盘传输接口，PC上不常见。</li>
+<h3 id="显卡">显卡</h3>
+<p>显卡对于图形影像的显示扮演关键的角色。 一般对于图形影像的显示重点在于分辨率与颜色深度，因为每个图像显示的颜色会占用掉内存， 因此显卡上面会有一个<strong>内存</strong>的容量，这个显卡内存容量将会影响到最终你的屏幕分辨率和颜色深度的。 除了显卡外，由于3D游戏和3D动画的流行，显卡的运算能力越来越重要，3D的运算早期是交给CPU运作的，后来显卡厂商直接在显卡上嵌入一个3D加速芯片，即<strong>GPU</strong>。</p>
+<h3 id="硬盘与存储设备">硬盘与存储设备</h3>
+<ul>
+<li>传输接口： IDE接口：接口插槽所使用的扁平电缆较宽，每条扁平电缆上面可以接两个IDE装置 SATA接口：插槽要比IDE接口小很多，每条SATA连接线仅能接一个SATA装置，<strong>主流</strong> SCSI接口：工作站等级以上的硬盘传输接口，PC上不常见。</li>
 <li>参数：容量、缓冲存储器、转数</li>
 </ul>
-<h3 id="PCI适配卡"><a href="#PCI适配卡" class="headerlink" title="PCI适配卡"></a>PCI适配卡</h3><p>如果用户有额外需要的功能卡， 就能够安装在这种PCI界面插槽上，现在主板上已经整合相当多的设备和组件了，包括声卡、网卡、USB控制卡、显卡等，所以现在主板上安插的PCI适配卡很少了。</p>
-<h3 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h3><p>上面所谈到的所有组件都安插在主板上。</p>
-<h3 id="设备I-O地址和IRQ中断通信"><a href="#设备I-O地址和IRQ中断通信" class="headerlink" title="设备I/O地址和IRQ中断通信"></a>设备I/O地址和IRQ中断通信</h3><p>I/O地址类似于每个装置的门牌号，一般两个装置不能使用同一个I/O地址，而IRQ可以想象成各个门牌连接到邮件中心（CPU）的专门路径。各个装置可以透过IRQ中断新到来告诉CPU该装置的工作情况，以方便CPU进行工作分配任务。</p>
-<h3 id="CMOS与BIOS"><a href="#CMOS与BIOS" class="headerlink" title="CMOS与BIOS"></a>CMOS与BIOS</h3><ul>
+<h3 id="pci适配卡">PCI适配卡</h3>
+<p>如果用户有额外需要的功能卡， 就能够安装在这种PCI界面插槽上，现在主板上已经整合相当多的设备和组件了，包括声卡、网卡、USB控制卡、显卡等，所以现在主板上安插的PCI适配卡很少了。</p>
+<h3 id="主板">主板</h3>
+<p>上面所谈到的所有组件都安插在主板上。</p>
+<h3 id="设备io地址和irq中断通信">设备I/O地址和IRQ中断通信</h3>
+<p>I/O地址类似于每个装置的门牌号，一般两个装置不能使用同一个I/O地址，而IRQ可以想象成各个门牌连接到邮件中心（CPU）的专门路径。各个装置可以透过IRQ中断新到来告诉CPU该装置的工作情况，以方便CPU进行工作分配任务。</p>
+<h3 id="cmos与bios">CMOS与BIOS</h3>
+<ul>
 <li><strong>CMOS</strong>主要功能为记录主板上面的重要参数，包括系统时间、CPU电压与频率、各项设别的I/O地址与IRQ等，由与这些数据的记录要花费电力，因此主板上面有电池。</li>
 <li><strong>BIOS</strong>为写入到主板上某一块 flash或EEPROM 的程序，他可以在开机的时候执行，以加载CMOS中的参数，幵尝试呼叫储存装置中的开机程序，进一步进入操作系统中。BIOS程序也可以修改CMOS中的数据，每种主板呼吁BIOS设定程序的按键都不同，一般桌面计算机常见的是使用[del]按键进入BIOS设定画面。</li>
 </ul>
@@ -574,8 +583,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/98f32ea9.html" rel="prev" title="算法导论笔记(5):选择（SELECT）算法">
-                算法导论笔记(5):选择（SELECT）算法 <i class="fa fa-chevron-right"></i>
+              <a href="/post/0.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -671,7 +680,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -682,7 +691,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -731,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-计算机硬件系统"><span class="nav-text">1. 计算机硬件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主流CPU及种类"><span class="nav-text">主流CPU及种类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-计算机运作流程"><span class="nav-text">2. 计算机运作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-计算机上面常用的计算单位"><span class="nav-text">3. 计算机上面常用的计算单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-个人计算机架构与接口设备"><span class="nav-text">4. 个人计算机架构与接口设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-text">总线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显卡"><span class="nav-text">显卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬盘与存储设备"><span class="nav-text">硬盘与存储设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCI适配卡"><span class="nav-text">PCI适配卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主板"><span class="nav-text">主板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备I-O地址和IRQ中断通信"><span class="nav-text">设备I/O地址和IRQ中断通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMOS与BIOS"><span class="nav-text">CMOS与BIOS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机硬件系统"><span class="nav-text">1. 计算机硬件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主流cpu及种类"><span class="nav-text">主流CPU及种类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机运作流程"><span class="nav-text">2. 计算机运作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机上面常用的计算单位"><span class="nav-text">3. 计算机上面常用的计算单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人计算机架构与接口设备"><span class="nav-text">4. 个人计算机架构与接口设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-text">总线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显卡"><span class="nav-text">显卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬盘与存储设备"><span class="nav-text">硬盘与存储设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pci适配卡"><span class="nav-text">PCI适配卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主板"><span class="nav-text">主板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备io地址和irq中断通信"><span class="nav-text">设备I/O地址和IRQ中断通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmos与bios"><span class="nav-text">CMOS与BIOS</span></a></li></ol></li></ol></div>
             
 
           </div>

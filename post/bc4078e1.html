@@ -396,7 +396,9 @@
 <p><code>例程</code>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> *</div><div class="line"></div><div class="line"><span class="comment"># create a canvas with no internal border</span></div><div class="line">canvas = Canvas(bd=<span class="number">0</span>, highlightthickness=<span class="number">0</span>)</div><div class="line">canvas.pack(fill=BOTH, expand=<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment"># track changes to the canvas size and draw</span></div><div class="line"><span class="comment"># a rectangle which fills the visible part of</span></div><div class="line"><span class="comment"># the canvas</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">configure</span><span class="params">(event)</span>:</span></div><div class="line">    canvas.delete(<span class="string">"all"</span>)</div><div class="line">    w, h = event.width, event.height</div><div class="line">    xy = <span class="number">0</span>, <span class="number">0</span>, w<span class="number">-1</span>, h<span class="number">-1</span></div><div class="line">    canvas.create_rectangle(xy)</div><div class="line">    canvas.create_line(xy)</div><div class="line">    xy = w<span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>, h<span class="number">-1</span></div><div class="line">    canvas.create_line(xy)</div><div class="line"></div><div class="line">canvas.bind(<span class="string">"&lt;Configure&gt;"</span>, configure)</div><div class="line"></div><div class="line">mainloop()</div></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171122/m18m3K5Lhg.gif" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171122/m18m3K5Lhg.gif" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <p><strong>参考资料：</strong></p>
 <p><a href="http://effbot.org/zone/tkinter-window-size.htm" target="_blank" rel="external">Track Window Size Changes</a></p>
 
@@ -590,7 +592,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -601,7 +603,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

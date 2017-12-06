@@ -394,37 +394,39 @@
       
         <p>Git作为目前世界上最流行也是最先进的分布式版本控制系统，已经为越来越多人所使用，作为一个程序员，它也渐渐成为一个必不可少的工具，本文将介绍git安装和简单的使用。</p>
 <a id="more"></a>
-<h2 id="在windows上安装Git"><a href="#在windows上安装Git" class="headerlink" title="在windows上安装Git"></a>在windows上安装Git</h2><p>msysGit是windows上的Git，<a href="https://git-for-windows.github.io" target="_blank" rel="external"><em>点击</em></a>下载，按默认选项安装。安装完成后，可以在开始菜单中看到包含Git Bash和Git GUI,其中前者是命令行工具，而后者是图形界面的Git项目管理工具，鼠标右键也可以看到多出了”Git Bash Here”和”Git GUI Here”两个选项。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/msysGit.JPG" alt="msysGit安装界面"><br>安装完成后打开”Git Bash”,在命令行输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure></p>
-<p>“your name”和”email@example.com”分别是你的昵称和邮箱，姓名和Emial用于日志表示，实际推送到Github等远程仓库是，要用有操作权限的账号登录。<br>git config命令的–global参数表示你这台节气上所有的Git仓库都会使用这个配置，你也可以选择对某个仓库指定不同的用户名和Emial地址。<br>要查看git配置可以使用以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git congit -l</div></pre></td></tr></table></figure></p>
-<p>要在某个项目根路径下可以设置单独的姓名和Email。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config user.name &quot;Your Name&quot;</div><div class="line">$ git config user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="Git入门指令"><a href="#Git入门指令" class="headerlink" title="Git入门指令"></a>Git入门指令</h2><h3 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h3><p>在你想要进行版本管理的文件夹内右键选择”Git Bash Here”,在命令行内输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure></p>
+<h2 id="在windows上安装git">在windows上安装Git</h2>
+<p>msysGit是windows上的Git，<a href="https://git-for-windows.github.io" target="_blank" rel="external"><em>点击</em></a>下载，按默认选项安装。安装完成后，可以在开始菜单中看到包含Git Bash和Git GUI,其中前者是命令行工具，而后者是图形界面的Git项目管理工具，鼠标右键也可以看到多出了“Git Bash Here”和“Git GUI Here”两个选项。 <img src="http://ow8yxg5xz.bkt.clouddn.com/msysGit.JPG" alt="msysGit安装界面"> 安装完成后打开“Git Bash”,在命令行输入： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure></p>
+<p>“your name”和“email@example.com”分别是你的昵称和邮箱，姓名和Emial用于日志表示，实际推送到Github等远程仓库是，要用有操作权限的账号登录。 git config命令的–global参数表示你这台节气上所有的Git仓库都会使用这个配置，你也可以选择对某个仓库指定不同的用户名和Emial地址。 要查看git配置可以使用以下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git congit -l</div></pre></td></tr></table></figure></p>
+<p>要在某个项目根路径下可以设置单独的姓名和Email。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config user.name &quot;Your Name&quot;</div><div class="line">$ git config user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="git入门指令">Git入门指令</h2>
+<h3 id="创建新仓库">创建新仓库</h3>
+<p>在你想要进行版本管理的文件夹内右键选择“Git Bash Here”,在命令行内输入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure></p>
 <p>这样，你的仓库就建好了,这时你可以看到当前目录下多了一个.git的目录，这个目录就是用来跟踪管理版本库的。（如果你没看到.git目录，那是因为系统默认将其隐藏了，可以用ls -ah命令来将其可视化）</p>
-<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>如果想要创建一个本地仓库的克隆版本，执行如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone /path/to/repository</div></pre></td></tr></table></figure></p>
-<p>“/path/to/repository”是你本地仓库的路径。<br>如果想要从远程服务器克隆一个仓库，则命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone username@host:/path/to/repository</div></pre></td></tr></table></figure></p>
-<h3 id="添加与提交"><a href="#添加与提交" class="headerlink" title="添加与提交"></a>添加与提交</h3><p>要将文件添加到仓库当中，有以下两个步骤：</p>
-<ul>
-<li>添加文件到缓存区：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;filename&gt; #添加文件名为&lt;filename&gt;的文件</div><div class="line">$ git add *  #添加目录下所有文件</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这时，你的文件还未真正提交。</p>
-<ul>
-<li>提交文件到仓库：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;代码提交信息&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这时，文件信息就真正保存到仓库当中了。<br>这里我们不得不介绍一下Git的工作流了，如下图所示，你的本地仓库有git维护的三颗“树”组成。第一是你的“工作目录”，它持有实际的文件；第二是“缓存区（Index），它临时保存你的改动；最后是HEAD，指向你最后一次提交的结果。<br><img src="http://ow8yxg5xz.bkt.clouddn.com/git%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="git工作流"></p>
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>执行以下命令，将你的本地仓库的改动提交到远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master #master可以换成你想要推送的任何分支</div></pre></td></tr></table></figure></p>
-<h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>分支的创建是为了方便隔离开发，在一个仓库中，每个分支的发i吗版本都是独立严谨的，分支见的代码版本完全不会干扰到另外一个代码版本的开发。即当你创建一个属于自己的分支，别人还继续在原来的分支上工作，不会收到影响，而你在自己的分支上干活，想提交就提交，等开发完毕后，再一次性合并到原来的分支上，这样就可以使得项目开发安全又高效。<br>创建一个叫”feature_x”的分支，并切换过去：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b feature_x</div></pre></td></tr></table></figure></p>
-<p>切换回主分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div></pre></td></tr></table></figure></p>
-<p>删除分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d feature_x</div></pre></td></tr></table></figure></p>
-<p>将分支推送到远端仓库，这时，你的分支就可以被他人看见：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin &lt;branch&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h3><p>更新你的本地仓库至最新版本，以在你的工作目录中获取(fetch)并合并(merge)远端的改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure></p>
-<p>合并其他分支到你的当前分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge &lt;branch&gt;</div></pre></td></tr></table></figure></p>
-<p>查看区别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff &lt;source_branch&gt; &lt;target_branch&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>为某次提交打标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag 1.0.0 1b2e1d63ff</div></pre></td></tr></table></figure></p>
-<p>这样提交ID为1b2e1d63ff的提交就被打上了1.0.0的标签。<br>可以通过以下命令获取提交ID：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log</div></pre></td></tr></table></figure></p>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>当你想替换掉本地更改，执行;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout --&lt;filename&gt;</div></pre></td></tr></table></figure></p>
-<p>这时HEAD中的最新内容会替换掉你工作目录的文件，已添加到缓存区的改动，以及新文件都不受影响。<br>如果你想要用服务器上的最新版本，并将你的本地主分支指向它，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git reset --hard origin/master</div></pre></td></tr></table></figure></p>
-<p>参考资料：<br><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">git - 简易指南</a><br><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰Git教程</a></p>
+<h3 id="克隆仓库">克隆仓库</h3>
+<p>如果想要创建一个本地仓库的克隆版本，执行如下命令： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone /path/to/repository</div></pre></td></tr></table></figure></p>
+<p>“/path/to/repository”是你本地仓库的路径。 如果想要从远程服务器克隆一个仓库，则命令如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone username@host:/path/to/repository</div></pre></td></tr></table></figure></p>
+<h3 id="添加与提交">添加与提交</h3>
+<p>要将文件添加到仓库当中，有以下两个步骤： * 添加文件到缓存区： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add &lt;filename&gt; #添加文件名为&lt;filename&gt;的文件</div><div class="line">$ git add *  #添加目录下所有文件</div></pre></td></tr></table></figure></p>
+<p>这时，你的文件还未真正提交。 * 提交文件到仓库： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;代码提交信息&quot;</div></pre></td></tr></table></figure></p>
+<p>这时，文件信息就真正保存到仓库当中了。 这里我们不得不介绍一下Git的工作流了，如下图所示，你的本地仓库有git维护的三颗“树”组成。第一是你的“工作目录”，它持有实际的文件；第二是“缓存区（Index），它临时保存你的改动；最后是HEAD，指向你最后一次提交的结果。 <img src="http://ow8yxg5xz.bkt.clouddn.com/git%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="git工作流"></p>
+<h3 id="推送到远程仓库">推送到远程仓库</h3>
+<p>执行以下命令，将你的本地仓库的改动提交到远程仓库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master #master可以换成你想要推送的任何分支</div></pre></td></tr></table></figure></p>
+<h3 id="分支">分支</h3>
+<p>分支的创建是为了方便隔离开发，在一个仓库中，每个分支的发i吗版本都是独立严谨的，分支见的代码版本完全不会干扰到另外一个代码版本的开发。即当你创建一个属于自己的分支，别人还继续在原来的分支上工作，不会收到影响，而你在自己的分支上干活，想提交就提交，等开发完毕后，再一次性合并到原来的分支上，这样就可以使得项目开发安全又高效。 创建一个叫“feature_x”的分支，并切换过去： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b feature_x</div></pre></td></tr></table></figure></p>
+<p>切换回主分支： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div></pre></td></tr></table></figure></p>
+<p>删除分支： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d feature_x</div></pre></td></tr></table></figure></p>
+<p>将分支推送到远端仓库，这时，你的分支就可以被他人看见： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin &lt;branch&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="更新与合并">更新与合并</h3>
+<p>更新你的本地仓库至最新版本，以在你的工作目录中获取(fetch)并合并(merge)远端的改动： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure></p>
+<p>合并其他分支到你的当前分支： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge &lt;branch&gt;</div></pre></td></tr></table></figure></p>
+<p>查看区别： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff &lt;source_branch&gt; &lt;target_branch&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="标签">标签</h3>
+<p>为某次提交打标签： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag 1.0.0 1b2e1d63ff</div></pre></td></tr></table></figure></p>
+<p>这样提交ID为1b2e1d63ff的提交就被打上了1.0.0的标签。 可以通过以下命令获取提交ID： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log</div></pre></td></tr></table></figure></p>
+<h3 id="版本回退">版本回退</h3>
+<p>当你想替换掉本地更改，执行; <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout --&lt;filename&gt;</div></pre></td></tr></table></figure></p>
+<p>这时HEAD中的最新内容会替换掉你工作目录的文件，已添加到缓存区的改动，以及新文件都不受影响。 如果你想要用服务器上的最新版本，并将你的本地主分支指向它，执行： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin</div><div class="line">$ git reset --hard origin/master</div></pre></td></tr></table></figure></p>
+<p>参考资料： <a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">git - 简易指南</a> <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰Git教程</a></p>
 
       
 	  
@@ -623,7 +625,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -634,7 +636,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -683,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在windows上安装Git"><span class="nav-text">在windows上安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git入门指令"><span class="nav-text">Git入门指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新仓库"><span class="nav-text">创建新仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆仓库"><span class="nav-text">克隆仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加与提交"><span class="nav-text">添加与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送到远程仓库"><span class="nav-text">推送到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-text">分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新与合并"><span class="nav-text">更新与合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-text">标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-text">版本回退</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在windows上安装git"><span class="nav-text">在windows上安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git入门指令"><span class="nav-text">Git入门指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新仓库"><span class="nav-text">创建新仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆仓库"><span class="nav-text">克隆仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加与提交"><span class="nav-text">添加与提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送到远程仓库"><span class="nav-text">推送到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-text">分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新与合并"><span class="nav-text">更新与合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-text">标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-text">版本回退</span></a></li></ol></li></ol></div>
             
 
           </div>

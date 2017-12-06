@@ -398,63 +398,67 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;modifier-type-detail&gt;</div></pre></td></tr></table></figure>
 <p>其中<code>type</code>是事件队列的基本组成部分，而<code>modifier</code>和<code>detail</code>用于为所选<code>type</code>提供附加信息，他们在很多情况下都被省略。事件的<code>type</code>描述了要绑定的事件类型，例如点击鼠标、按键或组件的输入焦点。</p>
 <p>下表列举了Tkinter所提供的事件类型：</p>
-<table>
+<table style="width:82%;">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 56%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Event</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>&lt;Button&gt;</code></td>
 <td>表示一个鼠标键被按下的事件，其中<code>&lt;Button-1&gt;</code>表示左键，<code>&lt;Button-2&gt;</code>表示中键，<code>&lt;Button-3&gt;</code>表示右键，<code>&lt;Button-4&gt;</code>表示向上滚动滚轮，<code>&lt;Button-5&gt;</code>表示像下滚动滚轮。<br> 当在一个组件上按下一个鼠标键的时候Tkinter会自动的’grab’鼠标指针，当这个鼠标按键一直被持续按下，接下来的鼠标事件（比如移动和释放事件）将会被发送到组件上，甚至鼠标已经被移到了当前组件的外面。鼠标指针的当前位置（相对于组件）会在event对象中以成员x 和 y 的形式传递给callback。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;Motion&gt;</code></td>
 <td>表示按下并拖动鼠标。指定 <code>&lt;B1-Motion&gt;</code>， <code>&lt;B2-Motion&gt;</code>和<code>&lt;B3-Motion&gt;</code>分别代表鼠标左、中、右键。 鼠标指针的当前位置会在event对象中以成员x 和 y 的形式传递给callback，即event.x和event.y。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&lt;ButtonRelease&gt;</code></td>
 <td>表示当一个按键被释放事件发生。其中<code>&lt;ButtonRelease-1&gt;</code>， <code>&lt;ButtonRelease-2</code>和<code>&lt;ButtonRelease-3&gt;</code>分别代表鼠标左、中、右键。鼠标指针的当前位置会在event对象中以成员x 和 y 的形式传递给callback，即event.x和event.y。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;Double-Button&gt;</code></td>
 <td>类似于<code>&lt;Button&gt;</code>事件，与它不同的是这个事件是双击而非单击。同样的，<code>&lt;Double-Button-1&gt;</code>， <code>&lt;Double-Button-2&gt;</code>和<code>&lt;Double-Button-3&gt;</code>分别代表鼠标左、中、右键。你可以使用<code>Double</code>或<code>Triple</code>作为前缀。注意，当你同时绑定一个单击事件（<code>&lt;Button-1&gt;</code>）和一个双击事件（<code>&lt;Double-Button-1&gt;</code>），两个事件都会被调用。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&lt;Enter&gt;</code></td>
 <td>鼠标指针进入组件。<br>注意：这并不意味着用户按下Enter键，实现这一目的应用<code>&lt;Return&gt;</code>事件。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;Leave&gt;</code></td>
 <td>鼠标指针离开组件。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&lt;FocusIn&gt;</code></td>
 <td>键盘焦点被转移到这个组件，或者是这个组件的子组件。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;FocusOut&gt;</code></td>
 <td>键盘焦点从这个组件转移到另一个组件。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&lt;Return&gt;</code></td>
 <td>按下回车键。你可以绑定到几乎所有的键盘上的所有键：其中特殊的键有 Cancel (the Break key), BackSpace, Tab, Return(the Enter key), Shift_L (any Shift key), Control_L (any Control key),Alt_L (any Alt key), Pause, Caps_Lock, Escape, Prior (Page Up), Next (Page Down), End, Home, Left, Up, Right, Down,Print, Insert, Delete, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11,F12, Num_Lock, and Scroll_Lock。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;Key&gt;</code></td>
 <td>用户按下任意键。 这个键会以event对象的char成员的形式传递给callback（对于特殊按键会是一个空字符串）。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>a</code></td>
 <td>用户输入‘a’。所有的可打印字符都可以这样使用。空格<code>&lt;space&gt;</code>和少于<code>&lt;less&gt;</code>例外。 注意 ‘1’表示映射键盘上的数字1，而<code>&lt;1&gt;</code>是一个鼠标映射。</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;Shift-Up&gt;</code></td>
 <td>用户在按住Shift键的同时，按下Up箭头。你可以使用Alt + Shift + Control一样的各种组合。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&lt;Configure&gt;</code></td>
 <td>组件的大小发生了改变。 新的大小以event对象中width 和 height属性的形式传递给callback。</td>
 </tr>
@@ -656,7 +660,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -667,7 +671,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

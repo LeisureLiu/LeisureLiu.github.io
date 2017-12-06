@@ -400,53 +400,69 @@
       
         <p>动态规划如之前介绍的分治策略一样，是一种算法设计方法，它常应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。动态规划算法对每个子问题只求解一次，将其解保存在一个表格中，从而无需梅西求解一个个子子问题时都重新计算。动态规划方法通常用于求解最优化问题（optimization problem）,这类问题可以有很多个解，每个解都有一个值，我们希望寻找其中的一个最优解（注意，最优解可能不唯一）。本文通过最长公共子序列（Longest Comment Subsequence, LCS）问题为例来对动态规划方法深入的认识。</p>
 <a id="more"></a>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定两个序列$x[1 .. m]$和$y[1 .. n]$，找出x和y的最长公共子序列。</p>
+<h2 id="问题描述">问题描述</h2>
+<p>给定两个序列<span class="math inline">\(x[1 .. m]\)</span>和<span class="math inline">\(y[1 .. n]\)</span>，找出x和y的最长公共子序列。</p>
 <p><code>例</code> <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/I6LbEKBFF6.png" alt="mark"></p>
 <p>要注意的是最优子序列并非只有一个，BCAB、BDAB等同样也是最优子序列。</p>
-<p>最容易让人想到，也最蛮力的一种解决办法是：检查$x[1 .. m]$的每个子序列，看是否也为y[1..n]的子序列。</p>
-<p>此时，查找每个子序列需要花费$O(n)$的时间，而x序列包含$2^{m}$（可以将子序列想象成有0、1组成的序列，当x中包含该字符是记为1，否则为0，很容易得出子序列的个数为$2^{m}$）个子序列。这时，整个问题的最坏情况的运行时间为$O(n2^{m})$！是一个指数时间，是十分低效的，这显然不是我们想要的结果！</p>
-<h2 id="理论证明"><a href="#理论证明" class="headerlink" title="理论证明"></a>理论证明</h2><p>用|s|表示长度为s的序列，令$c[i,j]=|LCS(x[1 .. i],y[1 .. j])$，则$c[m,n]=|LCS(x,y)|$</p>
+<p>最容易让人想到，也最蛮力的一种解决办法是：检查<span class="math inline">\(x[1 .. m]\)</span>的每个子序列，看是否也为y[1..n]的子序列。</p>
+<p>此时，查找每个子序列需要花费<span class="math inline">\(O(n)\)</span>的时间，而x序列包含<span class="math inline">\(2^{m}\)</span>（可以将子序列想象成有0、1组成的序列，当x中包含该字符是记为1，否则为0，很容易得出子序列的个数为<span class="math inline">\(2^{m}\)</span>）个子序列。这时，整个问题的最坏情况的运行时间为<span class="math inline">\(O(n2^{m})\)</span>！是一个指数时间，是十分低效的，这显然不是我们想要的结果！</p>
+<h2 id="理论证明">理论证明</h2>
+<p>用|s|表示长度为s的序列，令<span class="math inline">\(c[i,j]=|LCS(x[1 .. i],y[1 .. j])\)</span>，则<span class="math inline">\(c[m,n]=|LCS(x,y)|\)</span></p>
 <p><code>理论</code></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/aeCeF9HKKF.png?imageslim" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/aeCeF9HKKF.png?imageslim" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <blockquote>
-<p>证明：当$x[i]=x[j]$：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/d1IAh0FDik.png" alt="mark"></p>
-<p> 当$c[i, j]=k$，令最长公共子序列$z[1 .. k]=LCS(x[1 .. i],y[1 .. j])$。</p>
-<p>则，$z[k]=x<a href="=y[j]">i</a>$ ，也就是说，如果z不包含最后的这个字符，就可以向z中添加x[i]这个元素，使z变长。</p>
-<p>所以$z[1 .. k-1]$是$x[1 .. i-1]$和S$y[1.. j-1]$的公共子序列(CS)。下面证明$z[1 .. k-1]$是$x[1 .. i-1]$和$y[1.. j-1]$的<strong>最长</strong>公共子序列(LCS)：<br>命题：$z[1 .. k-1]=LCS(x[1 .. i-1], y[1 .. j-1])$<br>     假设w是$x[1 .. i-1]$和$y[1.. j-1]$中更长的CS，则$\left| w\right|  &gt;k-1$<br>     <strong>“剪贴”法</strong>：$w||z\left[ k\right]$（将w和z[k]连接）是$x[1 .. i-1]$和$y[1.. j-1]$的CS，且$w||z\left[ k\right]&gt;k$<br>     这与我们假设($c[i, j]=k$)向矛盾，所以假设不成立，原命题成立。<br>     即$c[i-1,j-2]=k-1$，这表明$c[i,j]=c[i-1,j-1]+1$。<br>     其它情况同理可证。</p>
+<p>证明：当<span class="math inline">\(x[i]=x[j]\)</span>：</p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/d1IAh0FDik.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
+<p>当<span class="math inline">\(c[i, j]=k\)</span>，令最长公共子序列<span class="math inline">\(z[1 .. k]=LCS(x[1 .. i],y[1 .. j])\)</span>。</p>
+<p>则，<span class="math inline">\(z[k]=x[i](=y[j])\)</span> ，也就是说，如果z不包含最后的这个字符，就可以向z中添加x[i]这个元素，使z变长。</p>
+<p>所以<span class="math inline">\(z[1 .. k-1]\)</span>是<span class="math inline">\(x[1 .. i-1]\)</span>和S<span class="math inline">\(y[1.. j-1]\)</span>的公共子序列(CS)。下面证明<span class="math inline">\(z[1 .. k-1]\)</span>是<span class="math inline">\(x[1 .. i-1]\)</span>和<span class="math inline">\(y[1.. j-1]\)</span>的<strong>最长</strong>公共子序列(LCS)： 命题：<span class="math inline">\(z[1 .. k-1]=LCS(x[1 .. i-1], y[1 .. j-1])\)</span> 假设w是<span class="math inline">\(x[1 .. i-1]\)</span>和<span class="math inline">\(y[1.. j-1]\)</span>中更长的CS，则<span class="math inline">\(\left| w\right| &gt;k-1\)</span> <strong>“剪贴”法</strong>：<span class="math inline">\(w||z\left[ k\right]\)</span>（将w和z[k]连接）是<span class="math inline">\(x[1 .. i-1]\)</span>和<span class="math inline">\(y[1.. j-1]\)</span>的CS，且<span class="math inline">\(w||z\left[ k\right]&gt;k\)</span> 这与我们假设(<span class="math inline">\(c[i, j]=k\)</span>)向矛盾，所以假设不成立，原命题成立。 即<span class="math inline">\(c[i-1,j-2]=k-1\)</span>，这表明<span class="math inline">\(c[i,j]=c[i-1,j-1]+1\)</span>。 其它情况同理可证。</p>
 </blockquote>
 <p>下面要介绍动态规划的第一个特征：</p>
 <blockquote>
 <p><strong>动态规划特征#1</strong></p>
 <p>最优子结构：一个问题（实例）的最优解包含了子问题的最优解。</p>
 </blockquote>
-<p>在LCS问题中可以描述为：如果$z=LCS(x,y)$，那么z任何的前缀都是某个x的前缀和某个y的前缀的LCS。</p>
-<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>LSC的递归算法如下：</p>
+<p>在LCS问题中可以描述为：如果<span class="math inline">\(z=LCS(x,y)\)</span>，那么z任何的前缀都是某个x的前缀和某个y的前缀的LCS。</p>
+<h2 id="算法描述">算法描述</h2>
+<p>LSC的递归算法如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">LCS(x,y,i,j)</div><div class="line">  <span class="keyword">if</span> x[i]=x[j]</div><div class="line">  	c[i,j]=LCS(x,y,i<span class="number">-1</span>,j<span class="number">-1</span>)+<span class="number">1</span></div><div class="line">  <span class="keyword">else</span> </div><div class="line">    c[i,j]=max&#123;LCS(x,y,i<span class="number">-1</span>,j),LCS(x,y,i,j<span class="number">-1</span>)&#125;</div></pre></td></tr></table></figure>
-<p>最坏的情况：$x\left[ i\right] \neq y\left[ j\right] $时，算法对两个子问题进行评估，每个子问题只有一个参数递减。</p>
+<p>最坏的情况：$xy$时，算法对两个子问题进行评估，每个子问题只有一个参数递减。</p>
 <p>递归树如下图：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eCB708Da7j.png?imageslim" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eCB708Da7j.png?imageslim" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <p>可以看到过程中有一些子问题是相同的，下面就要介绍动态规划的第二个特征：</p>
 <blockquote>
 <p><strong>动态规划特征#2</strong></p>
 <p>重叠子问题：一个递归过程包含少数独立的子问题被反复计算多次。</p>
 </blockquote>
-<p> LCS问题包含了mn个不同的子问题。</p>
-<p> 上述递归算法，计算了多个重复的子问题，为了提高算法效率，采用<strong>备忘法</strong>进行优化，也即在计算了一个子问题的解决方案后，将它存储在一个表中，随后的调用检查表以避免重做工作。下面是伪代码：</p>
+<p>LCS问题包含了mn个不同的子问题。</p>
+<p>上述递归算法，计算了多个重复的子问题，为了提高算法效率，采用<strong>备忘法</strong>进行优化，也即在计算了一个子问题的解决方案后，将它存储在一个表中，随后的调用检查表以避免重做工作。下面是伪代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">LCS(x,y,i,j)</div><div class="line">  <span class="keyword">if</span> c[i,j]=NIL</div><div class="line">  	<span class="keyword">if</span> x[i]=y[j]</div><div class="line">  		c[i,j]=LCS(x,y,i<span class="number">-1</span>,j<span class="number">-1</span>)+<span class="number">1</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">      	c[i,j]=max&#123;LCS(x,y,i<span class="number">-1</span>,j),LCS(x,y,i,j<span class="number">-1</span>)&#125;</div></pre></td></tr></table></figure>
-<p>时间复杂度为$\Theta\left( mn\right) $，空间复杂度为$\Theta\left( mn\right) $。</p>
-<h2 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h2><p>自下而上的计算如图的表格，通过跟踪向后键重建LCS。时间复杂度为$\Theta\left( mn\right) $，空间复杂度为$\Theta\left( mn\right) $。</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/9Ciaa3kDeK.png" alt="mark"></p>
+<p>时间复杂度为$( mn) <span class="math inline">\(，空间复杂度为\)</span>( mn) $。</p>
+<h2 id="动态规划算法">动态规划算法</h2>
+<p>自下而上的计算如图的表格，通过跟踪向后键重建LCS。时间复杂度为$( mn) <span class="math inline">\(，空间复杂度为\)</span>( mn) $。</p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/9Ciaa3kDeK.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <p>《算法导论》中给出了伪代码：</p>
-<ol>
+<ol type="1">
 <li><p>计算LCS长度：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eleF0gFEFE.png" alt="mark"></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/HLfLLm22B1.png" alt="mark"></p>
-</li>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/eleF0gFEFE.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/HLfLLm22B1.png" alt="mark"><figcaption>mark</figcaption>
+</figure></li>
 <li><p>构造LCS表：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/cgmbkD28H5.png" alt="mark"></p>
-<p>该过程的运行时间为$O(m+n)$，因为每次递归调用，i和j至少有一个会减少1。</p>
-</li>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171114/cgmbkD28H5.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
+<p>该过程的运行时间为<span class="math inline">\(O(m+n)\)</span>，因为每次递归调用，i和j至少有一个会减少1。</p></li>
 </ol>
 
       
@@ -646,7 +662,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -657,7 +673,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

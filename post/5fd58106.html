@@ -397,28 +397,34 @@
 <p>如下操作：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> Tk, Label</div><div class="line"></div><div class="line">root = Tk()</div><div class="line">label1 = Label(root, text=<span class="string">'1 columns wide'</span>,bg=<span class="string">'red'</span>)</div><div class="line">label2 = Label(root, text=<span class="string">'2 columns wide'</span>,bg=<span class="string">'red'</span>)</div><div class="line"></div><div class="line">label1.grid(padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"nswe"</span>)</div><div class="line"><span class="comment">#设置columnspan=2并不会使label2的宽度变为label1的两倍！</span></div><div class="line">label2.grid(row=<span class="number">0</span>,column=<span class="number">1</span>,columnspan=<span class="number">2</span>,padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"nswe"</span>) </div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/3DJG6H8dC3.png" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/3DJG6H8dC3.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <p>可以看到，尽管<code>label2</code>跨越两行，它的宽度仍和<code>label1</code>是一样的！</p>
 <p>查看文档中关于.grid()几何布局管理器对行和列的配置选项：</p>
-<table>
+<table style="width:68%;">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 56%">
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left">选项</th>
-<th style="text-align:left">说明</th>
+<tr class="header">
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left">minsize</td>
-<td style="text-align:left">以像素为单位的列或行最小大小。如果在给定的列或行中没有任何内容，即使您使用此选项，也无效。</td>
+<tr class="odd">
+<td style="text-align: left;">minsize</td>
+<td style="text-align: left;">以像素为单位的列或行最小大小。如果在给定的列或行中没有任何内容，即使您使用此选项，也无效。</td>
 </tr>
-<tr>
-<td style="text-align:left">pad</td>
-<td style="text-align:left">在给定的列或行中，在列或行中最大的单元格上添加的若干像素。</td>
+<tr class="even">
+<td style="text-align: left;">pad</td>
+<td style="text-align: left;">在给定的列或行中，在列或行中最大的单元格上添加的若干像素。</td>
 </tr>
-<tr>
-<td style="text-align:left">weight</td>
-<td style="text-align:left">使组件能在行和列上进行伸缩，数值为对（父组件放大后出现的）额外空间的分配权重。如，一个组件w包含一个grid布局，当放大组件w，将把额外空间的3/4分配个第一列，1/分配给第二列：<br><code>w.columnconfigure(0, weight=3)</code><br><code>w.columnconfigure(1, weight=1)</code><br>如果未使用该选项，组件将不能伸缩。</td>
+<tr class="odd">
+<td style="text-align: left;">weight</td>
+<td style="text-align: left;">使组件能在行和列上进行伸缩，数值为对（父组件放大后出现的）额外空间的分配权重。如，一个组件w包含一个grid布局，当放大组件w，将把额外空间的3/4分配个第一列，1/分配给第二列：<br><code>w.columnconfigure(0, weight=3)</code><br><code>w.columnconfigure(1, weight=1)</code><br>如果未使用该选项，组件将不能伸缩。</td>
 </tr>
 </tbody>
 </table>
@@ -426,7 +432,9 @@
 <p>修该上述代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> Tkinter <span class="keyword">import</span> Tk, Label</div><div class="line"></div><div class="line">root = Tk()</div><div class="line"></div><div class="line">label1 = Label(root, text=<span class="string">'1 columns wide'</span>,bg=<span class="string">'red'</span>)</div><div class="line">label2 = Label(root, text=<span class="string">'2 columns wide'</span>,bg=<span class="string">'blue'</span>)</div><div class="line"></div><div class="line">label1.grid(padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"nswe"</span>)</div><div class="line">label2.grid(row=<span class="number">0</span>,column=<span class="number">1</span>,padx=<span class="number">2</span>,pady=<span class="number">2</span>,sticky=<span class="string">"nswe"</span>) <span class="comment">#no columnspan</span></div><div class="line"></div><div class="line">root.grid_columnconfigure(<span class="number">0</span>, weight=<span class="number">1</span>, uniform=<span class="string">"x"</span>) <span class="comment">#uniform="foo" or "y" or ...有同样的效果</span></div><div class="line">root.grid_columnconfigure(<span class="number">1</span>, weight=<span class="number">2</span>, uniform=<span class="string">"x"</span>)</div><div class="line"></div><div class="line">root.mainloop()</div></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/6IKKfbkc1K.png" alt="mark"></p>
+<figure>
+<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171118/6IKKfbkc1K.png" alt="mark"><figcaption>mark</figcaption>
+</figure>
 <p>对于行的参<code>rowconfigure</code>同理。</p>
 
       
@@ -619,7 +627,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -630,7 +638,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
