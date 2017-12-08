@@ -1,1 +1,1087 @@
-<!DOCTYPE html><html class="theme-next muse" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="计算机硬件,"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2"><meta name="description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。"><meta name="keywords" content="计算机硬件"><meta property="og:type" content="article"><meta property="og:title" content="计算机硬件系统概述"><meta property="og:url" content="http://www.yyliu.cn/post/3f75d00c.html"><meta property="og:site_name" content="Liu Yiying&#39;s Blog"><meta property="og:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg"><meta property="og:updated_time" content="2017-12-07T14:52:35.386Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="计算机硬件系统概述"><meta name="twitter:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。"><meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"5.1.2",sidebar:{position:"left",display:"hide",offset:12,offset_float:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://www.yyliu.cn/post/3f75d00c.html"><title>计算机硬件系统概述 | Liu Yiying's Blog</title><script>!function(e,a,t,n,c,g,s){e.GoogleAnalyticsObject="ga",e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,g=a.createElement("script"),s=a.getElementsByTagName("script")[0],g.async=1,g.src="https://www.google-analytics.com/analytics.js",s.parentNode.insertBefore(g,s)}(window,document),ga("create","UA-106354513-1","auto"),ga("send","pageview")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?0b2485d6a01a8b931e7d569581b19d0e";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Liu Yiying's Blog</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li></ul></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/3f75d00c.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="LIUYIYING"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.JPG"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Liu Yiying's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">计算机硬件系统概述</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T22:30:52+08:00">2017-10-18</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Liunx学习笔记/" itemprop="url" rel="index"><span itemprop="name">Liunx学习笔记</span></a></span></span> <span id="/post/3f75d00c.html" class="leancloud_visitors" data-flag-title="计算机硬件系统概述"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数&#58;</span><span class="leancloud-visitors-count"></span></span></div></header><div class="post-body" itemprop="articleBody"><p>最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。</p><a id="more"></a><h2 id="计算机硬件系统">1. 计算机硬件系统</h2><p>计算机硬件组成如下图所示，其中CPU由算数逻辑单元和控制单元组成，前者主要负责程序运算和逻辑判断，后者负责协调周边组件与各单元间的工作。图中“系统单元”是指计算及壳内的主要组件，而重点在于CPU和内存储器。如图中实线箭头部分，CPU发布的控制命令使数据的流进/流出，基本上所有的数据都是流经内存储器后再转出去，并且<strong>CPU要处理的数据则完全来自于内存</strong>。 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png"></p><h3 id="主流cpu及种类">主流CPU及种类</h3><p>CPU是整个计算机系统最重要的部分，主流的CPU可以分为以下两类：</p><table><colgroup><col style="width:5%"><col style="width:47%"><col style="width:47%"></colgroup><thead><tr class="header"><th>类别</th><th style="text-align:left">精简指令集（RISC）系统</th><th style="text-align:left">复杂指令集（CISC）系统</th></tr></thead><tbody><tr class="odd"><td>特点</td><td style="text-align:left">微指令集较精简，每个指令运行时间很短，完成动作单纯，执行效率较好，做复杂的事要多个指令来完成</td><td style="text-align:left">微指令集的每个小指令可以执行一些较低阶的硬件，每条指令的长度不同，执行每条质量花费的时间较长，但每条指令可以处理的工作较丰富</td></tr><tr class="even"><td>举例</td><td style="text-align:left">Sun公司的APARC系列、IBM公司的Power Arvhitrcture（ 包括PowerPC）系列和ARM系列</td><td style="text-align:left">AMD、Intel、VIA等的x86架构的CPU</td></tr><tr class="odd"><td>应用</td><td style="text-align:left">APARC架构的计算机常用于学术领域的大型工作站中，以及银行金融体系的主服务；PowerPC架构的应用上，Sony公司的PS3使用的就是PowerPC架构的Cell处理器；手机、PDA、导航系统、网路设备（交换器、路由器等）几乎都是ARM架构的CPU</td><td style="text-align:left">个人计算机 (x86架构：最早的那个由Intel发展出的CPU代号为8086，后来依此架构开发出的CPU就被成为x86架构了，后来的64位个人计算机CPU被统称为x86_64架构)</td></tr></tbody></table><h2 id="计算机运作流程">2. 计算机运作流程</h2><p>鸟哥将它与一个人体做对比，很形象了~</p><ul><li><strong>CPU=脑袋</strong>：每个人会作的事情都会一样(微指令集的差异)，但主要都是透过脑袋瓜子来进行判断不控制身体各部分的活动；</li><li><strong>内存储器=脑袋中的记录区块</strong>：在实际活动过程中，我们的脑袋瓜子能够将外界的互动暂时记录起来，提供CPU来迚行判断；</li><li><strong>硬盘=脑袋中的记忆区块</strong>：将重要的数据记录起来，以便未来将这些重要的经验再次的使用；</li><li><strong>主板=神经系统</strong>：好像人类的神经一样，将所有重要的组件连接起来，包括手脚的活动都是脑袋瓜子发布命令后， 透过神经(主板)传导给手脚来迚行活动啊！</li><li><strong>各项接口设备=人体不外界沟通的手、脚、皮肤、眼睛等</strong>：就好像手脚一般，是人体不外界互动的重要关键！</li><li><strong>显示适配器=脑袋中的影像</strong>：将来自眼睛的刺激转成影响后在脑袋中呈现，所以显示适配器所产生的数据源也是CPU控制的。</li><li><strong>电源供应器 (Power)=心脏</strong>：所有的组件要能运作得要有足够的电力供给！</li></ul><h2 id="计算机上面常用的计算单位">3. 计算机上面常用的计算单位</h2><ul><li><p>容量单位 １Byte=8 bits <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg"></p></li><li><p>速度单位 CPU的频率：MHz、GHz &gt;CPU的频率就是CPU每秒钟可以进行的工作次数，频率越高，表示CPU单位时间可以做更多的事。 &gt;外频：CPU与外部组件进行数据传输时的速度 &gt;倍频：CPU内部用力啊加速工作效能的倍数 &gt;CPU频率=外频x倍频 &gt;Tips:因为每个CPU的微指令集不相同，架构也不见得一样，每次频率能够进行的工作指令数也不同，所以，频率目前仅能用来比较同款CPU的速度！</p></li></ul><p>网络传输方面：Ｍbps(Mbits per second)</p><h2 id="个人计算机架构与接口设备">4. 个人计算机架构与接口设备</h2><p>两大主流PC架构如下： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png"></p><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png"> 前面的一幅采用两个网桥来控制各组件的沟通，分别是： 1. 北桥：负责连接速度较快的CPU、主存储器和显卡等 2. 南桥：负责连接素服较慢的周边接口，包括硬盘、USB、网络卡等。</p><p>而后一副图的不同之处在于主存储器直接与CPU沟通而不通过北桥。</p><h3 id="总线">总线</h3><p>决定每次工作可以传送的数据的大小，北桥所支持的频率我仧称为前端总线速度(Front Side Bus, FSB)，每次传送的位数称为总线宽度，常见的总线宽度有32/64位。FBSX总线宽度就是每秒可传送带最大数据量。</p><h3 id="内存">内存</h3><ul><li><strong>CPU所使用的数据都是来自主存储器</strong>(main memory)，不论是软件程序还是数据，都必须要读入主存储器后CPU才能利用。</li><li>个人计算机的主存储器主要组件为<strong>动态随机存取内存</strong>(Dynamic Random Access Memory, DRAM)， 随机存取内存叧有在通电时扄能记弽不使用，断电后数据就消失了。</li><li>双通道设计：传统的总线宽度一般大约仅达64位，为了要加大这个宽度，因此芯片组厂商就将两个主存储器汇整在一起， 如果一支内存可达64位，两支内存就可以达到128位了。</li><li>CPU与主存储器的外频应该要相同才好。</li><li>除了主存储器之外，整个计算机当中还有许多内存！最为熟知的就是第二层<strong>高速缓存(L2 cache)</strong>因为它整合到CPU内部，因此这个L2内存的速度必须要CPU频率相同。使用DRAM是无法达到这个频率速度的，此时就需要静态随机存取内存(Static Random Access Memory, SRAM)的帮忙了 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg"></li><li>BIOS(Basic Input Output System)是系统在开机时候首先会去读取的一个小程序，它被写死在主板上的一个内存芯片中，这个内存芯片在没有通电时也能够将数据记录下来，是<strong>只读存储器</strong>(Read Only Memory, ROM)。</li></ul><h3 id="显卡">显卡</h3><p>显卡对于图形影像的显示扮演关键的角色。 一般对于图形影像的显示重点在于分辨率与颜色深度，因为每个图像显示的颜色会占用掉内存， 因此显卡上面会有一个<strong>内存</strong>的容量，这个显卡内存容量将会影响到最终你的屏幕分辨率和颜色深度的。 除了显卡外，由于3D游戏和3D动画的流行，显卡的运算能力越来越重要，3D的运算早期是交给CPU运作的，后来显卡厂商直接在显卡上嵌入一个3D加速芯片，即<strong>GPU</strong>。</p><h3 id="硬盘与存储设备">硬盘与存储设备</h3><ul><li>传输接口： IDE接口：接口插槽所使用的扁平电缆较宽，每条扁平电缆上面可以接两个IDE装置 SATA接口：插槽要比IDE接口小很多，每条SATA连接线仅能接一个SATA装置，<strong>主流</strong> SCSI接口：工作站等级以上的硬盘传输接口，PC上不常见。</li><li>参数：容量、缓冲存储器、转数</li></ul><h3 id="pci适配卡">PCI适配卡</h3><p>如果用户有额外需要的功能卡， 就能够安装在这种PCI界面插槽上，现在主板上已经整合相当多的设备和组件了，包括声卡、网卡、USB控制卡、显卡等，所以现在主板上安插的PCI适配卡很少了。</p><h3 id="主板">主板</h3><p>上面所谈到的所有组件都安插在主板上。</p><h3 id="设备io地址和irq中断通信">设备I/O地址和IRQ中断通信</h3><p>I/O地址类似于每个装置的门牌号，一般两个装置不能使用同一个I/O地址，而IRQ可以想象成各个门牌连接到邮件中心（CPU）的专门路径。各个装置可以透过IRQ中断新到来告诉CPU该装置的工作情况，以方便CPU进行工作分配任务。</p><h3 id="cmos与bios">CMOS与BIOS</h3><ul><li><strong>CMOS</strong>主要功能为记录主板上面的重要参数，包括系统时间、CPU电压与频率、各项设别的I/O地址与IRQ等，由与这些数据的记录要花费电力，因此主板上面有电池。</li><li><strong>BIOS</strong>为写入到主板上某一块 flash或EEPROM 的程序，他可以在开机的时候执行，以加载CMOS中的参数，幵尝试呼叫储存装置中的开机程序，进一步进入操作系统中。BIOS程序也可以修改CMOS中的数据，每种主板呼吁BIOS设定程序的按键都不同，一般桌面计算机常见的是使用[del]按键进入BIOS设定画面。</li></ul><div><div style="text-align:center;color:#ccc;font-size:12px"> ------ 本文结束 感谢阅读------</div><br></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> LIUYIYING</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="http://www.yyliu.cn/post/3f75d00c.html" title="计算机硬件系统概述">http://www.yyliu.cn/post/3f75d00c.html</a></li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>坚持原创技术分享，您的支持将鼓励我继续创作！</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt="LIUYIYING 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.jpg" alt="LIUYIYING 支付宝"><p>支付宝</p></div></div></div></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/计算机硬件/" rel="tag"># 计算机硬件</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/post/ae831bff.html" rel="next" title="算法导论笔记(4):计数排序和基数排序"><i class="fa fa-chevron-left"></i> 算法导论笔记(4):计数排序和基数排序</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/post/98f32ea9.html" rel="prev" title="算法导论笔记(5):选择（SELECT）算法">算法导论笔记(5):选择（SELECT）算法<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="gitment-container"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview"> 站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.JPG" alt="LIUYIYING"><p class="site-author-name" itemprop="name">LIUYIYING</p><p class="site-description motion-element" itemprop="description">Variety is the spice of life.</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">22</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">7</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">13</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/LeisureLiu" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="http://weibo.com/2855124682/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i> Weibo</a></span></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机硬件系统"><span class="nav-text">1. 计算机硬件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主流cpu及种类"><span class="nav-text">主流CPU及种类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机运作流程"><span class="nav-text">2. 计算机运作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机上面常用的计算单位"><span class="nav-text">3. 计算机上面常用的计算单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人计算机架构与接口设备"><span class="nav-text">4. 个人计算机架构与接口设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-text">总线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显卡"><span class="nav-text">显卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬盘与存储设备"><span class="nav-text">硬盘与存储设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pci适配卡"><span class="nav-text">PCI适配卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主板"><span class="nav-text">主板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备io地址和irq中断通信"><span class="nav-text">设备I/O地址和IRQ中断通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmos与bios"><span class="nav-text">CMOS与BIOS</span></a></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"> ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="copyright"> &copy; <span itemprop="copyrightYear">2017</span><span class="with-love"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">LIUYIYING</span></div><div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div> <span class="post-meta-divider">|</span><div class="theme-info"> <span>Hosted by <a href="https://pages.coding.me" style="font-weight:700">Coding Pages</a></span></div> <span class="post-meta-divider">|</span> <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script type="text/javascript">var gitment=new Gitment({id:window.location.pathname,owner:"LeisureLiu",repo:"LeisureLiu.github.io",oauth:{client_id:"2a58ebcf72d1d72bdb5f",client_secret:"1535e22925a2d7352d8204e5c29178292cfee5a2"}});gitment.render("gitment-container")</script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script><script>AV.initialize("9ChhNczUqgw3PC9hxoDKxSl3-gzGzoHsz","0Si1CJjirnODvywfDbBmsi2U")</script><script>function showTime(e){var t=new AV.Query(e),n=[],o=$(".leancloud_visitors");o.each(function(){n.push($(this).attr("id").trim())}),t.containedIn("url",n),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var i=0;i<e.length;i++){var s=e[i],r=s.get("url"),l=s.get("time"),c=document.getElementById(r);$(c).find(t).text(l)}for(i=0;i<n.length;i++){r=n[i],c=document.getElementById(r);var u=$(c).find(t);""==u.text()&&u.text(0)}}else o.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(e){var t=$(".leancloud_visitors"),n=t.attr("id").trim(),o=t.attr("data-flag-title").trim(),i=new AV.Query(e);i.equalTo("url",n),i.find({success:function(t){if(t.length>0){var i=t[0];i.fetchWhenSave(!0),i.increment("time"),i.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var s=new e,r=new AV.ACL;r.setPublicReadAccess(!0),r.setPublicWriteAccess(!0),s.setACL(r),s.set("title",o),s.set("url",n),s.set("time",1),s.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):$(".post-title-link").length>1&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="计算机硬件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
+<meta name="keywords" content="计算机硬件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机硬件系统概述">
+<meta property="og:url" content="http://www.yyliu.cn/post/3f75d00c.html">
+<meta property="og:site_name" content="Liu Yiying&#39;s Blog">
+<meta property="og:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg">
+<meta property="og:updated_time" content="2017-12-07T14:52:35.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机硬件系统概述">
+<meta name="twitter:description" content="最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。">
+<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yyliu.cn/post/3f75d00c.html"/>
+
+
+
+
+
+  <title>计算机硬件系统概述 | Liu Yiying's Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-106354513-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0b2485d6a01a8b931e7d569581b19d0e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liu Yiying's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/3f75d00c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liu Yiying's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机硬件系统概述</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T22:30:52+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Liunx学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Liunx学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/3f75d00c.html" class="leancloud_visitors" data-flag-title="计算机硬件系统概述">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        <p>最近正在读《鸟哥的Liunx私房菜》，打算做一个该书的系类的笔记，与大家分享。本书第一章介绍了计算机的基础知识，作为一个小白菜，感觉还是受益匪浅~ ps:书的版本较早，是2009年出版的，因此有的内容已经过时，不过并不影响学习，我也暂时还没有对最新的主流PC进行了解，因此就按原书记录吧。</p>
+<a id="more"></a>
+<h2 id="计算机硬件系统">1. 计算机硬件系统</h2>
+<p>计算机硬件组成如下图所示，其中CPU由算数逻辑单元和控制单元组成，前者主要负责程序运算和逻辑判断，后者负责协调周边组件与各单元间的工作。图中“系统单元”是指计算及壳内的主要组件，而重点在于CPU和内存储器。如图中实线箭头部分，CPU发布的控制命令使数据的流进/流出，基本上所有的数据都是流经内存储器后再转出去，并且<strong>CPU要处理的数据则完全来自于内存</strong>。 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/j41d0F57B4.png"></p>
+<h3 id="主流cpu及种类">主流CPU及种类</h3>
+<p>CPU是整个计算机系统最重要的部分，主流的CPU可以分为以下两类：</p>
+<table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 47%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>类别</th>
+<th style="text-align: left;">精简指令集（RISC）系统</th>
+<th style="text-align: left;">复杂指令集（CISC）系统</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>特点</td>
+<td style="text-align: left;">微指令集较精简，每个指令运行时间很短，完成动作单纯，执行效率较好，做复杂的事要多个指令来完成</td>
+<td style="text-align: left;">微指令集的每个小指令可以执行一些较低阶的硬件，每条指令的长度不同，执行每条质量花费的时间较长，但每条指令可以处理的工作较丰富</td>
+</tr>
+<tr class="even">
+<td>举例</td>
+<td style="text-align: left;">Sun公司的APARC系列、IBM公司的Power Arvhitrcture（ 包括PowerPC）系列和ARM系列</td>
+<td style="text-align: left;">AMD、Intel、VIA等的x86架构的CPU</td>
+</tr>
+<tr class="odd">
+<td>应用</td>
+<td style="text-align: left;">APARC架构的计算机常用于学术领域的大型工作站中，以及银行金融体系的主服务；PowerPC架构的应用上，Sony公司的PS3使用的就是PowerPC架构的Cell处理器；手机、PDA、导航系统、网路设备（交换器、路由器等）几乎都是ARM架构的CPU</td>
+<td style="text-align: left;">个人计算机 (x86架构：最早的那个由Intel发展出的CPU代号为8086，后来依此架构开发出的CPU就被成为x86架构了，后来的64位个人计算机CPU被统称为x86_64架构)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="计算机运作流程">2. 计算机运作流程</h2>
+<p>鸟哥将它与一个人体做对比，很形象了~</p>
+<ul>
+<li><strong>CPU=脑袋</strong>：每个人会作的事情都会一样(微指令集的差异)，但主要都是透过脑袋瓜子来进行判断不控制身体各部分的活动；</li>
+<li><strong>内存储器=脑袋中的记录区块</strong>：在实际活动过程中，我们的脑袋瓜子能够将外界的互动暂时记录起来，提供CPU来迚行判断；</li>
+<li><strong>硬盘=脑袋中的记忆区块</strong>：将重要的数据记录起来，以便未来将这些重要的经验再次的使用；</li>
+<li><strong>主板=神经系统</strong>：好像人类的神经一样，将所有重要的组件连接起来，包括手脚的活动都是脑袋瓜子发布命令后， 透过神经(主板)传导给手脚来迚行活动啊！</li>
+<li><strong>各项接口设备=人体不外界沟通的手、脚、皮肤、眼睛等</strong>：就好像手脚一般，是人体不外界互动的重要关键！</li>
+<li><strong>显示适配器=脑袋中的影像</strong>：将来自眼睛的刺激转成影响后在脑袋中呈现，所以显示适配器所产生的数据源也是CPU控制的。</li>
+<li><strong>电源供应器 (Power)=心脏</strong>：所有的组件要能运作得要有足够的电力供给！</li>
+</ul>
+<h2 id="计算机上面常用的计算单位">3. 计算机上面常用的计算单位</h2>
+<ul>
+<li><p>容量单位 １Byte=8 bits <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/hjBAC2mI21.jpg"></p></li>
+<li><p>速度单位 CPU的频率：MHz、GHz &gt;CPU的频率就是CPU每秒钟可以进行的工作次数，频率越高，表示CPU单位时间可以做更多的事。 &gt;外频：CPU与外部组件进行数据传输时的速度 &gt;倍频：CPU内部用力啊加速工作效能的倍数 &gt;CPU频率=外频x倍频 &gt;Tips:因为每个CPU的微指令集不相同，架构也不见得一样，每次频率能够进行的工作指令数也不同，所以，频率目前仅能用来比较同款CPU的速度！</p></li>
+</ul>
+<p>网络传输方面：Ｍbps(Mbits per second)</p>
+<h2 id="个人计算机架构与接口设备">4. 个人计算机架构与接口设备</h2>
+<p>两大主流PC架构如下： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/Da6GijlL8L.png"></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/LLD3Eg6IHc.png"> 前面的一幅采用两个网桥来控制各组件的沟通，分别是： 1. 北桥：负责连接速度较快的CPU、主存储器和显卡等 2. 南桥：负责连接素服较慢的周边接口，包括硬盘、USB、网络卡等。</p>
+<p>而后一副图的不同之处在于主存储器直接与CPU沟通而不通过北桥。</p>
+<h3 id="总线">总线</h3>
+<p>决定每次工作可以传送的数据的大小，北桥所支持的频率我仧称为前端总线速度(Front Side Bus, FSB)，每次传送的位数称为总线宽度，常见的总线宽度有32/64位。FBSX总线宽度就是每秒可传送带最大数据量。</p>
+<h3 id="内存">内存</h3>
+<ul>
+<li><strong>CPU所使用的数据都是来自主存储器</strong>(main memory)，不论是软件程序还是数据，都必须要读入主存储器后CPU才能利用。</li>
+<li>个人计算机的主存储器主要组件为<strong>动态随机存取内存</strong>(Dynamic Random Access Memory, DRAM)， 随机存取内存叧有在通电时扄能记弽不使用，断电后数据就消失了。</li>
+<li>双通道设计：传统的总线宽度一般大约仅达64位，为了要加大这个宽度，因此芯片组厂商就将两个主存储器汇整在一起， 如果一支内存可达64位，两支内存就可以达到128位了。</li>
+<li>CPU与主存储器的外频应该要相同才好。</li>
+<li>除了主存储器之外，整个计算机当中还有许多内存！最为熟知的就是第二层<strong>高速缓存(L2 cache)</strong>因为它整合到CPU内部，因此这个L2内存的速度必须要CPU频率相同。使用DRAM是无法达到这个频率速度的，此时就需要静态随机存取内存(Static Random Access Memory, SRAM)的帮忙了 <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171018/fIGAfii7l2.jpg"></li>
+<li>BIOS(Basic Input Output System)是系统在开机时候首先会去读取的一个小程序，它被写死在主板上的一个内存芯片中，这个内存芯片在没有通电时也能够将数据记录下来，是<strong>只读存储器</strong>(Read Only Memory, ROM)。</li>
+</ul>
+<h3 id="显卡">显卡</h3>
+<p>显卡对于图形影像的显示扮演关键的角色。 一般对于图形影像的显示重点在于分辨率与颜色深度，因为每个图像显示的颜色会占用掉内存， 因此显卡上面会有一个<strong>内存</strong>的容量，这个显卡内存容量将会影响到最终你的屏幕分辨率和颜色深度的。 除了显卡外，由于3D游戏和3D动画的流行，显卡的运算能力越来越重要，3D的运算早期是交给CPU运作的，后来显卡厂商直接在显卡上嵌入一个3D加速芯片，即<strong>GPU</strong>。</p>
+<h3 id="硬盘与存储设备">硬盘与存储设备</h3>
+<ul>
+<li>传输接口： IDE接口：接口插槽所使用的扁平电缆较宽，每条扁平电缆上面可以接两个IDE装置 SATA接口：插槽要比IDE接口小很多，每条SATA连接线仅能接一个SATA装置，<strong>主流</strong> SCSI接口：工作站等级以上的硬盘传输接口，PC上不常见。</li>
+<li>参数：容量、缓冲存储器、转数</li>
+</ul>
+<h3 id="pci适配卡">PCI适配卡</h3>
+<p>如果用户有额外需要的功能卡， 就能够安装在这种PCI界面插槽上，现在主板上已经整合相当多的设备和组件了，包括声卡、网卡、USB控制卡、显卡等，所以现在主板上安插的PCI适配卡很少了。</p>
+<h3 id="主板">主板</h3>
+<p>上面所谈到的所有组件都安插在主板上。</p>
+<h3 id="设备io地址和irq中断通信">设备I/O地址和IRQ中断通信</h3>
+<p>I/O地址类似于每个装置的门牌号，一般两个装置不能使用同一个I/O地址，而IRQ可以想象成各个门牌连接到邮件中心（CPU）的专门路径。各个装置可以透过IRQ中断新到来告诉CPU该装置的工作情况，以方便CPU进行工作分配任务。</p>
+<h3 id="cmos与bios">CMOS与BIOS</h3>
+<ul>
+<li><strong>CMOS</strong>主要功能为记录主板上面的重要参数，包括系统时间、CPU电压与频率、各项设别的I/O地址与IRQ等，由与这些数据的记录要花费电力，因此主板上面有电池。</li>
+<li><strong>BIOS</strong>为写入到主板上某一块 flash或EEPROM 的程序，他可以在开机的时候执行，以加载CMOS中的参数，幵尝试呼叫储存装置中的开机程序，进一步进入操作系统中。BIOS程序也可以修改CMOS中的数据，每种主板呼吁BIOS设定程序的按键都不同，一般桌面计算机常见的是使用[del]按键进入BIOS设定画面。</li>
+</ul>
+
+      
+	  
+     
+	 <div>
+     
+<div style="text-align:center;color: #ccc;font-size:12px;">
+------ 本文结束 感谢阅读------</div>
+<br/>
+
+	 </div>
+     
+    
+    </div>
+    
+    
+    
+	
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    LIUYIYING
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.yyliu.cn/post/3f75d00c.html" title="计算机硬件系统概述">http://www.yyliu.cn/post/3f75d00c.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="LIUYIYING 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="LIUYIYING 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机硬件/" rel="tag"># 计算机硬件</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/ae831bff.html" rel="next" title="算法导论笔记(4):计数排序和基数排序">
+                <i class="fa fa-chevron-left"></i> 算法导论笔记(4):计数排序和基数排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/98f32ea9.html" rel="prev" title="算法导论笔记(5):选择（SELECT）算法">
+                算法导论笔记(5):选择（SELECT）算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+   
+     <div id="gitment-container"></div>
+   
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.JPG"
+              alt="LIUYIYING" />
+          
+            <p class="site-author-name" itemprop="name">LIUYIYING</p>
+            <p class="site-description motion-element" itemprop="description">Variety is the spice of life.</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LeisureLiu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2855124682/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机硬件系统"><span class="nav-text">1. 计算机硬件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主流cpu及种类"><span class="nav-text">主流CPU及种类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机运作流程"><span class="nav-text">2. 计算机运作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机上面常用的计算单位"><span class="nav-text">3. 计算机上面常用的计算单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人计算机架构与接口设备"><span class="nav-text">4. 个人计算机架构与接口设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总线"><span class="nav-text">总线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显卡"><span class="nav-text">显卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬盘与存储设备"><span class="nav-text">硬盘与存储设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pci适配卡"><span class="nav-text">PCI适配卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主板"><span class="nav-text">主板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备io地址和irq中断通信"><span class="nav-text">设备I/O地址和IRQ中断通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cmos与bios"><span class="nav-text">CMOS与BIOS</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LIUYIYING</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+</div>
+
+<span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+               id: window.location.pathname, 
+               owner: 'LeisureLiu',
+               repo: 'LeisureLiu.github.io',
+               oauth: {
+                   client_id: '2a58ebcf72d1d72bdb5f',
+                   client_secret: '1535e22925a2d7352d8204e5c29178292cfee5a2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("9ChhNczUqgw3PC9hxoDKxSl3-gzGzoHsz", "0Si1CJjirnODvywfDbBmsi2U");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
