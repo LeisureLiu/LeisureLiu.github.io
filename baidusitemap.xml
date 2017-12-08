@@ -46,26 +46,6 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
-    <lastmod>2017-12-07T15:41:29.103Z</lastmod>
-    <data>
-        <display>
-        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
-        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
-        
-        <tag>Deep Learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
     <lastmod>2017-12-07T15:41:29.103Z</lastmod>
     <data>
@@ -103,6 +83,26 @@
            
              
               <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
+    <lastmod>2017-12-07T15:41:29.103Z</lastmod>
+    <data>
+        <display>
+        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
+        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
+        
+        <tag>Deep Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
