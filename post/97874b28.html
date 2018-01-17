@@ -1,4 +1,1041 @@
-<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="算法,排序,"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2"><meta name="description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。"><meta name="keywords" content="算法,排序"><meta property="og:type" content="article"><meta property="og:title" content="算法导论笔记(1)：排序问题之插入排序和归并排序"><meta property="og:url" content="http://www.yyliu.cn/post/97874b28.html"><meta property="og:site_name" content="Liu Yiying&#39;s Blog"><meta property="og:description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.JPG"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F2.JPG"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG"><meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG"><meta property="og:updated_time" content="2017-12-07T15:41:29.103Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="算法导论笔记(1)：排序问题之插入排序和归并排序"><meta name="twitter:description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。"><meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"5.1.2",sidebar:{position:"left",display:"hide",offset:12,offset_float:12,b2t:!1,scrollpercent:!0,onmobile:!0},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://www.yyliu.cn/post/97874b28.html"><title>算法导论笔记(1)：排序问题之插入排序和归并排序 | Liu Yiying's Blog</title><script>!function(e,a,t,n,c,g,s){e.GoogleAnalyticsObject="ga",e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,g=a.createElement("script"),s=a.getElementsByTagName("script")[0],g.async=1,g.src="https://www.google-analytics.com/analytics.js",s.parentNode.insertBefore(g,s)}(window,document),ga("create","UA-106354513-1","auto"),ga("send","pageview")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?0b2485d6a01a8b931e7d569581b19d0e";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Liu Yiying's Blog</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li></ul></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/97874b28.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="LIUYIYING"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.JPG"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Liu Yiying's Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">算法导论笔记(1)：排序问题之插入排序和归并排序</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T21:14:09+08:00">2017-09-17</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法导论学习笔记/" itemprop="url" rel="index"><span itemprop="name">算法导论学习笔记</span></a></span></span> <span id="/post/97874b28.html" class="leancloud_visitors" data-flag-title="算法导论笔记(1)：排序问题之插入排序和归并排序"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数&#58;</span><span class="leancloud-visitors-count"></span></span></div></header><div class="post-body" itemprop="articleBody"><p>本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。</p><a id="more"></a><h2 id="运行时间running-time">1. 运行时间(Running Time)</h2><p>运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界，即对规模为n的任何输入，算法的最长运行时间。本文介绍用<span class="math inline">\(\Theta\)</span>记号来分析算法。</p><p><strong>数学描述</strong>：<span class="math inline">\(\Theta \left( g\left( n\right) \right) =\left\{f\left( n\right): 存在正常量c_{1}、c_{2}和n_{0}，使得对所有n\geq n_{0},有0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)\right\}\)</span> 具体操作中要忽略低阶项和常数项，<code>例如</code> <span class="math inline">\(3n^{3}+90n^{2}-5n+6046=\Theta \left( n^{3}\right)\)</span></p><p><strong>渐进分析</strong>：当n足够大时，一个<span class="math inline">\(\Theta \left( n^{3}\right)\)</span>算法总是优于<span class="math inline">\(\Theta \left( n^{2}\right)\)</span>,如下图所示： <img src="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG" alt="运行时间对比"> 但尽管如此，我们仍然不能忽略渐进慢的算法，现实世界的设计情况经常需要谨慎地平衡工程目标，而渐近分析是一种有用的工具，它可以帮助我们组织思维。</p><h2 id="排序问题">2. 排序问题</h2><p>输入：一串序列 $ a_{1}, a_{2},a_{n}$</p><p>输出： 序列 <span class="math inline">\(\left\langle a_{1}&#39;,a_{2}&#39;,\ldots ,a_{n}&#39;\right\rangle\)</span>，其中<span class="math inline">\(a_{1}&#39;\leq a_{2}&#39;\leq \ldots \leq a_{n}&#39;\)</span>。</p><p><code>例</code> 输入：8 2 4 9 3 6</p><p>输出：2 3 4 6 8 9</p><h2 id="插入排序insertion-sort">3. 插入排序(Insertion Sort)</h2><h3 id="算法描述">算法描述</h3><p>伪代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">INSERTION-SORT(A,n）</div><div class="line">    for j=2 to n</div><div class="line">        do key=A[j]</div><div class="line">            i=j-1</div><div class="line">            while i&gt;0 and A[i]&gt;key</div><div class="line">                do A[i+1]=A[i]</div><div class="line">                    i=i-1</div><div class="line">            A[i+1]=key</div></pre></td></tr></table></figure><p>代码示意流程如下:</p><p><img src="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.JPG" style="zoom:50%"></p><p>以下是一个插入排序的例子：</p><p><img src="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F2.JPG" style="zoom:50%"></p><h3 id="算法分析">算法分析</h3><ol type="1"><li>最坏情况：所有输入是倒序的。<span class="math display">\[T\left( n\right) =\sum _{j=2}^{n}\Theta \left( j\right) =\Theta \left( n^{2}\right)\]</span></li><li>平均情况：所有排列等可能。<span class="math display">\[T\left( n\right) =\sum _{j=2}^{n}\Theta \left( j / 2\right) =\Theta \left( n^{2}\right)\]</span></li></ol><h2 id="归并算法merge-sort">4. 归并算法(Merge Sort)</h2><h3 id="算法描述-1">算法描述</h3><p>伪代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MERGE-SORTA[1 . . n]</div><div class="line">1.If n= 1, done.</div><div class="line">2.Recursively sort A[ 1 . . ⎡n/2⎤]and A[ ⎡n/2⎤+1 . . n ] .</div><div class="line">3.“Merge”the 2sorted lists.</div><div class="line">Key subroutine:MERGE</div></pre></td></tr></table></figure><p>以下是对数组 [5, 2, 4, 6, 1, 3, 2, 6]，归并排序的流程：</p><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG" style="zoom:70%"></p><h3 id="算法分析-1">算法分析</h3><p>根据伪代码流程，我们可以得到：</p><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG" style="zoom:50%"></p><p>所以归并算法的运行时间可以由一下递归式表示： <span class="math display">\[T\left( n\right) =\begin{cases} \Theta \left( 1\right) \ \ \ \ \ \ \ \ \ \ \ if\ n=1;\\ 2T\left( n / 2\right) +\Theta \left( n\right)\ if\ n&gt;1.\end{cases}\]</span> 用递归树的方法解上式如下：</p><p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG" style="zoom:50%"></p><p>即归并算法的运行时间为<span class="math inline">\(\Theta \left( n\lg n\right)\)</span>.</p><p>结论:由于<span class="math inline">\(\Theta \left( n\lg n\right)\)</span>增长速度要比<span class="math inline">\(\Theta \left( n^{2}\right)\)</span>,所以归并排序的性能要由于插入排序，在实际测试中，当n的值大于30时，归并排序就开始占优势了！</p><div><div style="text-align:center;color:#ccc;font-size:12px"> ------ 本文结束 感谢阅读------</div><br></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> LIUYIYING</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="http://www.yyliu.cn/post/97874b28.html" title="算法导论笔记(1)：排序问题之插入排序和归并排序">http://www.yyliu.cn/post/97874b28.html</a></li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>坚持原创技术分享，您的支持将鼓励我继续创作！</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.jpg" alt="LIUYIYING 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.jpg" alt="LIUYIYING 支付宝"><p>支付宝</p></div></div></div></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/算法/" rel="tag"># 算法</a> <a href="/tags/排序/" rel="tag"># 排序</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/post/294b4ea3.html" rel="next" title="windows上Git的安装和使用"><i class="fa fa-chevron-left"></i> windows上Git的安装和使用</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/post/fed5ecee.html" rel="prev" title="算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="gitment-container"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview"> 站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.JPG" alt="LIUYIYING"><p class="site-author-name" itemprop="name">LIUYIYING</p><p class="site-description motion-element" itemprop="description">Variety is the spice of life.</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">22</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">7</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">13</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/LeisureLiu" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="http://weibo.com/2855124682/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i> Weibo</a></span></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时间running-time"><span class="nav-text">1. 运行时间(Running Time)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序问题"><span class="nav-text">2. 排序问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序insertion-sort"><span class="nav-text">3. 插入排序(Insertion Sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并算法merge-sort"><span class="nav-text">4. 归并算法(Merge Sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-text">算法分析</span></a></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"> ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="copyright"> &copy; <span itemprop="copyrightYear">2017</span><span class="with-love"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">LIUYIYING</span></div><div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div> <span class="post-meta-divider">|</span><div class="theme-info"> <span>Hosted by <a href="https://pages.coding.me" style="font-weight:700">Coding Pages</a></span></div> <span class="post-meta-divider">|</span> <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script type="text/javascript">var gitment=new Gitment({id:window.location.pathname,owner:"LeisureLiu",repo:"LeisureLiu.github.io",oauth:{client_id:"2a58ebcf72d1d72bdb5f",client_secret:"1535e22925a2d7352d8204e5c29178292cfee5a2"}});gitment.render("gitment-container")</script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script><script>AV.initialize("9ChhNczUqgw3PC9hxoDKxSl3-gzGzoHsz","0Si1CJjirnODvywfDbBmsi2U")</script><script>function showTime(e){var t=new AV.Query(e),n=[],o=$(".leancloud_visitors");o.each(function(){n.push($(this).attr("id").trim())}),t.containedIn("url",n),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var i=0;i<e.length;i++){var s=e[i],r=s.get("url"),l=s.get("time"),c=document.getElementById(r);$(c).find(t).text(l)}for(i=0;i<n.length;i++){r=n[i],c=document.getElementById(r);var u=$(c).find(t);""==u.text()&&u.text(0)}}else o.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(e){var t=$(".leancloud_visitors"),n=t.attr("id").trim(),o=t.attr("data-flag-title").trim(),i=new AV.Query(e);i.equalTo("url",n),i.find({success:function(t){if(t.length>0){var i=t[0];i.fetchWhenSave(!0),i.increment("time"),i.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var s=new e,r=new AV.ACL;r.setPublicReadAccess(!0),r.setPublicWriteAccess(!0),s.setACL(r),s.set("title",o),s.set("url",n),s.set("time",1),s.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):$(".post-title-link").length>1&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script type="text/x-mathjax-config">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法,排序," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。">
+<meta name="keywords" content="算法,排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法导论笔记(1)：排序问题之插入排序和归并排序">
+<meta property="og:url" content="http://www.yyliu.cn/post/97874b28.html">
+<meta property="og:site_name" content="Liu Yiying&#39;s Blog">
+<meta property="og:description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F2.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG">
+<meta property="og:updated_time" content="2017-12-07T15:41:29.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法导论笔记(1)：排序问题之插入排序和归并排序">
+<meta name="twitter:description" content="本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。">
+<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yyliu.cn/post/97874b28.html"/>
+
+
+
+
+
+  <title>算法导论笔记(1)：排序问题之插入排序和归并排序 | Liu Yiying's Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-106354513-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0b2485d6a01a8b931e7d569581b19d0e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Liu Yiying's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/97874b28.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LIUYIYING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Liu Yiying's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法导论笔记(1)：排序问题之插入排序和归并排序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T21:14:09+08:00">
+                2017-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法导论学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">算法导论学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/post/97874b28.html" class="leancloud_visitors" data-flag-title="算法导论笔记(1)：排序问题之插入排序和归并排序">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+	
+      
+      
+
+      
+        <p>本文首先对运行时间的概念和表达方式简单介绍，而后介绍插入排序和归并排序，并给出伪代码。</p>
+<a id="more"></a>
+<h2 id="运行时间running-time">1. 运行时间(Running Time)</h2>
+<p>运行时间是对一个算法的最直观描述，它是一个算法执行的基本操作数或步数，运行时间通常有最坏情况、平均情况和最好情况。在算法中我们通常寻找运行时间的上界，即对规模为n的任何输入，算法的最长运行时间。本文介绍用<span class="math inline">\(\Theta\)</span>记号来分析算法。</p>
+<p><strong>数学描述</strong>：<span class="math inline">\(\Theta \left( g\left( n\right) \right) =\left\{f\left( n\right): 存在正常量c_{1}、c_{2}和n_{0}，使得对所有n\geq n_{0},有0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)\right\}\)</span> 具体操作中要忽略低阶项和常数项，<code>例如</code> <span class="math inline">\(3n^{3}+90n^{2}-5n+6046=\Theta \left( n^{3}\right)\)</span></p>
+<p><strong>渐进分析</strong>：当n足够大时，一个<span class="math inline">\(\Theta \left( n^{3}\right)\)</span>算法总是优于<span class="math inline">\(\Theta \left( n^{2}\right)\)</span>,如下图所示： <img src="http://ow8yxg5xz.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.JPG" alt="运行时间对比"> 但尽管如此，我们仍然不能忽略渐进慢的算法，现实世界的设计情况经常需要谨慎地平衡工程目标，而渐近分析是一种有用的工具，它可以帮助我们组织思维。</p>
+<h2 id="排序问题">2. 排序问题</h2>
+<p>输入：一串序列 $ a_{1}, a_{2},a_{n}$</p>
+<p>输出： 序列 <span class="math inline">\(\left\langle a_{1}&#39;,a_{2}&#39;,\ldots ,a_{n}&#39;\right\rangle\)</span>，其中<span class="math inline">\(a_{1}&#39;\leq a_{2}&#39;\leq \ldots \leq a_{n}&#39;\)</span>。</p>
+<p><code>例</code> 输入：8 2 4 9 3 6</p>
+<p>输出：2 3 4 6 8 9</p>
+<h2 id="插入排序insertion-sort">3. 插入排序(Insertion Sort)</h2>
+<h3 id="算法描述">算法描述</h3>
+<p>伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">INSERTION-SORT(A,n）</div><div class="line">    for j=2 to n</div><div class="line">        do key=A[j]</div><div class="line">            i=j-1</div><div class="line">            while i&gt;0 and A[i]&gt;key</div><div class="line">                do A[i+1]=A[i]</div><div class="line">                    i=i-1</div><div class="line">            A[i+1]=key</div></pre></td></tr></table></figure>
+<p>代码示意流程如下:</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.JPG" style="zoom:50%"></p>
+<p>以下是一个插入排序的例子：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F2.JPG" style="zoom:50%"></p>
+<h3 id="算法分析">算法分析</h3>
+<ol type="1">
+<li>最坏情况：所有输入是倒序的。<span class="math display">\[T\left( n\right) =\sum _{j=2}^{n}\Theta \left( j\right) =\Theta \left( n^{2}\right)\]</span></li>
+<li>平均情况：所有排列等可能。<span class="math display">\[T\left( n\right) =\sum _{j=2}^{n}\Theta \left( j / 2\right) =\Theta \left( n^{2}\right)\]</span></li>
+</ol>
+<h2 id="归并算法merge-sort">4. 归并算法(Merge Sort)</h2>
+<h3 id="算法描述-1">算法描述</h3>
+<p>伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MERGE-SORTA[1 . . n]</div><div class="line">1.If n= 1, done.</div><div class="line">2.Recursively sort A[ 1 . . ⎡n/2⎤]and A[ ⎡n/2⎤+1 . . n ] .</div><div class="line">3.“Merge”the 2sorted lists.</div><div class="line">Key subroutine:MERGE</div></pre></td></tr></table></figure>
+<p>以下是对数组 [5, 2, 4, 6, 1, 3, 2, 6]，归并排序的流程：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/Lm48Fl1m9a.JPG" style="zoom:70%"></p>
+<h3 id="算法分析-1">算法分析</h3>
+<p>根据伪代码流程，我们可以得到：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/7D6IGm6dla.JPG" style="zoom:50%"></p>
+<p>所以归并算法的运行时间可以由一下递归式表示： <span class="math display">\[T\left( n\right) =\begin{cases} \Theta \left( 1\right) \  \ \ \ \ \ \ \ \ \ \ if\  n=1;\\ 2T\left( n / 2\right) +\Theta \left( n\right)\  if\  n&gt;1.\end{cases}\]</span> 用递归树的方法解上式如下：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170919/iDl61L12FF.JPG" style="zoom:50%"></p>
+<p>即归并算法的运行时间为<span class="math inline">\(\Theta \left( n\lg n\right)\)</span>.</p>
+<p>结论:由于<span class="math inline">\(\Theta \left( n\lg n\right)\)</span>增长速度要比<span class="math inline">\(\Theta \left( n^{2}\right)\)</span>,所以归并排序的性能要由于插入排序，在实际测试中，当n的值大于30时，归并排序就开始占优势了！</p>
+
+      
+	  
+     
+	 <div>
+     
+<div style="text-align:center;color: #ccc;font-size:12px;">
+------ 本文结束 感谢阅读------</div>
+<br/>
+
+	 </div>
+     
+    
+    </div>
+    
+    
+    
+	
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    LIUYIYING
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.yyliu.cn/post/97874b28.html" title="算法导论笔记(1)：排序问题之插入排序和归并排序">http://www.yyliu.cn/post/97874b28.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="LIUYIYING 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="LIUYIYING 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+	 
+      
+     
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/排序/" rel="tag"># 排序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/294b4ea3.html" rel="next" title="windows上Git的安装和使用">
+                <i class="fa fa-chevron-left"></i> windows上Git的安装和使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/fed5ecee.html" rel="prev" title="算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
+                算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+   
+     <div id="gitment-container"></div>
+   
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.JPG"
+              alt="LIUYIYING" />
+          
+            <p class="site-author-name" itemprop="name">LIUYIYING</p>
+            <p class="site-description motion-element" itemprop="description">Variety is the spice of life.</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LeisureLiu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2855124682/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时间running-time"><span class="nav-text">1. 运行时间(Running Time)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序问题"><span class="nav-text">2. 排序问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序insertion-sort"><span class="nav-text">3. 插入排序(Insertion Sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析"><span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并算法merge-sort"><span class="nav-text">4. 归并算法(Merge Sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述-1"><span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法分析-1"><span class="nav-text">算法分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy;  2017 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LIUYIYING</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+</div>
+
+<span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+               id: window.location.pathname, 
+               owner: 'LeisureLiu',
+               repo: 'LeisureLiu.github.io',
+               oauth: {
+                   client_id: '2a58ebcf72d1d72bdb5f',
+                   client_secret: '1535e22925a2d7352d8204e5c29178292cfee5a2',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("9ChhNczUqgw3PC9hxoDKxSl3-gzGzoHsz", "0Si1CJjirnODvywfDbBmsi2U");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -6,11 +1043,23 @@
           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       });
-    </script><script type="text/x-mathjax-config">
+    </script>
+
+    <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
         var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
       });
-    </script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

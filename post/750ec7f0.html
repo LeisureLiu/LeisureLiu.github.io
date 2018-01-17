@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="Deep Learning,单目深度估计," />
 
 
 
@@ -88,26 +88,28 @@
 
 
 
-<meta name="description" content="算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。">
-<meta name="keywords" content="算法">
+<meta name="description" content="本文要介绍的论文是由Garg等于2016年发表在ECCV的一篇关于单目深度估计的文章。 摘要：使用大量人工标定的数据进行训练是大多数现有卷积神经网络的重要的弊端。本文提出一种无监督的深层卷积神经网络框架用于预测单幅视图的深度，它不需要经过预训练或带标签的真实深度数据。我们通过一个类似自动编码器（autoencoder）的方式训练网络来实现这一点。在训练阶段，我们考虑使用已知相机运动信息的图像对，">
+<meta name="keywords" content="Deep Learning,单目深度估计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
-<meta property="og:url" content="http://www.yyliu.cn/post/fed5ecee.html">
+<meta property="og:title" content="论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue">
+<meta property="og:url" content="http://www.yyliu.cn/post/750ec7f0.html">
 <meta property="og:site_name" content="Liu Yiying&#39;s Blog">
-<meta property="og:description" content="算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。">
+<meta property="og:description" content="本文要介绍的论文是由Garg等于2016年发表在ECCV的一篇关于单目深度估计的文章。 摘要：使用大量人工标定的数据进行训练是大多数现有卷积神经网络的重要的弊端。本文提出一种无监督的深层卷积神经网络框架用于预测单幅视图的深度，它不需要经过预训练或带标签的真实深度数据。我们通过一个类似自动编码器（autoencoder）的方式训练网络来实现这一点。在训练阶段，我们考虑使用已知相机运动信息的图像对，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/H75IG06djJ.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/JeKHJ68Ja2.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/blFF1DD72a.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/kCF45f6egc.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG">
-<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG">
-<meta property="og:updated_time" content="2017-12-07T15:41:28.944Z">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/2CggaH1AA3.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/47FC86B7iG.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/dL52lBkLHL.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/KD5I0hgmjc.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/9DBejKE90g.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/68hdB7F3AC.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180116/gFfCc8fg4G.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/4lie88gL4m.png?imageslim">
+<meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim">
+<meta property="og:updated_time" content="2018-01-17T03:51:32.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
-<meta name="twitter:description" content="算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。">
-<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/H75IG06djJ.JPG">
+<meta name="twitter:title" content="论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue">
+<meta name="twitter:description" content="本文要介绍的论文是由Garg等于2016年发表在ECCV的一篇关于单目深度估计的文章。 摘要：使用大量人工标定的数据进行训练是大多数现有卷积神经网络的重要的弊端。本文提出一种无监督的深层卷积神经网络框架用于预测单幅视图的深度，它不需要经过预训练或带标签的真实深度数据。我们通过一个类似自动编码器（autoencoder）的方式训练网络来实现这一点。在训练阶段，我们考虑使用已知相机运动信息的图像对，">
+<meta name="twitter:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/2CggaH1AA3.png?imageslim">
 
 
 
@@ -137,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yyliu.cn/post/fed5ecee.html"/>
+  <link rel="canonical" href="http://www.yyliu.cn/post/750ec7f0.html"/>
 
 
 
 
 
-  <title>算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法) | Liu Yiying's Blog</title>
+  <title>论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue | Liu Yiying's Blog</title>
   
 
 
@@ -299,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/fed5ecee.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yyliu.cn/post/750ec7f0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LIUYIYING">
@@ -316,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)</h1>
+          <h1 class="post-title" itemprop="name headline">论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue</h1>
         
 
         <div class="post-meta">
@@ -328,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T17:22:24+08:00">
-                2017-09-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T11:33:52+08:00">
+                2018-01-17
               </time>
             
 
@@ -351,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法导论学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">算法导论学习笔记</span>
+                  <a href="/categories/论文笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文笔记</span>
                   </a>
                 </span>
 
@@ -368,7 +370,7 @@
 
           
           
-             <span id="/post/fed5ecee.html" class="leancloud_visitors" data-flag-title="算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">
+             <span id="/post/750ec7f0.html" class="leancloud_visitors" data-flag-title="论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -399,53 +401,47 @@
       
 
       
-        <p>算法的运行时间通常由渐进记号来刻画，本文将介绍几类渐进记号的概念，和递归式运行时间的计算方法。 <a id="more"></a></p>
-<h2 id="渐进符号介绍">1. 渐进符号介绍</h2>
-<p><strong><span class="math inline">\(\Theta\)</span>记号</strong>：<span class="math inline">\(\Theta \left( g\left( n\right) \right) =\)</span>{<span class="math inline">\(f\left( n\right)\)</span>: 存在正常量<span class="math inline">\(c_{1}\)</span>、<span class="math inline">\(c_{2}\)</span>和<span class="math inline">\(n_{0}\)</span>，使得对所有<span class="math inline">\(n\geq n_{0}\)</span>,有<span class="math inline">\(0\leq c_{1}g\left(n\right)\leq f\left( n\right)\leq c_{2}g\left(n\right)\)</span>}</p>
-<p><strong><span class="math inline">\(O\)</span>记号</strong>：<span class="math inline">\(O \left( g\left( n\right) \right) =\)</span>{<span class="math inline">\(f\left( n\right)\)</span>:存在正常量c和<span class="math inline">\(n_{0}\)</span>,使得对所有<span class="math inline">\(n\geq n_{0}\)</span>,有<span class="math inline">\(0\leq f\left( n\right) \leq cg\left( n\right)\)</span>}</p>
-<p><strong><span class="math inline">\(\Omega\)</span>记号</strong>：<span class="math inline">\(\Omega \left( g\left( n\right) \right) =\)</span>{<span class="math inline">\(f\left( n\right)\)</span>:存在正常量c和<span class="math inline">\(n_{0}\)</span>,使得对所有<span class="math inline">\(n\geq n_{0}\)</span>,有<span class="math inline">\(0\leq cg\left( n\right) \leq f\left( n\right)\)</span>}</p>
-<p>直观的来看，三种渐进记号与于原函数的关系如下图： <img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170927/H75IG06djJ.JPG" alt="mark"> 可以看到，对于<span class="math inline">\(\theta\)</span>记号，总存在正常数<span class="math inline">\(c_{1}\)</span>、<span class="math inline">\(c_{2}\)</span>，使得对于足够大的n，函数<span class="math inline">\(f\left( n\right)\)</span>能够“夹入”<span class="math inline">\(c_{1}g\left(n\right)\)</span>和<span class="math inline">\(c_{2}g\left(n\right)\)</span>之间；对于O记号，<span class="math inline">\(n_{0}\)</span>及其右边的所有值n，函数<span class="math inline">\(f\left( n\right)\)</span>的值总小于或等于<span class="math inline">\(cg\left(n\right)\)</span>；对于<span class="math inline">\(\Omega\)</span>记号，在<span class="math inline">\(n_{0}\)</span>及其右边的所有值n，函数<span class="math inline">\(f\left( n\right)\)</span>的值总大于或等于<span class="math inline">\(cg\left(n\right)\)</span>。</p>
-<h2 id="求解递归方程">2. 求解递归方程</h2>
-<h3 id="代入法">代入法</h3>
-<p>这是一种最一般的方法，包含以下步骤：</p>
-<ol type="1">
-<li><strong>猜测</strong>结果的形式；</li>
-<li>用归纳法<strong>验证</strong>；</li>
-<li><strong>求解</strong>。</li>
-</ol>
-<p><code>例</code> <span class="math inline">\(T\left( n\right) =4T\left( n / 2\right) +n\)</span> （假设<span class="math inline">\(T\left( 1\right) =\Theta \left( 1\right)\)</span>）</p>
+        <p>本文要介绍的论文是由Garg等于2016年发表在ECCV的一篇关于单目深度估计的文章。</p>
+<p><strong>摘要</strong>：使用大量人工标定的数据进行训练是大多数现有卷积神经网络的重要的弊端。本文提出一种无监督的深层卷积神经网络框架用于预测单幅视图的深度，它不需要经过预训练或带标签的真实深度数据。我们通过一个类似自动编码器（autoencoder）的方式训练网络来实现这一点。在训练阶段，我们考虑使用已知相机运动信息的图像对，如双目立体图像对。我们训练卷积编码器以完成对源图像预测深度图的任务。为此，我们利用预测的深度和已知的试图间的位移，通过逆变形（<strong>inverse warp</strong>）生成目标图像，也即重建源图像。重建的光度学误差即为编码器的重建损失。这种训练数据的获取要比其它相同系统简单得多，它无需人工标定，也不需要对摄像机进行的深度传感器进行校准。结果显示，我们的网络在使用不到一半的KITTI数据集，提供了与目前最先进的基于监督学习的单视图深度估计方法相同的性能。</p>
+<p>（<a href="https://arxiv.org/abs/1603.04992" target="_blank" rel="external">论文地址</a>）</p>
+<h3 id="图像深度视差的关系">图像深度视差的关系</h3>
+<p>在非监督的单目图像深度估计中，主要利用双目图像间的视差和图像深度之间的线性关系，将训练过程看作一个图像重建的问题。因此，在介绍论文之前，本节首先介绍图像的深度和视差之间的关系。下面是深度和视差的关系推导，可以看出，视差和深度之间呈反比关系。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/2CggaH1AA3.png?imageslim"></p>
+<h3 id="整体框架">整体框架</h3>
+<p>根据上述深度与视差的关系，视差图可以看作是按比例缩小的深度的逆，这个比例即为<span class="math inline">\(fB\)</span>。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/47FC86B7iG.png?imageslim"></p>
 <ul>
-<li><p>第一步：</p>
-<ol type="1">
-<li>猜测为<span class="math inline">\(O\left( n^{3}\right)\)</span>;</li>
-<li>假设对于<span class="math inline">\(k &lt; n\)</span>,有<span class="math inline">\(T\left( k\right) \leq ck^{3}\)</span>;</li>
-<li>用递归方法证明<span class="math inline">\(T\left( n\right) \leq cn^{3}\)</span>。</li>
-</ol>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/JeKHJ68Ja2.JPG" style="zoom:50%"> 当<span class="math inline">\(\left( c / 2\right) n^{3}-n\geq 0\)</span>时，不等式成立，例如<span class="math inline">\(c\geq 2\)</span>且<span class="math inline">\(n\geq 1\)</span>。 初始条件：令<span class="math inline">\(T\left( 1\right) =\Theta \left( 1\right)\)</span>，对于所有<span class="math inline">\(n&lt; n_{0}\)</span>成立，其中<span class="math inline">\(n_{0}\)</span>是一个适当的常数。显然有对于所有<span class="math inline">\(1\leq n\leq n_{0}\)</span>，当c足够大，有<span class="math inline">\(\Theta \left( 1\right) \leq cn^{3}\)</span>。显然约束是不够紧的。</p></li>
-<li><p>第二步：得到一个更加紧的上界：</p>
-<p>下面证明$T( n) =( n^{2}) $：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/blFF1DD72a.JPG" style="zoom:50%"></p>
-<p>​ –&gt;减去一个低阶项：</p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/kCF45f6egc.JPG" style="zoom:50%"></p>
-<p>选取一个足够大的<span class="math inline">\(c_{1}\)</span>来处理初始化条件。</p></li>
+<li>part 1. 编码器，是一个传统的卷积网络，将输入的左视图(<span class="math inline">\(I_{1}\)</span>)映射为深度图；</li>
+<li>part 2. 解码器，明确地将编码器的输出转换为视差图，通过扫描线（scan-line)上移动右视图（<span class="math inline">\(I_{2}\)</span>)的像素来获得反向变形（<strong>backward warp</strong>）图像（<span class="math inline">\(I_{w}\)</span>)；</li>
+<li>part 3. 通过简单的损失函数来匹配重建的输出图像<span class="math inline">\(I_{w}\)</span>和编码器输入的图像<span class="math inline">\(I_{1}\)</span>。</li>
+<li>训练时，我们包含视差图平滑（用以解决缝隙问题）的重建损失函数。</li>
+<li>测试时，基于训练时给定的由<span class="math inline">\(fB\)</span>构成的场景尺度，该网络预测单视图的视差。</li>
 </ul>
-<h3 id="递归树法">递归树法</h3>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/43aEb4gIgh.png" style="zoom:50%"></p>
-<h3 id="主方法">主方法</h3>
-<p><strong>定理（主定理)</strong>：令<span class="math inline">\(a\geq1\)</span>和$b&gt;1)是常数，f(n)是一个常数，，T(n)是定义在非负整数上的递归式：</p>
-<p><span class="math display">\[ T\left( n\right) =aT\left( n / b\right) +f\left( n\right) \]</span></p>
-<p>其中我们将n/b解释为<span class="math inline">\(\left\lfloor n / b\right\rfloor\)</span>或<span class="math inline">\(\left\lceil n / b\right\rceil\)</span>,那么T(n)有如下渐进界： 1. 若对某个常数<span class="math inline">\(\varepsilon &gt;0\)</span>有<span class="math inline">\(f\left( n\right)=O\left( n^{\log _{b}a-\varepsilon}\right)\)</span>,则<span class="math inline">\(T\left( n\right)=\Theta\left( n^{\log_{b}a-\varepsilon}\right)\)</span>; 2. 若<span class="math inline">\(f\left( n\right)=\Theta\left( n^{\log _{b}a-\varepsilon}\right)\)</span>，则<span class="math inline">\(T\left( n\right)=\Theta\left( n^{\log _{b}a-\varepsilon}\lg n\right)\)</span>; 3. 若对某个常数<span class="math inline">\(\varepsilon&lt;0\)</span>有<span class="math inline">\(f\left( n\right)=\Omega\left( n^{\log _{b}a+\varepsilon}\right)\)</span>,且对某个常数<span class="math inline">\(c&lt;1\)</span>和所以足够大的n有<span class="math inline">\(af\left( n / b\right) \leq Cf\left( n\right)\)</span>,则<span class="math inline">\(T\left( n\right) =\Theta \left( f\left( n\right) \right)\)</span>。</p>
-<blockquote>
-<p>细节：这第一种情况中，不是f(n)小于<span class="math inline">\(n^{\log_{b}a}\)</span>就够了，而是要多项式意义上的小于,即，f(n)必须渐进小于<span class="math inline">\(n^{\log_{b}a}\)</span>，要相差一个<span class="math inline">\(n^{\varepsilon }\)</span>,其中<span class="math inline">\(\varepsilon\)</span>是大于0的常数，否则不能用主方法计算。情况三同理。</p>
-</blockquote>
-<p><code>例题</code></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/77HFgfAmJa.JPG" style="zoom:50%"></p>
-<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/170922/HJaEKd0lj4.JPG" style="zoom:43%"></p>
-<p>例题4中由于<span class="math inline">\(n^{2}\lg n\)</span>没有多项式意义上小于<span class="math inline">\(n^{2}\)</span>,即前者不是指数意义上的小于后者，所以不能用主方法计算。</p>
-<blockquote>
-<p><strong>多项式意义的大于（小于）</strong> 我们都知道，针对个多项式的时间复杂度，都是以其最高阶的那项作为计算依据，例如，<span class="math inline">\(O\left(n^{3}+n^{2}\right)\)</span>的复杂度也就是<span class="math inline">\(O\left(n^{3}\right)\)</span>的复杂度。 多项式意义上的大于就要求必须在指数级上大于，例如一个<span class="math inline">\(O\left( 0.01n^{3}\right)\)</span>程序的效率比<span class="math inline">\(O\left(100n^{2}\right)\)</span>的效率低，尽管在n很小的时候，前者优于后者，然而前者在指数级上大于后者，后者时间随数据规模增长得慢，最终<span class="math inline">\(O\left(n^{3}\right)\)</span>的复杂度将远远超过<span class="math inline">\(O\left( n^{2}\right)\)</span>。这就可以说<span class="math inline">\(O\left( 0.01n^{3}\right)\)</span>在多项式意义上大于<span class="math inline">\(O\left(100n^{2}\right)\)</span></p>
-</blockquote>
-<p>主方法的证明本文就不介绍了。</p>
+<p>文中提到一个 backward (inverse) warp 的概念，这是一个细节，下面介绍一下关于 forward warp 和 backward warp 的概念，如下图所示：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/dL52lBkLHL.png?imageslim"></p>
+<p>假设经过CNN网络得到的图像深度<span class="math inline">\(D_{l}=F(I_{l})\)</span>，那么</p>
+<ul>
+<li>Forward warp 是利用<span class="math inline">\(D_{l}\)</span>将<span class="math inline">\(I_{l}\)</span>中的像素点映射到<span class="math inline">\(I_{r}\)</span>中，即表示为<span class="math inline">\(I_{r}^{&#39;}=Mapping(I_{l},D_{l})\)</span>；</li>
+<li>Backward warp 是利用<span class="math inline">\(D_{l}\)</span>将<span class="math inline">\(I_{R}\)</span>中的像素映射到<span class="math inline">\(I_{l}\)</span>中，即表示为<span class="math inline">\(I_{l}^{&#39;}=Mapping(I_{r},D_{l})\)</span>。</li>
+</ul>
+<p>上两者的区别在于：假设<span class="math inline">\(x_{l}\)</span>、<span class="math inline">\(x_{r}\)</span>为左右视图中对用的像素点，如果采用 Forward warp ，即使用<span class="math inline">\(x_{l}+D_{l}\)</span>进行映射，由于不同视角的遮挡关系，<span class="math inline">\(I_{l}\)</span>中的像素有可能在<span class="math inline">\(I_{r}\)</span>中并不存在，或是<span class="math inline">\(I_{l}\)</span>中多个像素映射到<span class="math inline">\(I_{r}\)</span>中的同一位置，即<span class="math inline">\(x_{r}=x_{l_1}+D_{l_1}=x_{l_2}+D_{l_2}=x_{l_3}+D_{l_3}=...\)</span>，这样就会丢失掉很多的<span class="math inline">\(D_{l}\)</span>中的信息。而采用Backward warp，从<span class="math inline">\(I_{r}\)</span>出发，即根据<span class="math inline">\(x_{r}-D_{l}\)</span>，去寻找原图中的点，可以确保<span class="math inline">\(I_{r}\)</span>中每个点都有赋值而不会出现空洞。</p>
+<p>对于文中的学习网络而言，如果用 forward warp，网络预测的是<span class="math inline">\(I_{r}\)</span>所对应的深度；而用 backward warp ，网络预测的是<span class="math inline">\(I_{l}\)</span>对应的深度。</p>
+<h3 id="损失函数">损失函数</h3>
+<p>损失函数是一个可微（便于反向传播）并且和预测误差具有高度相关性。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/KD5I0hgmjc.png?imageslim"></p>
+<p>其中，<span class="math inline">\(E_{recons}^{i}\)</span>为图像重建损失函数，<span class="math inline">\(E_{smooth}^{i}\)</span>为对视差图的平滑损失函数。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/9DBejKE90g.png?imageslim"></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/68hdB7F3AC.png?imageslim"></p>
+<p>其中，<span class="math inline">\(i \in \left\{ 1\ldots N\right\} ​\)</span>，<span class="math inline">\(\{I_{1}^{i},I_{2}^{i}\}​\)</span>表示第i个图像对，<span class="math inline">\(f​\)</span>为相机的焦距，B为水平放置的两个相机间的距离，<span class="math inline">\(d^{i}(x)​\)</span>为<span class="math inline">\(I_{1}^{i}​\)</span>对应的深度图，<span class="math inline">\(D^{i}(x)=fB/d^{i}(x)​\)</span>为<span class="math inline">\(I_{1}^{i}​\)</span>对应的视差，<span class="math inline">\(I_{w}^{i}=I_{2}^{i}(x+fB/d^{i}(x))​\)</span>为重建图像，<span class="math inline">\(\gamma​\)</span>是对深度图施加平滑的权重 。</p>
+<p>coarse-to-fine 策略：为了计算后向传播的梯度损失函数，需要对重建图像进行线性化操作，本文利用的是 <strong>Taylor 表达式</strong>：</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180116/gFfCc8fg4G.png?imageslim"></p>
+<p>其中，<span class="math inline">\(I_{2h}\)</span>表示经过n次迭代，视差为<span class="math inline">\(D^{n-1}\)</span>的重建图像的水平梯度；线性化只在<span class="math inline">\(D_{n}(x)-D_{n-1}(x)\)</span>限制在一个较小的范围内有效。</p>
+<h3 id="网络结构">网络结构</h3>
+<p>本文的网络结构采用了<a href="https://arxiv.org/abs/1411.4038" target="_blank" rel="external">全卷积网络（FCN）</a>以达到粗糙到精细的预测。</p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/4lie88gL4m.png?imageslim"></p>
+<p>图中：C（红色）- 卷积、P（黄）- pooling、N（紫）- 归一化、F（绿）- FCN、D（蓝）- 上采样</p>
+<h3 id="评估指标">评估指标</h3>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim"></p>
 
       
 	  
@@ -473,7 +469,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.yyliu.cn/post/fed5ecee.html" title="算法导论笔记(2):渐进记号及递归式渐进界求解方法介绍(代入法,递归树法和主方法)">http://www.yyliu.cn/post/fed5ecee.html</a>
+    <a href="http://www.yyliu.cn/post/750ec7f0.html" title="论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue">http://www.yyliu.cn/post/750ec7f0.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -526,7 +522,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+            <a href="/tags/单目深度估计/" rel="tag"># 单目深度估计</a>
           
         </div>
       
@@ -539,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/97874b28.html" rel="next" title="算法导论笔记(1)：排序问题之插入排序和归并排序">
-                <i class="fa fa-chevron-left"></i> 算法导论笔记(1)：排序问题之插入排序和归并排序
+              <a href="/post/6e3cf3f5.html" rel="next" title="Java多线程(2)：线程同步和线程间通信">
+                <i class="fa fa-chevron-left"></i> Java多线程(2)：线程同步和线程间通信
               </a>
             
           </div>
@@ -548,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/7cabb4ff.html" rel="prev" title="论文笔记：Densely Connected Convolutional Networks(DenseNet模型)">
-                论文笔记：Densely Connected Convolutional Networks(DenseNet模型) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -707,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#渐进符号介绍"><span class="nav-text">1. 渐进符号介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求解递归方程"><span class="nav-text">2. 求解递归方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代入法"><span class="nav-text">代入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归树法"><span class="nav-text">递归树法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主方法"><span class="nav-text">主方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像深度视差的关系"><span class="nav-text">图像深度视差的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体框架"><span class="nav-text">整体框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估指标"><span class="nav-text">评估指标</span></a></li></ol></div>
             
 
           </div>
