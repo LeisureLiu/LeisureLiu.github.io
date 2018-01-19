@@ -4,21 +4,19 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/9b3bd827.html</loc>
-    <lastmod>2018-01-18T02:58:50.282Z</lastmod>
+    <loc>http://www.yyliu.cn/post/c68cf6db.html</loc>
+    <lastmod>2018-01-19T09:57:32.915Z</lastmod>
     <data>
         <display>
-        <title>论文笔记:Unsupervised Monocular Depth Estimation with Left-Right Consistency</title>
-        <pubTime>2018-01-18T02:53:52.000Z</pubTime>
+        <title>论文笔记：Unsupervised Monocular Depth Estimation with Left-Right Consistency</title>
+        <pubTime>2018-01-18T02:09:52.000Z</pubTime>
         
         <tag>Deep Learning</tag>
-         
-        <tag>单目深度估计</tag>
          
          
            
              
-              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="图像深度估计" url="http://www.yyliu.cn/categories/%E5%9B%BE%E5%83%8F%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1/"/>
           
         </display>
     </data>
@@ -27,20 +25,18 @@
     
   <url>
     <loc>http://www.yyliu.cn/post/750ec7f0.html</loc>
-    <lastmod>2018-01-17T14:09:27.391Z</lastmod>
+    <lastmod>2018-01-19T09:52:36.873Z</lastmod>
     <data>
         <display>
         <title>论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue</title>
-        <pubTime>2018-01-17T03:33:52.000Z</pubTime>
+        <pubTime>2018-01-17T03:09:52.000Z</pubTime>
         
         <tag>Deep Learning</tag>
-         
-        <tag>单目深度估计</tag>
          
          
            
              
-              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="图像深度估计" url="http://www.yyliu.cn/categories/%E5%9B%BE%E5%83%8F%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1/"/>
           
         </display>
     </data>
@@ -48,20 +44,35 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
-    <lastmod>2018-01-17T14:09:27.390Z</lastmod>
+    <loc>http://www.yyliu.cn/post/e87b2ed2.html</loc>
+    <lastmod>2018-01-19T09:48:16.703Z</lastmod>
     <data>
         <display>
-        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
-        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
+        <title>论文笔记：Depth Map Prediction from a Single Image using a Multi-Scale Deep Network</title>
+        <pubTime>2018-01-19T09:09:52.000Z</pubTime>
         
         <tag>Deep Learning</tag>
          
          
            
              
-              <breadCrumb title="论文笔记" url="http://www.yyliu.cn/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="图像深度估计" url="http://www.yyliu.cn/categories/%E5%9B%BE%E5%83%8F%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/0.html</loc>
+    <lastmod>2018-01-19T09:13:51.569Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-10-19T12:47:45.025Z</pubTime>
+        
+         
+           
         </display>
     </data>
     </url>
