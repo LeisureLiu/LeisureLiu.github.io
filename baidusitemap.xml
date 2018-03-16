@@ -4,19 +4,41 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
-    <lastmod>2018-01-19T10:09:04.912Z</lastmod>
+    <loc>http://www.yyliu.cn/post/99973ea9.html</loc>
+    <lastmod>2018-03-16T13:35:54.201Z</lastmod>
     <data>
         <display>
-        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
-        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
+        <title>算法导论笔记(6):动态规划之最长公共子序列问题</title>
+        <pubTime>2017-11-14T12:08:19.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
+        <tag>动态规划</tag>
          
          
            
              
-              <breadCrumb title="网络模型" url="http://www.yyliu.cn/categories/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/"/>
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
+    <lastmod>2018-03-16T13:27:32.209Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(3):快速排序及其性能分析</title>
+        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>排序</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -25,7 +47,7 @@
     
   <url>
     <loc>http://www.yyliu.cn/post/c68cf6db.html</loc>
-    <lastmod>2018-01-19T09:57:32.915Z</lastmod>
+    <lastmod>2018-01-19T10:14:09.956Z</lastmod>
     <data>
         <display>
         <title>论文笔记：Unsupervised Monocular Depth Estimation with Left-Right Consistency</title>
@@ -45,7 +67,7 @@
     
   <url>
     <loc>http://www.yyliu.cn/post/750ec7f0.html</loc>
-    <lastmod>2018-01-19T09:52:36.873Z</lastmod>
+    <lastmod>2018-01-19T10:14:09.956Z</lastmod>
     <data>
         <display>
         <title>论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue</title>
@@ -65,7 +87,7 @@
     
   <url>
     <loc>http://www.yyliu.cn/post/e87b2ed2.html</loc>
-    <lastmod>2018-01-19T09:48:16.703Z</lastmod>
+    <lastmod>2018-01-19T10:14:09.956Z</lastmod>
     <data>
         <display>
         <title>论文笔记：Depth Map Prediction from a Single Image using a Multi-Scale Deep Network</title>
@@ -77,6 +99,26 @@
            
              
               <breadCrumb title="图像深度估计" url="http://www.yyliu.cn/categories/%E5%9B%BE%E5%83%8F%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/7cabb4ff.html</loc>
+    <lastmod>2018-01-19T10:14:09.956Z</lastmod>
+    <data>
+        <display>
+        <title>论文笔记：Densely Connected Convolutional Networks(DenseNet模型)</title>
+        <pubTime>2017-09-25T14:58:52.000Z</pubTime>
+        
+        <tag>Deep Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="网络模型" url="http://www.yyliu.cn/categories/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/"/>
           
         </display>
     </data>
@@ -150,12 +192,12 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/afe945f0.html</loc>
+    <loc>http://www.yyliu.cn/post/97874b28.html</loc>
     <lastmod>2017-12-07T15:41:29.103Z</lastmod>
     <data>
         <display>
-        <title>算法导论笔记(3):快速排序及其性能分析</title>
-        <pubTime>2017-09-28T02:52:59.000Z</pubTime>
+        <title>算法导论笔记(1)：排序问题之插入排序和归并排序</title>
+        <pubTime>2017-09-17T13:14:09.000Z</pubTime>
         
         <tag>算法</tag>
          
@@ -180,28 +222,6 @@
         <pubTime>2017-10-20T15:28:36.000Z</pubTime>
         
         <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/97874b28.html</loc>
-    <lastmod>2017-12-07T15:41:29.103Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(1)：排序问题之插入排序和归并排序</title>
-        <pubTime>2017-09-17T13:14:09.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
          
          
            
@@ -271,26 +291,6 @@
            
              
               <breadCrumb title="Liunx学习笔记" url="http://www.yyliu.cn/categories/Liunx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/99973ea9.html</loc>
-    <lastmod>2017-12-07T14:51:42.917Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(6):动态规划之最长公共子序列问题</title>
-        <pubTime>2017-11-14T12:08:19.000Z</pubTime>
-        
-        <tag>动态规划</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
