@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171211/e5ca4BClf7.png?imageslim">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/171211/6jD59BBJKi.png?imageslim">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180119/DfGIBBGd3i.png?imageslim">
-<meta property="og:updated_time" content="2018-01-19T10:14:09.956Z">
+<meta property="og:updated_time" content="2018-03-30T03:58:56.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Depth Map Prediction from a Single Image using a Multi-Scale Deep Network">
 <meta name="twitter:description" content="这篇文章由Eigen等于2014年发表在NIPS，可以说是基于深度学习的单目深度图像的baseline，此后大量关于该领域的研究都有引用到这篇文章。与前两篇博客所介绍文章不同，这篇文章介绍的是一种监督学习的方法。 摘要：预测深度是理解一个场景的3D结构的主要部分。对于立体图像对，可以从局部关系中估计深度，而从单个图像中寻找深度关系就不那么简单了，需要从各种线索中整合全局和局部信息。此外，这个任务">
@@ -113,7 +113,7 @@
     sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     tabs: true,
-    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -424,7 +424,7 @@
 <p>公式(2)通过对比输出像素点<span class="math inline">\(i,j\)</span>的关系来表示误差。公式(3)将独立标准和原始<span class="math inline">\(l_{2}\)</span>误差联系，附加一个<span class="math inline">\(-\dfrac {1}{n^{2}}\sum _{ij}did_{j}\)</span>。</p>
 <p>本文所使用损失函数为：</p>
 <p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171211/6jD59BBJKi.png?imageslim"></p>
-<p>其中<span class="math inline">\(d_{i}=\log y_{i}-\log y^{*}_{i}\)</span>，$<span class="math inline">\(，注意输出为\)</span>y<span class="math inline">\(，即最后一个线性层预测log深度。我们取\)</span>=0.5$</p>
+<p>其中<span class="math inline">\(d_{i}=\log y_{i}-\log y^{*}_{i}\)</span>，<span class="math inline">\(\lambda\)</span> 取值在0~1之间 ，注意输出为​<span class="math inline">\(\log y\)</span>，即最后一个线性层预测log深度。我们取 <span class="math inline">\(\lambda=0.5\)</span></p>
 <p>在训练过程中，大部分目标深度图都包含一些缺失值，特别是靠近物体边缘，窗户和反射表面。为解决这一点，作者简单的去除它们，仅仅评估有效的点。</p>
 <h2 id="评估指标">评估指标</h2>
 <p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180119/DfGIBBGd3i.png?imageslim"></p>

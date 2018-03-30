@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/68hdB7F3AC.png?imageslim">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180116/gFfCc8fg4G.png?imageslim">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim">
-<meta property="og:updated_time" content="2018-01-19T10:14:09.956Z">
+<meta property="og:updated_time" content="2018-03-30T04:01:50.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue">
 <meta name="twitter:description" content="本文要介绍的论文是由Garg等于2016年发表在ECCV的一篇关于单目深度估计的文章。 摘要：使用大量人工标定的数据进行训练是大多数现有卷积神经网络的重要的弊端。本文提出一种无监督的深层卷积神经网络框架用于预测单幅视图的深度，它不需要经过预训练或带标签的真实深度数据。我们通过一个类似自动编码器（autoencoder）的方式训练网络来实现这一点。在训练阶段，我们考虑使用已知相机运动信息的图像对，">
@@ -116,7 +116,7 @@
     sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     tabs: true,
-    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -401,14 +401,10 @@
 <p>（<a href="https://arxiv.org/abs/1603.04992" target="_blank" rel="external">论文地址</a>）</p>
 <h2 id="图像深度视差的关系">图像深度视差的关系</h2>
 <p>在非监督的单目图像深度估计中，主要利用双目图像间的视差和图像深度之间的线性关系，将训练过程看作一个图像重建的问题。因此，在介绍论文之前，本节首先介绍图像的深度和视差之间的关系。下面是深度和视差的关系推导，可以看出，视差和深度之间呈反比关系。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/2CggaH1AA3.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/2CggaH1AA3.png?imageslim"></p>
 <h2 id="网络结构">网络结构</h2>
 <p>根据上述深度与视差的关系，视差图可以看作是按比例缩小的深度的逆，这个比例即为<span class="math inline">\(fB\)</span>。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/47FC86B7iG.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/47FC86B7iG.png?imageslim"></p>
 <ul>
 <li>part 1. 编码器，是一个传统的卷积网络，将输入的左视图(<span class="math inline">\(I_1\)</span>)映射为深度图；</li>
 <li>part 2. 解码器，明确地将编码器的输出转换为视差图，通过扫描线（scan-line)上移动右视图（<span class="math inline">\(I_2\)</span>)的像素来获得反向变形（<strong>backward warp</strong>）图像（<span class="math inline">\(I_w\)</span>)；</li>
@@ -417,9 +413,7 @@
 <li>测试时，基于训练时给定的由<span class="math inline">\(fB\)</span>构成的场景尺度，预测单视图的视差。</li>
 </ul>
 <p>文中提到一个 backward (inverse) warp 的概念，这是一个细节，下面介绍一下关于 forward warp 和 backward warp 的概念，如下图所示：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/dL52lBkLHL.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180112/dL52lBkLHL.png?imageslim"></p>
 <p>假设经过CNN网络得到的图像深度<span class="math inline">\(D_l\)</span>=<span class="math inline">\(F(I_l)\)</span>，那么</p>
 <ul>
 <li>Forward warp 是利用<span class="math inline">\(D_l\)</span>将<span class="math inline">\(I_l\)</span>中的像素点映射到<span class="math inline">\(I_r\)</span>中，即表示为<span class="math inline">\(I^′_r=Mapping(I_l,D_l)\)</span>；</li>
@@ -429,32 +423,20 @@
 <p>对于文中的学习网络而言，如果用 forward warp，网络预测的是<span class="math inline">\(I_r\)</span>所对应的深度；而用 backward warp ，网络预测的是<span class="math inline">\(I_l\)</span>对应的深度。</p>
 <h2 id="cnn模块">CNN模块</h2>
 <p>本文的CNN采用了<a href="https://arxiv.org/abs/1411.4038" target="_blank" rel="external">全卷积网络（FCN）</a>以达到粗糙到精细的预测。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/4lie88gL4m.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/4lie88gL4m.png?imageslim"></p>
 <p>图中：C（红色）- 卷积、P（黄）- pooling、N（紫）- 归一化、F（绿）- FCN、D（蓝）- 上采样</p>
 <h2 id="损失函数">损失函数</h2>
 <p>损失函数是一个可微（便于反向传播）并且和预测误差具有高度相关性。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/KD5I0hgmjc.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/KD5I0hgmjc.png?imageslim"></p>
 <p>其中，<span class="math inline">\(E^{i}_{recons}\)</span>为图像重建损失函数，<span class="math inline">\(E^{i}_{smooth}\)</span>为对视差图的平滑损失函数。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/9DBejKE90g.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/68hdB7F3AC.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/9DBejKE90g.png?imageslim"></p>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180115/68hdB7F3AC.png?imageslim"></p>
 <p>上式中， <span class="math inline">\({I^i_1,I^i_2}\)</span> 表示第<span class="math inline">\(i\)</span>个图像对，其中<span class="math inline">\(i\)</span>为在 <span class="math inline">\([1,N]\)</span> 范围内的整数，<span class="math inline">\(f\)</span> 为相机的焦距，$B $为水平放置的两个相机间的距离， <span class="math inline">\(d^i(x)\)</span>为 <span class="math inline">\(I^i_1\)</span> 对应的深度图，$ D<sup>i(x)=fB/d</sup>i(x)$ 为 <span class="math inline">\(I^i_1\)</span>对应的视差，<span class="math inline">\(I^i_w=I^i_2(x+fB/d^i(x))\)</span> 为重建图像， <span class="math inline">\(\gamma\)</span>是对深度图施加平滑的权重 。</p>
 <p>coarse-to-fine 策略：为了计算后向传播的梯度损失函数，需要对重建图像进行<strong>线性化</strong>操作，文章中利用的是 <strong>Taylor 表达式</strong>：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180116/gFfCc8fg4G.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180116/gFfCc8fg4G.png?imageslim"></p>
 <p>其中，<span class="math inline">\(I_{2h}\)</span>表示经过n次迭代，视差为<span class="math inline">\(D^{n−1}\)</span>的重建图像的水平梯度；线性化只在<span class="math inline">\(D^n(x)−D^{n−1}(x)\)</span>限制在一个较小的范围内有效。</p>
 <h2 id="评估指标">评估指标</h2>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim"></p>
 
       
 	  

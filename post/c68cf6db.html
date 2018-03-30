@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/k5h1GDKf6k.png?imageslim">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/DmeHKHA2lF.png?imageslim">
 <meta property="og:image" content="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim">
-<meta property="og:updated_time" content="2018-01-19T10:14:09.956Z">
+<meta property="og:updated_time" content="2018-03-30T04:01:34.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Unsupervised Monocular Depth Estimation with Left-Right Consistency">
 <meta name="twitter:description" content="摘要：使用基于学习的方法在单目深度估计上已经有较好的结果了。然而大部分现有的方法将深度估计问题看作有监督的回归问题，因此需要大量相应的ground truth深度数据进行训练。在各种场景中记录有质量的深度数据是一个有挑战性的问题。本文，本文提出用较易获得的双目立体影像来取代深度数据进行训练。 本文提出了一种新的训练目标，使得尽管没有ground truth深度数据，我们也能够利用卷积神经网络学习">
@@ -120,7 +120,7 @@
     sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     tabs: true,
-    motion: {"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -411,78 +411,52 @@
 <li>除了在一个具有挑战性的行车数据集上展示优越的（state of the art）结果，还展示了模型推广到三个不同的数据集，其中包括一个作者自己收集的室外城市数据集，并将数据集公开了。</li>
 </ol>
 <h2 id="网络结构">网络结构</h2>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171206/bfgH3Bh7aB.png" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171206/bfgH3Bh7aB.png"></p>
 <p>如图所示，Naive采样的CNN产生的视差图对应于输出图像而非输入图像；No LR即为上篇<a href="http://yyliu.cn/post/750ec7f0.html" target="_blank" rel="external">博客</a>所介绍的，它对Naive方法进行了改进；本文结合了两种方法，利用左视图来为左右两张视图产生视差图，并通过增强左右视图的一致性来提高输出的质量。</p>
 <p>具体来说，该网络在训练过程中使用两张图像：<span class="math inline">\(I^{l}\)</span>和<span class="math inline">\(I^{r}\)</span>，对应从同一时间捕获的校正后的立体图像对的左右视图。找到稠密的对应域<span class="math inline">\(d^{r}\)</span>（即右图视差），应用到左图像，可以重建出右视图。将重建后的图像<span class="math inline">\(I^{l}(d^{r})\)</span>记作<span class="math inline">\(\widetilde{I}^{r}\)</span>。类似的，给出右图像同样可以估计左视图，<span class="math inline">\(\widetilde{I}^{l}=I^{r}(d^{l})\)</span>。给定相机间的基线（baseline）<span class="math inline">\(b\)</span>和相机的焦距<span class="math inline">\(f\)</span>，可以通过公式<span class="math inline">\(\widehat {d}=bf/d\)</span>简单的估计出深度<span class="math inline">\(\widehat {d}\)</span>。</p>
 <h2 id="cnn模块">CNN模块</h2>
 <p>本文的CNN模块也采用了全卷积网络（FCN），它由两部分组成——encoder（cnv1-cnv7b）和decoder（upcnv7~）。解码器采用从encoder中的激活块进行skip 连接，使它能够解决更高的分辨率细节。输出四个不同尺度（disp4~disp1）的视差图，它们前者是后者的两倍。尽管只有单张输入图片，该网络能够输出不同尺度上的两个视差图——left-to-right 和 right-to-left。具体如下表所示：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/AC5Ec05IaH.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/AC5Ec05IaH.png?imageslim"></p>
 <p>图中，<strong>k</strong> 是卷积和的大小，<strong>s</strong> 为步长，<strong>chns</strong> 为每一层输入/输出的通道数，<strong>in</strong> 和 <strong>out</strong> 是输出相对于输入图像的缩小因子，<strong>input</strong>对应于每一层的输入，其中 + 表示连接，* 表示一个2×表示对该层上采样。表中红框内即为输出的四个尺度的视差图。</p>
 <h3 id="损失函数">损失函数</h3>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/4lJfkGDGG5.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/4lJfkGDGG5.png?imageslim"></p>
 <p>图中，C：卷积，UC：反卷积，S：双线性采样，US：上采样，SC：跳跃连接</p>
 <p>定义每个尺度s上的损失函数：<span class="math inline">\(C_{s}\)</span>，组成总的损失函数：<span class="math inline">\(C=\Sigma ^{4}_{s=1}C_{s}\)</span></p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171206/93Gh5cbelc.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171206/93Gh5cbelc.png?imageslim"></p>
 <p><span class="math inline">\(C_{ap}\)</span>鼓励生成的重建图像和对应的输入图像近似，<span class="math inline">\(C_{ds}\)</span>增强视差图的平滑性，<span class="math inline">\(C_{lr}\)</span>倾向于使左右视差图一致。每组损失函数都包含左右图像的值，但只有左图像会送入卷积网络中训练。我们用左图（如<span class="math inline">\(C^{l}_{ap}\)</span>）表示每组损失函数，右图像（如图<span class="math inline">\(C^{r}_{ap}\)</span>）需要交换左右并向相反方向取样。</p>
 <ul>
 <li><p>外观匹配损失（Appearance Matching Loss）</p>
 <p>在训练过程中，网络学习通过对相反的图片采样来生成图片。我们的成像模型，采用来自空间变形网络（spatial transformer network，STN），通过视差图对输入图像取样。STN采用双线性采样，它的输出像素是四个输入像素的权重相加 。与其他方法相比，<strong>双线性采样局部完全可微</strong>，无缝集成到我们的全卷积网络架构。意味着不需要单纯化或近似我们的损失函数。</p>
 <p>作者采用L1和单尺度SSIM组合作为光学图像重建损失CapCap，输入图像IlijIijl，输出图像I˜lijI~ijl，N为像素个数：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171207/dga08E8k95.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171207/dga08E8k95.png?imageslim"></p>
 <p>本文采用简化的SSIM，滤波器为3X3的块，而非Gaussian，令α=0.85α=0.85。</p></li>
 <li><p>视差平滑损失（Disparity Smoothness Loss）：</p>
 <p>在视差梯度<span class="math inline">\(\partial d\)</span>用L1范数鼓励视差局部平滑。深度不连续时有发生在图像梯度，利用边缘感知（edge-aware），使用图像梯度<span class="math inline">\(\partial I\)</span>，来计算成本：这个损失函数用来保证所得到的深度图的光滑性与图像梯度一致：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171207/0hh3JA6gh8.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure></li>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171207/0hh3JA6gh8.png?imageslim"></p></li>
 <li><p>左右视差一致性损失（Left-Right Disparity Consistency Loss）：</p>
 <p>为产生更精细的视差图，我们的网络预测了左右两个图像视差，但是在网络的卷积部分只给出左视图作为输入。为增强一致性，我们提出了一种L1左右视差一致性惩罚作为模型的一部分。这一代价函数试图使左视图视差图与投影的右视图视差图相等。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171207/lh13EL4gee.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/171207/lh13EL4gee.png?imageslim"></p>
 <p>这个代价函数反映了右视图的视差图，并且对所有输出尺度进行评估。</p></li>
 </ul>
 <h3 id="双线性插值">双线性插值</h3>
 <p>不同于前篇博客介绍的利用Taylor公式对图像进行线性化操作，本文利用双线性插值对图像进行线性化。相比于前者，这种方式是完全可微的，并且求导更快，准确度更高。下面简单介绍以下双线性插值。</p>
 <ul>
 <li><p>线性插值：如图所示，假设A点的值为5，C点的值为3，AC间插值，则B点的值为4。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/69E8bmKkFd.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure></li>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/69E8bmKkFd.png?imageslim"></p></li>
 <li><p>双线性插值：即在两个方向上分别进行一次线性插值，如图所示，已知<span class="math inline">\(Q_{11}，Q_{12}，Q_{21}，Q_{22}\)</span>，要插值的点为<span class="math inline">\(P\)</span>，则采用双线性插值。</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/ma2D8CIgjA.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/ma2D8CIgjA.png?imageslim"></p>
 <p>设函数<span class="math inline">\(f（Q）\)</span>为函数<span class="math inline">\(f\)</span>在点<span class="math inline">\(Q\)</span>的值。</p>
 <ol type="1">
 <li><p>首先在x轴上进行插值，得：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/EI84D37bfI.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure></li>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/EI84D37bfI.png?imageslim"></p></li>
 <li><p>在y轴方向进行插值，得：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/k5h1GDKf6k.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure></li>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/k5h1GDKf6k.png?imageslim"></p></li>
 <li><p>由以上得，最终所要的结果为：</p>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/DmeHKHA2lF.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure></li>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180118/DmeHKHA2lF.png?imageslim"></p></li>
 </ol></li>
 </ul>
 <h3 id="评估指标">评估指标</h3>
-<figure>
-<img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim" alt="img"><figcaption>img</figcaption>
-</figure>
+<p><img src="http://ow8yxg5xz.bkt.clouddn.com/blog/180117/le968lfHE9.png?imageslim"></p>
 
       
 	  
