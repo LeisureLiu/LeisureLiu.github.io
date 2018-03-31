@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -66,7 +68,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="TensorFlow,数据读取,Python," />
+  <meta name="keywords" content="TensorFlow,Python,数据读取," />
 
 
 
@@ -83,7 +85,7 @@
 
 
 <meta name="description" content="相比于之前的版本，TensorFlow 1.4的版本在数据读取的方式上作了很大改变——增加了一个Dataset的API，与使用feed_dict或基于队列的管道相比，这个API的性能要高得多，而且它更干净、更容易使用。我曾在之前的博客上总结了TensorFlow读取数据的几种方式，而本文我们将看到Dataset给我们带来的读取数据的新方法。">
-<meta name="keywords" content="TensorFlow,数据读取,Python">
+<meta name="keywords" content="TensorFlow,Python,数据读取">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow 1.4：数据读取的新方式">
 <meta property="og:url" content="http://www.yyliu.cn/post/b45057eb.html">
@@ -106,7 +108,7 @@
     sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -560,9 +562,9 @@
           
             <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
           
-            <a href="/tags/数据读取/" rel="tag"># 数据读取</a>
-          
             <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/数据读取/" rel="tag"># 数据读取</a>
           
         </div>
       

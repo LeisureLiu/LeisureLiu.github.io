@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://www.yyliu.cn/post/89458415.html</loc>
+    <lastmod>2018-03-30T16:25:31.283Z</lastmod>
+    <data>
+        <display>
+        <title>TensorFlow数据读取方式（3种方法）</title>
+        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
+        
+        <tag>TensorFlow</tag>
+         
+        <tag>数据读取</tag>
+         
+         
+           
+             
+              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.yyliu.cn/post/e87b2ed2.html</loc>
+    <lastmod>2018-03-30T16:25:31.283Z</lastmod>
+    <data>
+        <display>
+        <title>论文笔记：Depth Map Prediction from a Single Image using a Multi-Scale Deep Network</title>
+        <pubTime>2018-01-19T09:09:52.000Z</pubTime>
+        
+        <tag>Deep Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="图像深度估计" url="http://www.yyliu.cn/categories/%E5%9B%BE%E5%83%8F%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.yyliu.cn/post/750ec7f0.html</loc>
-    <lastmod>2018-03-30T04:01:50.371Z</lastmod>
+    <lastmod>2018-03-30T16:25:31.283Z</lastmod>
     <data>
         <display>
         <title>论文笔记：Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue</title>
@@ -24,19 +66,21 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/c68cf6db.html</loc>
-    <lastmod>2018-03-30T04:01:34.699Z</lastmod>
+    <loc>http://www.yyliu.cn/post/6e3cf3f5.html</loc>
+    <lastmod>2018-03-30T16:25:31.103Z</lastmod>
     <data>
         <display>
-        <title>论文笔记：Unsupervised Monocular Depth Estimation with Left-Right Consistency</title>
-        <pubTime>2018-01-18T02:09:52.000Z</pubTime>
+        <title>Java多线程(2)：线程同步和线程间通信</title>
+        <pubTime>2017-12-04T09:26:00.000Z</pubTime>
         
-        <tag>Deep Learning</tag>
+        <tag>Java</tag>
+         
+        <tag>多线程</tag>
          
          
            
              
-              <breadCrumb title="图像深度估计" url="http://www.yyliu.cn/categories/%E5%9B%BE%E5%83%8F%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1/"/>
+              <breadCrumb title="Java学习笔记" url="http://www.yyliu.cn/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -44,12 +88,12 @@
 
     
   <url>
-    <loc>http://www.yyliu.cn/post/e87b2ed2.html</loc>
-    <lastmod>2018-03-30T03:58:56.446Z</lastmod>
+    <loc>http://www.yyliu.cn/post/c68cf6db.html</loc>
+    <lastmod>2018-03-30T04:01:34.699Z</lastmod>
     <data>
         <display>
-        <title>论文笔记：Depth Map Prediction from a Single Image using a Multi-Scale Deep Network</title>
-        <pubTime>2018-01-19T09:09:52.000Z</pubTime>
+        <title>论文笔记：Unsupervised Monocular Depth Estimation with Left-Right Consistency</title>
+        <pubTime>2018-01-18T02:09:52.000Z</pubTime>
         
         <tag>Deep Learning</tag>
          
@@ -177,34 +221,14 @@
         <title>Tkinter事件绑定</title>
         <pubTime>2017-11-22T13:39:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
              
               <breadCrumb title="Python的GUI库Tkinter" url="http://www.yyliu.cn/categories/Python%E7%9A%84GUI%E5%BA%93Tkinter/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/98f32ea9.html</loc>
-    <lastmod>2017-12-07T15:41:29.103Z</lastmod>
-    <data>
-        <display>
-        <title>算法导论笔记(5):选择（SELECT）算法</title>
-        <pubTime>2017-10-20T15:28:36.000Z</pubTime>
-        
-        <tag>算法</tag>
-         
-         
-           
-             
-              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -234,6 +258,26 @@
 
     
   <url>
+    <loc>http://www.yyliu.cn/post/98f32ea9.html</loc>
+    <lastmod>2017-12-07T15:41:29.103Z</lastmod>
+    <data>
+        <display>
+        <title>算法导论笔记(5):选择（SELECT）算法</title>
+        <pubTime>2017-10-20T15:28:36.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法导论学习笔记" url="http://www.yyliu.cn/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.yyliu.cn/post/b45057eb.html</loc>
     <lastmod>2017-12-07T15:41:28.945Z</lastmod>
     <data>
@@ -243,9 +287,9 @@
         
         <tag>TensorFlow</tag>
          
-        <tag>数据读取</tag>
-         
         <tag>Python</tag>
+         
+        <tag>数据读取</tag>
          
          
            
@@ -345,9 +389,9 @@
         <title>Tkinter使组件大小随父组件自动调整</title>
         <pubTime>2017-11-18T13:09:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
@@ -367,9 +411,9 @@
         <title>Tkinter中使canvas组件随窗口大小变化</title>
         <pubTime>2017-11-22T02:15:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
@@ -389,58 +433,14 @@
         <title>Tkinter中grid布局使网格按比例分割</title>
         <pubTime>2017-11-18T14:52:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
              
               <breadCrumb title="Python的GUI库Tkinter" url="http://www.yyliu.cn/categories/Python%E7%9A%84GUI%E5%BA%93Tkinter/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/6e3cf3f5.html</loc>
-    <lastmod>2017-12-07T14:49:02.854Z</lastmod>
-    <data>
-        <display>
-        <title>Java多线程(2)：线程同步和线程间通信</title>
-        <pubTime>2017-12-04T09:26:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>多线程</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java学习笔记" url="http://www.yyliu.cn/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.yyliu.cn/post/89458415.html</loc>
-    <lastmod>2017-12-06T14:56:19.555Z</lastmod>
-    <data>
-        <display>
-        <title>TensorFlow数据读取方式（3种方法）</title>
-        <pubTime>2017-10-11T04:20:37.000Z</pubTime>
-        
-        <tag>TensorFlow</tag>
-         
-        <tag>数据读取</tag>
-         
-         
-           
-             
-              <breadCrumb title="TensorFlow学习笔记" url="http://www.yyliu.cn/categories/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -495,9 +495,9 @@
         <title>Tkinter的布局管理pack、grid和place</title>
         <pubTime>2017-11-22T01:46:00.000Z</pubTime>
         
-        <tag>Tkinter</tag>
-         
         <tag>Python</tag>
+         
+        <tag>Tkinter</tag>
          
          
            
